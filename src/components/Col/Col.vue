@@ -23,22 +23,59 @@
 export default {
   name: 'AgoCol',
   props: {
+    /**
+     * Tag of the dom object
+     */
     tag: {
       type: [String, Number],
       default: 'div',
     },
+    /**
+     * Amount of columns from xs
+     */
     xs: [String, Number],
+    /**
+     * Amount of columns from sm
+     */
     sm: [String, Number],
+    /**
+     * Amount of columns from md
+     */
     md: [String, Number],
+    /**
+     * Amount of columns from lg
+     */
     lg: [String, Number],
+    /**
+     * Amount of columns from xl
+     */
     xl: [String, Number],
+    /**
+     * Amount of offset from xs
+     */
     offsetXs: [String, Number],
+    /**
+     * Amount of offset from sm
+     */
     offsetSm: [String, Number],
+    /**
+     * Amount of offset from md
+     */
     offsetMd: [String, Number],
+    /**
+     * Amount of offset from lg
+     */
     offsetLg: [String, Number],
-    offsetXl: [String, Number],
-    justify: String,
-    align: String,
+    /**
+     * Amount of offset from xl
+     */
+    offsetXl: [String, Number]
   }
 }
 </script>
+
+<docs>
+```js
+<ago-col>I’m a col</ago-col>
+```
+</docs>
