@@ -1,0 +1,50 @@
+{
+  "name": "agorize-uikit",
+  "version": "1.0.0",
+  "description": "",
+  "main": "rollup.config.js",
+  "scripts": {
+    "build": "rollup -c",
+    "test": "jest --colors",
+    "styleguide": "vue-styleguidist server",
+    "styleguide:build": "vue-styleguidist build",
+    "create:component": "plop basics"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@vue/test-utils": "^1.0.0-beta.25",
+    "fs-extra": "^7.0.0",
+    "inquirer": "^6.2.0",
+    "jest": "^23.6.0",
+    "lodash": "^4.17.11",
+    "node-sass": "^4.9.4",
+    "plop": "^2.1.0",
+    "rollup": "^0.66.6",
+    "rollup-plugin-buble": "^0.19.4",
+    "rollup-plugin-node-resolve": "^3.4.0",
+    "rollup-plugin-uglify": "^6.0.0",
+    "rollup-plugin-vue": "^4.3.2",
+    "vue": "^2.5.17",
+    "vue-jest": "^3.0.0",
+    "vue-styleguidist": "^1.8.9",
+    "vue-template-compiler": "^2.5.17",
+    "webpack": "^4.20.2"
+  },
+  "jest": {
+    "moduleFileExtensions": [
+      "js",
+      "json",
+      "vue"
+    ],
+    "transform": {
+      ".*\\.(vue)$": "vue-jest",
+      "^.+\\.js$": "<rootDir>/node_modules/babel-jest"
+    },
+    "collectCoverage": true,
+    "collectCoverageFrom": [
+      "src/**/*.{js,jsx}"
+    ]
+  }
+}
