@@ -1,0 +1,8 @@
+// Colors related
+@function fade($color, $lightenValue, $desaturateValue){
+  @return desaturate(lighten($color, $lightenValue), $desaturateValue);
+}
+
+@function accent($color, $lightenValue, $desaturateValue){
+  @return saturate(darken($color, $lightenValue), $desaturateValue);
+}

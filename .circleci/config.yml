@@ -1,0 +1,64 @@
+version: 2
+
+defaults: &defaults
+  working_directory: ~/repo
+  docker:
+    - image: circleci/node:10.2.1
+
+jobs:
+  test:
+    <<: *defaults
+    steps:
+      - checkout
+
+      - restore_cache:
+          keys:
+          - v1-dependencies-
+
+      - run: yarn
+      - run:
+          name: Run tests unit
+          command: yarn test
+
+      - save_cache:
+          paths:
+            - node_modules
+          key: v1-dependencies-
+
+  build:
+    <<: *defaults
+    steps:
+      - checkout
+
+      - run: yarn
+
+      - run:
+          name: Build package
+          command: yarn build
+
+      - persist_to_workspace:
+          root: ~/repo
+          paths: .
+
+  release:
+    <<: *defaults
+    steps:
+      - attach_workspace:
+          at: ~/repo
+      - run:
+          name: release
+          command: yarn run semantic-release || true
+
+workflows:
+  version: 2
+  test-deploy:
+    jobs:
+      - test
+      - build
+      - release:
+          requires:
+            - test
+            - build
+          filters:
+            branches:
+              only: /^master$/
