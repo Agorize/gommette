@@ -2,7 +2,7 @@
   <component
     :is="props.tag"
     :class="{
-      'col': !props.xs && !props.sm && !props.md && !props.lg,
+      'col': !props.xs && !props.sm && !props.md && !props.lg && !props.xl,
       [`col-xs-${props.xs}`]: props.xs,
       [`col-sm-${props.sm}`]: props.sm,
       [`col-md-${props.md}`]: props.md,
@@ -21,7 +21,7 @@
 
 <script>
 export default {
-  name: 'AgoRow',
+  name: 'AgoCol',
   props: {
     tag: {
       type: [String, Number],
@@ -31,10 +31,12 @@ export default {
     sm: [String, Number],
     md: [String, Number],
     lg: [String, Number],
+    xl: [String, Number],
     offsetXs: [String, Number],
     offsetSm: [String, Number],
     offsetMd: [String, Number],
     offsetLg: [String, Number],
+    offsetXl: [String, Number],
     justify: String,
     align: String,
   }

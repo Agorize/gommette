@@ -5,7 +5,7 @@
   "main": "rollup.config.js",
   "scripts": {
     "build": "rollup -c",
-    "test": "jest --colors",
+    "test": "jest",
     "styleguide": "vue-styleguidist server",
     "styleguide:build": "vue-styleguidist build",
     "create:component": "plop basics"
