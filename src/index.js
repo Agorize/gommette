@@ -1,11 +1,9 @@
-import Row from './components/row'
-import Col from './components/col'
-import Button from './components/button'
+import Row from './components/Row'
+import Col from './components/Col'
 
 const components = [
   Row,
-  Col,
-  Button
+  Col
 ]
 
 export default {
