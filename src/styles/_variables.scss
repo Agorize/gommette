@@ -1,0 +1,70 @@
+@import './utils';
+
+// COLORS
+// ----------------------------------------
+
+// Primary
+$colors-brand: #4DA3F8;
+$colors-brand-dark: #0F2031;
+$colors-info: #2467AB;
+$colors-error: #F04A4A;
+$colors-alert: #F5A24E;
+$colors-success: #F5A24E;
+$colors-grey-dark: #949697;
+$colors-grey-light: #DEE2E4;
+$colors-grey-superlight: #F5F5F5;
+
+// Fade-1
+$colors-brand-fade-1: fade($colors-brand, 6, 8);
+$colors-brand-dark-fade-1: fade($colors-brand-dark, 6, 8);
+$colors-info-fade-1: fade($colors-info, 6, 8);
+$colors-error-fade-1: fade($colors-error, 6, 8);
+$colors-alert-fade-1: fade($colors-alert, 6, 8);
+$colors-success-fade-1: fade($colors-success, 6, 8);
+$colors-grey-dark-fade-1: fade($colors-grey-dark, 6, 8);
+$colors-grey-light-fade-1: fade($colors-grey-light, 6, 8);
+$colors-grey-superlight-fade-1: fade($colors-grey-superlight, 6, 8);
+
+// Fade-2
+$colors-brand-fade-2: fade($colors-brand, 11, 8);
+$colors-brand-dark-fade-2: fade($colors-brand-dark, 11, 8);
+$colors-info-fade-2: fade($colors-info, 11, 8);
+$colors-error-fade-2: fade($colors-error, 11, 8);
+$colors-alert-fade-2: fade($colors-alert, 11, 8);
+$colors-success-fade-2: fade($colors-success, 11, 8);
+$colors-grey-dark-fade-2: fade($colors-grey-dark, 11, 8);
+$colors-grey-light-fade-2: fade($colors-grey-light, 11, 8);
+$colors-grey-superlight-fade-2: fade($colors-grey-superlight, 11, 8);
+
+// Fade-3
+$colors-brand-fade-3: fade($colors-brand, 17, 8);
+$colors-brand-dark-fade-3: fade($colors-brand-dark, 17, 8);
+$colors-info-fade-3: fade($colors-info, 17, 8);
+$colors-error-fade-3: fade($colors-error, 17, 8);
+$colors-alert-fade-3: fade($colors-alert, 17, 8);
+$colors-success-fade-3: fade($colors-success, 17, 8);
+$colors-grey-dark-fade-3: fade($colors-grey-dark, 17, 8);
+$colors-grey-light-fade-3: fade($colors-grey-light, 17, 8);
+$colors-grey-superlight-fade-3: fade($colors-grey-superlight, 17, 8);
+
+// Accent-1
+$colors-brand-accent-1: accent($colors-brand, 6, 8);
+$colors-brand-dark-accent-1: accent($colors-brand-dark, 6, 8);
+$colors-info-accent-1: accent($colors-info, 6, 8);
+$colors-error-accent-1: accent($colors-error, 6, 8);
+$colors-alert-accent-1: accent($colors-alert, 6, 8);
+$colors-success-accent-1: accent($colors-success, 6, 8);
+$colors-grey-dark-accent-1: accent($colors-grey-dark, 6, 8);
+$colors-grey-light-accent-1: accent($colors-grey-light, 6, 8);
+$colors-grey-superlight-accent-1: accent($colors-grey-superlight, 6, 8);
+
+// Accent-2
+$colors-brand-accent-2: accent($colors-brand, 11, 8);
+$colors-brand-dark-accent-2: accent($colors-brand-dark, 11, 8);
+$colors-info-accent-2: accent($colors-info, 11, 8);
+$colors-error-accent-2: accent($colors-error, 11, 8);
+$colors-alert-accent-2: accent($colors-alert, 11, 8);
+$colors-success-accent-2: accent($colors-success, 11, 8);
+$colors-grey-dark-accent-2: accent($colors-grey-dark, 11, 8);
+$colors-grey-light-accent-2: accent($colors-grey-light, 11, 8);
+$colors-grey-superlight-accent-2: accent($colors-grey-superlight, 11, 8);
