@@ -2,7 +2,7 @@
   "name": "@agorize/agorize-uikit",
   "version": "0.0.0-alpha",
   "description": "",
-  "main": "rollup.config.js",
+  "main": "dist/index.min.js",
   "scripts": {
     "build": "rollup -c",
     "test": "jest",
