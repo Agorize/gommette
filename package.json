@@ -1,5 +1,5 @@
 {
-  "name": "agorize-uikit",
+  "name": "@agorize/agorize-uikit",
   "version": "0.0.0-alpha",
   "description": "",
   "main": "rollup.config.js",
