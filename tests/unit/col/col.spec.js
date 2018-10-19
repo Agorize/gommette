@@ -12,6 +12,10 @@ describe('Row', () => {
     expect(localVue.options.components['AgoCol']).toBeTruthy()
   })
 
+  it('test circleci', () => {
+    expect(1 + 1).toBe(3)
+  })
+
   // Render testing
   renderCases.forEach(renderCase => {
     const [fromComp, toHtml] = renderCase
