@@ -45,7 +45,9 @@ jobs:
     steps:
       - attach_workspace:
           at: ~/repo
-
+      - run:
+          name: Keyscan Github
+          command: ssh-keyscan -H github.com >> ~/.ssh/known_hosts
       # - run: npm run build-script
       - run: npx semantic-release -y
 
