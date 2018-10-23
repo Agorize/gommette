@@ -45,15 +45,8 @@ jobs:
     steps:
       - attach_workspace:
           at: ~/repo
-      - run: mkdir ~/.ssh
-      - run: touch ~/.ssh/known_hosts
-      - run:
-          name: Keyscan Github
-          environment:
-            SSH_PUBLIC_KEY: ssh-keyscan -H github.com
-          command: echo $SSH_PUBLIC_KEY >> ~/.ssh/known_hosts
       # - run: npm run build-script
-      - run: npx semantic-release -y
+      - run: yarn run semantic-release || true
 
 workflows:
   version: 2
