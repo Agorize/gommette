@@ -45,7 +45,14 @@ jobs:
     steps:
       - attach_workspace:
           at: ~/repo
-      # - run: npm run build-script
+      - run: echo $CIRCLE_SHA1 > .circle-sha
+      - restore_cache:
+          key: v1-repo-{{ checksum ".circle-sha" }}
+      - restore_cache:
+          keys:
+            - v1-dependencies-{{ checksum "yarn.lock" }}
+            - v1-dependencies-
+      # Publish to NPM with `semantic-release`.
       - run: yarn run semantic-release || true
 
 workflows:
