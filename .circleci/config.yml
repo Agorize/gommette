@@ -42,12 +42,14 @@ jobs:
 
   release:
     <<: *defaults
+    machine:
+        enabled: true
     steps:
       - attach_workspace:
           at: ~/repo
 
       # - run: npm run build-script
-      - run: yes | npx semantic-release
+      - run: npx semantic-release -y
 
 workflows:
   version: 2
