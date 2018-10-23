@@ -45,6 +45,8 @@ jobs:
     steps:
       - attach_workspace:
           at: ~/repo
+      - run: mkdir ~/.ssh
+      - run: touch ~/.ssh/known_hosts
       - run:
           name: Keyscan Github
           environment:
