@@ -47,7 +47,7 @@ jobs:
           at: ~/repo
 
       # - run: npm run build-script
-      - run: npx semantic-release
+      - run: yes | npx semantic-release
 
 workflows:
   version: 2
