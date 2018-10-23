@@ -40,19 +40,14 @@ jobs:
           root: ~/repo
           paths: .
 
-  deploy:
-    <<: *defaults
-    steps:
-      - attach_workspace:
-          at: ~/repo
+    release:
+      <<: *defaults
+      steps:
+        - attach_workspace:
+            at: ~/repo
 
-      - run:
-          name: Authenticate with registry on npm
-          command: echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > ~/repo/.npmrc
-
-      - run:
-          name: Publish package
-          command: npm publish
+        # - run: npm run build-script
+        - run: npx semantic-release
 
 workflows:
   version: 2
