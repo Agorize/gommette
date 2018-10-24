@@ -9,7 +9,8 @@
     "styleguide": "vue-styleguidist server",
     "styleguide:build": "vue-styleguidist build",
     "create:component": "plop basics",
-    "release": "git-cz"
+    "release": "git-cz",
+    "semantic-release": "semantic-release"
   },
   "keywords": [],
   "author": "",
@@ -73,5 +74,9 @@
     "commitizen": {
       "path": "./node_modules/cz-conventional-changelog"
     }
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/renanbronchart/agorize-uikit.git"
   }
 }
