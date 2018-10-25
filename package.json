@@ -9,7 +9,7 @@
     "styleguide": "vue-styleguidist server",
     "styleguide:build": "vue-styleguidist build",
     "create:component": "plop basics",
-    "release": "git-cz",
+    "commit": "git-cz",
     "semantic-release": "semantic-release"
   },
   "keywords": [],
