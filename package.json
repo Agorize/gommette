@@ -10,7 +10,8 @@
     "styleguide:build": "vue-styleguidist build",
     "create:component": "plop basics",
     "commit": "git-cz",
-    "semantic-release": "semantic-release"
+    "semantic-release": "semantic-release",
+    "notify": "node .circleci/slack.js"
   },
   "keywords": [],
   "author": "",
@@ -22,6 +23,7 @@
     "@semantic-release/release-notes-generator": "^7.1.1",
     "@vue/test-utils": "^1.0.0-beta.25",
     "autoprefixer": "^9.2.1",
+    "axios": "^0.18.0",
     "commitizen": "^3.0.4",
     "cz-conventional-changelog": "2.1.0",
     "fs-extra": "^7.0.0",

@@ -20,6 +20,10 @@ jobs:
           name: Run tests unit
           command: yarn test
 
+      - run:
+          name: Slack notify
+          command: yarn notify
+
       - save_cache:
           paths:
             - node_modules
@@ -36,6 +40,10 @@ jobs:
           name: Build package
           command: yarn build
 
+      - run:
+          name: Slack notify
+          command: yarn notify
+
       - persist_to_workspace:
           root: ~/repo
           paths: .
@@ -45,9 +53,14 @@ jobs:
     steps:
       - attach_workspace:
           at: ~/repo
+
       - run:
           name: release
           command: yarn run semantic-release || true
+
+      - run:
+          name: Slack notify
+          command: yarn notify
 
 workflows:
   version: 2
