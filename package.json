@@ -9,7 +9,7 @@
     "styleguide": "vue-styleguidist server",
     "styleguide:build": "vue-styleguidist build",
     "create:component": "plop basics",
-    "release": "git-cz",
+    "commit": "git-cz",
     "semantic-release": "semantic-release"
   },
   "keywords": [],
@@ -64,7 +64,19 @@
   },
   "release": {
     "plugins": [
-      "@semantic-release/commit-analyzer",
+      ["@semantic-release/commit-analyzer", {
+        "preset": "angular",
+        "releaseRules": [
+          {"type": "docs", "release": "patch"},
+          {"type": "refactor", "release": "patch"},
+          {"type": "refactor", "scope": "core", "release": "minor"},
+          {"type": "test", "release": "patch"},
+          {"type": "style", "release": "patch"},
+          {"type": "build", "release": "major"},
+          {"type": "ci", "release": "minor"},
+          {"type": "chore", "release": "minor"}
+        ]
+      }],
       "@semantic-release/release-notes-generator",
       "@semantic-release/npm",
       "@semantic-release/github"
