@@ -22,7 +22,7 @@ jobs:
 
       - run:
           name: Slack notify
-          command: yarn notify
+          command: yarn notify $(git log --format=oneline -n 1 | sed -E 's/^[^ ]+ (.*)$/\1/g')
 
       - save_cache:
           paths:
@@ -42,7 +42,7 @@ jobs:
 
       - run:
           name: Slack notify
-          command: yarn notify
+          command: yarn notify $(git log --format=oneline -n 1 | sed -E 's/^[^ ]+ (.*)$/\1/g')
 
       - persist_to_workspace:
           root: ~/repo
@@ -60,7 +60,7 @@ jobs:
 
       - run:
           name: Slack notify
-          command: yarn notify
+          command: yarn notify $(git log --format=oneline -n 1 | sed -E 's/^[^ ]+ (.*)$/\1/g')
 
 workflows:
   version: 2
