@@ -5,7 +5,7 @@ axios.post(process.env.SLACK_WEBHOOK, {
   icon_url: 'https://cdn.icon-icons.com/icons2/1371/PNG/512/robot02_90810.png',
   attachments: [
     {
-      color: '#2eb886',
+      color: process.argv[3] === 'error' ? '#F44336' : '#2eb886',
       title: `${process.env.CIRCLE_JOB} #${process.env.CIRCLE_BUILD_NUM}`,
       title_link: process.env.CIRCLE_BUILD_URL,
       text: `${process.argv[2]}`,

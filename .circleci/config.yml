@@ -21,7 +21,12 @@ jobs:
           command: yarn test
       - run:
           name: Notify on Slack
+          when: on_success
           command: yarn notify $(git log --format=oneline -n 1)
+      - run:
+          name: Notify on Slack
+          when: on_fail
+          command: yarn notify $(git log --format=oneline -n 1) error
 
       - save_cache:
           paths:
@@ -34,14 +39,17 @@ jobs:
       - checkout
 
       - run: yarn
-
       - run:
           name: Build package
           command: yarn build
-
       - run:
           name: Notify on Slack
-          command: yarn notify $(git log --format=oneline -n 1 $CIRCLE_SHA1)
+          when: on_success
+          command: yarn notify $(git log --format=oneline -n 1)
+      - run:
+          name: Notify on Slack
+          when: on_fail
+          command: yarn notify $(git log --format=oneline -n 1) error
 
       - persist_to_workspace:
           root: ~/repo
@@ -55,10 +63,14 @@ jobs:
       - run:
           name: release
           command: yarn run semantic-release || true
-
       - run:
           name: Notify on Slack
-          command: yarn notify $(git log --format=oneline -n 1 $CIRCLE_SHA1)
+          when: on_success
+          command: yarn notify $(git log --format=oneline -n 1)
+      - run:
+          name: Notify on Slack
+          when: on_fail
+          command: yarn notify $(git log --format=oneline -n 1) error
 
 workflows:
   version: 2
