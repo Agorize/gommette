@@ -21,7 +21,7 @@ jobs:
           command: yarn test
       - run:
           name: Notify on Slack
-          command: yarn notify $(git log --format=oneline -n 1 $CIRCLE_SHA1)
+          command: yarn notify $(git log --format=oneline -n 1)
 
       - save_cache:
           paths:
