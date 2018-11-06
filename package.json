@@ -10,9 +10,9 @@
           {"type": "refactor", "scope": "core", "release": "minor"},
           {"type": "test", "release": "patch"},
           {"type": "style", "release": "patch"},
-          {"type": "build", "release": "major"},
-          {"type": "ci", "release": "minor"},
-          {"type": "chore", "release": "minor"}
+          {"type": "build", "release": "patch"},
+          {"type": "ci", "release": "patch"},
+          {"type": "chore", "release": "patch"}
         ]
       }],
       "@semantic-release/release-notes-generator",
