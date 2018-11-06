@@ -19,6 +19,12 @@ module.exports = {
     }
   ],
   webpackConfig: {
+    resolve: {
+      extensions: ['.js', '.vue', '.json'],
+      alias: {
+        '@': path.resolve('src')
+      }
+    },
     module: {
       rules: [
         {
