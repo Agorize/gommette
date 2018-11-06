@@ -28,7 +28,7 @@ export default {
      */
     tag: {
       type: [String, Number],
-      default: 'div',
+      default: 'div'
     },
     /**
      * Amount of columns from xs

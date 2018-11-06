@@ -5,6 +5,7 @@ import vue from 'rollup-plugin-vue'
 import sass from 'rollup-plugin-sass'
 import postcss from 'postcss'
 import autoprefixer from 'autoprefixer'
+import { eslint } from 'rollup-plugin-eslint'
 
 export default {
   input: 'src/index.js',
@@ -14,6 +15,12 @@ export default {
     name: 'agorizeUikit'
   },
   plugins: [
+    eslint({
+      exclude: [
+        'node_modules/**',
+        'src/styles/**'
+      ]
+    }),
     vue(),
     node(),
     sass({
