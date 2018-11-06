@@ -29,22 +29,66 @@ module.exports = {
       rules: [
         {
           test: /\.vue$/,
-          exclude: /node_modules/,
-          loader: "vue-loader"
-        },
-        {
-          test: /\.js?$/,
-          exclude: /node_modules/,
-          loader: "babel-loader"
+          loader: 'vue-loader',
+          options: {
+            transformToRequire: {
+              video: ['src', 'poster'],
+              source: 'src',
+              img: 'src',
+              image: 'xlink:href'
+            },
+            loaders: {
+              sass: [
+                'vue-style-loader',
+                'css-loader',
+                {
+                  loader: 'sass-loader',
+                  options: {
+                    indentedSyntax: true,
+                    outputStyle: 'compressed',
+                  },
+                },
+              ],
+            },
+          }
         },
         {
           test: /\.scss$/,
-          loader: "sass-loader!css-loader"
+          use: [
+            'style-loader',
+            'css-loader',
+            'sass-loader',
+          ],
         },
         {
-          test: /\.css$/,
-          loader: "style-loader!css-loader"
-        }
+          test: /\.sass$/,
+          use: [
+            'style-loader',
+            'css-loader',
+            {
+              loader: 'sass-loader',
+              options: {
+                indentedSyntax: true
+              }
+            },
+            // {
+            //   loader: 'sass-resources-loader',
+            //   options: {
+            //     resources: [
+            //       path.resolve('config/styleguide/styleguide-style.sass')
+            //     ]
+            //   }
+            // }
+          ],
+        },
+        // {
+        //   test: /\.(woff2?|eot|ttf|otf)$/,
+        //   loader: 'url-loader',
+        //   options: {
+        //     limit: 10000,
+        //     name: path.resolve('app/assets/fonts/[name].[ext]'),
+        //   }
+        // }
       ]
     },
     plugins: [new VueLoaderPlugin()]
