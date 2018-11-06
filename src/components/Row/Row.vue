@@ -21,7 +21,7 @@ export default {
      */
     tag: {
       type: String,
-      default: 'div',
+      default: 'div'
     },
     /**
      * Activate flex mode
@@ -34,7 +34,7 @@ export default {
     /**
      * start | center | end (flex mode only)
      */
-    align: String,
+    align: String
   }
 }
 </script>
