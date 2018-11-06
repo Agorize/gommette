@@ -2,7 +2,19 @@
   "name": "@agorize/agorize-uikit",
   "release": {
     "plugins": [
-      "@semantic-release/commit-analyzer",
+      ["@semantic-release/commit-analyzer", {
+        "preset": "angular",
+        "releaseRules": [
+          {"type": "docs", "release": "patch"},
+          {"type": "refactor", "release": "patch"},
+          {"type": "refactor", "scope": "core", "release": "minor"},
+          {"type": "test", "release": "patch"},
+          {"type": "style", "release": "patch"},
+          {"type": "build", "release": "patch"},
+          {"type": "ci", "release": "patch"},
+          {"type": "chore", "release": "patch"}
+        ]
+      }],
       "@semantic-release/release-notes-generator",
       "@semantic-release/npm",
       "@semantic-release/github"
@@ -14,14 +26,14 @@
   },
   "scripts": {
     "build": "rollup -c",
-    "release": "git-cz",
+    "commit": "git-cz",
     "semantic-release": "semantic-release",
     "styleguide": "vue-styleguidist server",
     "styleguide:build": "vue-styleguidist build",
     "test": "jest",
     "notify": "node .circleci/slack.js "
   },
-  "version": "0.0.0-alpha.1",
+  "version": "0.0.0-development",
   "author": "",
   "keywords": [],
   "license": "ISC",
