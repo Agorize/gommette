@@ -19,14 +19,6 @@ jobs:
       - run:
           name: Run tests unit
           command: yarn test
-      - run:
-          name: Notify on Slack
-          when: on_success
-          command: yarn notify $(git log --format=oneline -n 1)
-      - run:
-          name: Notify on Slack
-          when: on_fail
-          command: yarn notify $(git log --format=oneline -n 1) error
 
       - save_cache:
           paths:
@@ -42,14 +34,6 @@ jobs:
       - run:
           name: Build package
           command: yarn build
-      - run:
-          name: Notify on Slack
-          when: on_success
-          command: yarn notify $(git log --format=oneline -n 1)
-      - run:
-          name: Notify on Slack
-          when: on_fail
-          command: yarn notify $(git log --format=oneline -n 1) error
 
       - persist_to_workspace:
           root: ~/repo
