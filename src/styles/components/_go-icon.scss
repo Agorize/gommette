@@ -1,0 +1,1968 @@
+
+.go-icon,
+i.mce-i-tiny-icn {
+  line-height: 1;
+  font-size: $font-size-icon;
+  font-family: $font-family-icon;
+  display: inline-block;
+  vertical-align: middle;
+  &.icn-layer {
+    background-image: none;
+    font-style: normal;
+    font-weight: normal;
+    text-transform: none;
+  }
+  &.icn-xxs {
+    font-size: 14px;
+  }
+  &.icn-xs {
+    font-size: 16px;
+  }
+  &.icn-md {
+    font-size: 24px;
+  }
+  &.icn-xl {
+    font-size: 34px;
+  }
+  &.icn-xxl {
+    font-size: 60px;
+  }
+  &.icn-cross.close {
+    font-weight: normal; // modal
+  }
+  &.icn-out {
+    overflow: visible; // to brief on map
+  }
+  &.icn-cross {
+    font-size: 30px;
+    &.xs {
+      font-size: $font-size-icon;
+    }
+  }
+  &.icn-file {
+    width: 40px;
+    height: 40px;
+    font-size: 38px;
+    &.xs {
+      width: 20px;
+      height: 20px;
+      font-size: 18px;
+    }
+  }
+  &.icn-round {
+    width: 120px;
+    height: 13px;
+    line-height: normal;
+    display: inline-block;
+    vertical-align: top;
+    // font-family: $font-family-sans-serif;
+    border-radius: 50%;
+    // border: 2px solid $gray-base;
+  }
+
+  &.icn-edit {
+    @include icon('\e91c');
+  }
+  &.icn-lock {
+    @include icon('\e923');
+  }
+  &.icn-help {
+    @include icon('\e963');
+  }
+  &.icn-new {
+    @include icon('\e900');
+  }
+  &.icn-settings {
+    @include icon('\e925');
+  }
+  &.icn-check {
+    @include icon('\e908');
+    &.xs {
+      @include icon('\e976');
+    }
+  }
+  &.icn-file {
+    &.file-default,
+    &.file-png,
+    &.file-gif,
+    &.file-jpg {
+      &:before {
+        content: '\e90b';
+      }
+    }
+    &.file-form {
+      &:before {
+        content: '\e98a';
+      }
+    }
+    &.file-pdf {
+      &:before {
+        content: '\e915';
+      }
+    }
+    &.file-xls {
+      &:before {
+        content: '\e91b';
+      }
+    }
+    &.file-doc {
+      &:before {
+        content: '\e90c';
+      }
+    }
+    &.file-video {
+      &:before {
+        content: '\e91a';
+      }
+    }
+    &.file-add {
+      &:before {
+        content: '\e90a';
+      }
+    }
+    &.file-link {
+      .icn-layer.icn-layer-1 {
+        &:before {
+          content: '\e90d';
+        }
+      }
+      .icn-layer.icn-layer-2 {
+        &:before {
+          content: '\e90e';
+          margin-left: -1em;
+        }
+      }
+      .icn-layer.icn-layer-3 {
+        &:before {
+          content: '\e90f';
+          margin-left: -1em;
+        }
+      }
+      .icn-layer.icn-layer-4 {
+        &:before {
+          content: '\e910';
+          margin-left: -1em;
+        }
+      }
+      .icn-layer.icn-layer-5 {
+        &:before {
+          content: '\e911';
+          margin-left: -1em;
+        }
+      }
+      .icn-layer.icn-layer-6 {
+        &:before {
+          content: '\e912';
+          opacity: 0.2;
+          margin-left: -1em;
+        }
+      }
+      .icn-layer.icn-layer-7 {
+        &:before {
+          content: '\e913';
+          opacity: 0.2;
+          margin-left: -1em;
+        }
+      }
+      .icn-layer.icn-layer-8 {
+        &:before {
+          content: '\e914';
+          opacity: 0.2;
+          margin-left: -1em;
+        }
+      }
+    }
+    &.file-ppt {
+      &:before {
+        content: '\e919';
+      }
+    }
+    &.file-pic {
+      .icn-layer.icn-layer-1 {
+        &:before {
+          content: '\e916';
+        }
+      }
+      .icn-layer.icn-layer-2 {
+        &:before {
+          content: '\e917';
+          margin-left: -1em;
+        }
+      }
+      .icn-layer.icn-layer-3 {
+        &:before {
+          content: '\e918';
+          opacity: 0.2;
+          margin-left: -1em;
+        }
+      }
+    }
+  }
+  &.icn-all-projects {
+    @include icon('\e901');
+  }
+  &.icn-prev {
+    @include icon('\e934');
+  }
+  &.icn-out {
+    @include icon('\e927');
+  }
+  &.icn-out-down {
+    @include icon('\e928');
+  }
+  &.icn-no {
+    @include icon('\e909');
+  }
+  &.icn-yes {
+    @include icon('\e933');
+  }
+  &.icn-menu {
+    @include icon('\e906');
+  }
+  &.icn-more {
+    @include icon('\ea96');
+  }
+  &.icn-more-full {
+    @include icon('\ea95');
+  }
+  &.icn-bracket-left {
+    @include icon('\e905');
+  }
+  &.icn-bracket-right {
+    @include icon('\e903');
+  }
+  &.icn-bracket-up {
+    @include icon('\e902');
+  }
+  &.icn-bracket {//down
+    @include icon('\e904');
+  }
+  &.icn-cross {
+    @include icon('\e92f');
+  }
+  &.icn-dropdown {
+    @include icon('\e938');
+  }
+  &.icn-dropup {
+    @include icon('\e937');
+  }
+  &.icn-facebook-full {
+    @include icon('\e964');
+  }
+  &.icn-facebook {
+    @include icon('\e968');
+  }
+  &.icn-google {
+    @include icon('\e977');
+  }
+  &.icn-share {
+    @include icon('\ea77');
+  }
+  &.icn-linkedin {
+    @include icon('\e965');
+  }
+  &.icn-saml {
+    @include icon('\e999');
+  }
+  &.icn-twitter {
+    @include icon('\e966');
+  }
+  &.icn-viadeo {
+    @include icon('\e967');
+  }
+  &.icn-email {
+    @include icon('\e924');
+  }
+  &.icn-horloge-small {
+    @include icon('\e9eb');
+  }
+  &.icn-horloge {
+    @include icon('\e9eb');
+  }
+  &.icn-pencil {
+    @include icon('\e939');
+  }
+  &.icn-upload {
+    @include icon('\e935');
+  }
+  &.icn-like {
+    @include icon('\e9c4');
+  }
+  &.icn-liked {
+    @include icon('\e9c4');
+    // color: $brand-danger;
+  }
+  &.icn-comment {
+    @include icon('\ea66');
+  }
+  &.icn-comments {
+    @include icon('\e9bc');
+  }
+  &.icn-comment-mode {
+    @include icon('\e9bf');
+  }
+  &.icn-project {
+    @include icon('\e975');
+  }
+  &.icn-admin-space {
+    @include icon('\e93a');
+  }
+  &.icn-challenge-page {
+    .icn-layer.icn-layer-1 {
+      &:before {
+        content: '\e93b';
+      }
+    }
+    .icn-layer.icn-layer-2 {
+      &:before {
+        content: '\e93c';
+        opacity: 0.2;
+        margin-left: -1em;
+      }
+    }
+    .icn-layer.icn-layer-3 {
+      &:before {
+        content: '\e93d';
+        opacity: 0.2;
+        margin-left: -1em;
+      }
+    }
+    .icn-layer.icn-layer-4 {
+      &:before {
+        content: '\e93e';
+        opacity: 0.2;
+        margin-left: -1em;
+      }
+    }
+    .icn-layer.icn-layer-5 {
+      &:before {
+        content: '\e93f';
+        opacity: 0.2;
+        margin-left: -1em;
+      }
+    }
+    .icn-layer.icn-layer-6 {
+      &:before {
+        content: '\e940';
+        opacity: 0.2;
+        margin-left: -1em;
+      }
+    }
+  }
+  &.icn-community {
+    @include icon('\e962');
+    &.xs {
+      @include icon('\e973');
+    }
+  }
+  &.icn-list-team {
+    .icn-layer.icn-layer-1 {
+      &:before {
+        content: '\e949';
+        opacity: 0.2;
+      }
+    }
+    .icn-layer.icn-layer-2 {
+      &:before {
+        content: '\e94a';
+        opacity: 0.2;
+        margin-left: -1em;
+      }
+    }
+    .icn-layer.icn-layer-3 {
+      &:before {
+        content: '\e94b';
+        opacity: 0.2;
+        margin-left: -1em;
+      }
+    }
+    .icn-layer.icn-layer-4 {
+      &:before {
+        content: '\e94c';
+        opacity: 0.2;
+        margin-left: -1em;
+      }
+    }
+    .icn-layer.icn-layer-5 {
+      &:before {
+        content: '\e94d';
+        opacity: 0.2;
+        margin-left: -1em;
+      }
+    }
+    .icn-layer.icn-layer-6 {
+      &:before {
+        content: '\e94e';
+        opacity: 0.2;
+        margin-left: -1em;
+      }
+    }
+    .icn-layer.icn-layer-7 {
+      &:before {
+        content: '\e94f';
+        opacity: 0.2;
+        margin-left: -1em;
+      }
+    }
+    .icn-layer.icn-layer-8 {
+      &:before {
+        content: '\e950';
+        opacity: 0.2;
+        margin-left: -1em;
+      }
+    }
+    .icn-layer.icn-layer-9 {
+      &:before {
+        content: '\e951';
+        opacity: 0.2;
+        margin-left: -1em;
+      }
+    }
+    .icn-layer.icn-layer-10 {
+      &:before {
+        content: '\e952';
+        margin-left: -1em;
+      }
+    }
+    &.xs {
+      .icn-layer.icn-layer-1 {
+        &:before {
+          content: '\e969';
+          opacity: 0.2;
+        }
+      }
+      .icn-layer.icn-layer-2 {
+        &:before {
+          content: '\e96a';
+          opacity: 0.2;
+          margin-left: -1em;
+        }
+      }
+      .icn-layer.icn-layer-3 {
+        &:before {
+          content: '\e96b';
+          opacity: 0.2;
+          margin-left: -1em;
+        }
+      }
+      .icn-layer.icn-layer-4 {
+        &:before {
+          content: '\e96c';
+          opacity: 0.2;
+          margin-left: -1em;
+        }
+      }
+      .icn-layer.icn-layer-5 {
+        &:before {
+          content: '\e96d';
+          opacity: 0.2;
+          margin-left: -1em;
+        }
+      }
+      .icn-layer.icn-layer-6 {
+        &:before {
+          content: '\e96e';
+          opacity: 0.2;
+          margin-left: -1em;
+        }
+      }
+      .icn-layer.icn-layer-7 {
+        &:before {
+          content: '\e96f';
+          opacity: 0.2;
+          margin-left: -1em;
+        }
+      }
+      .icn-layer.icn-layer-8 {
+        &:before {
+          content: '\e970';
+          opacity: 0.2;
+          margin-left: -1em;
+        }
+      }
+      .icn-layer.icn-layer-9 {
+        &:before {
+          content: '\e971';
+          opacity: 0.2;
+          margin-left: -1em;
+        }
+      }
+      .icn-layer.icn-layer-10 {
+        &:before {
+          content: '\e972';
+          margin-left: -1em;
+        }
+      }
+    }
+  }
+
+  &.icn-mentor {
+    @include icon('\e9b7');
+  }
+
+  &.icn-rules {
+    .icn-layer.icn-layer-1 {
+      &:before {
+        content: '\e954';
+      }
+    }
+    .icn-layer.icn-layer-2 {
+      &:before {
+        content: '\e955';
+        opacity: 0.2;
+        margin-left: -1em;
+      }
+    }
+    .icn-layer.icn-layer-3 {
+      &:before {
+        content: '\e956';
+        opacity: 0.2;
+        margin-left: -1em;
+      }
+    }
+    .icn-layer.icn-layer-4 {
+      &:before {
+        content: '\e957';
+        opacity: 0.2;
+        margin-left: -1em;
+      }
+    }
+    .icn-layer.icn-layer-5 {
+      &:before {
+        content: '\e958';
+        opacity: 0.2;
+        margin-left: -1em;
+      }
+    }
+    .icn-layer.icn-layer-6 {
+      &:before {
+        content: '\e959';
+        opacity: 0.2;
+        margin-left: -1em;
+      }
+    }
+    .icn-layer.icn-layer-7 {
+      &:before {
+        content: '\e95a';
+        opacity: 0.2;
+        margin-left: -1em;
+      }
+    }
+    .icn-layer.icn-layer-8 {
+      &:before {
+        content: '\e95c';
+        opacity: 0.2;
+        margin-left: -1em;
+      }
+    }
+    .icn-layer.icn-layer-9 {
+      &:before {
+        content: '\e95d';
+        opacity: 0.2;
+        margin-left: -1em;
+      }
+    }
+    .icn-layer.icn-layer-10 {
+      &:before {
+        content: '\e95e';
+        opacity: 0.2;
+        margin-left: -1em;
+      }
+    }
+    .icn-layer.icn-layer-11 {
+      &:before {
+        content: '\e95f';
+        opacity: 0.2;
+        margin-left: -1em;
+      }
+    }
+    .icn-layer.icn-layer-12 {
+      &:before {
+        content: '\e960';
+        opacity: 0.2;
+        margin-left: -1em;
+      }
+    }
+    .icn-layer.icn-layer-13 {
+      &:before {
+        content: '\e961';
+        margin-left: -1em;
+      }
+    }
+  }
+
+  &.icn-workspace {
+    .icn-layer:before {
+      margin-left: -1em;
+    }
+    .icn-layer-2,
+    .icn-layer-3,
+    .icn-layer-4,
+    .icn-layer-5,
+    .icn-layer-6,
+    .icn-layer-7 {
+      opacity: 0.3;
+    }
+    .icn-layer.icn-layer-1 {
+      &:before {
+        content: '\e9ae';
+        margin: 0;
+      }
+    }
+    .icn-layer.icn-layer-2 {
+      &:before {
+        content: '\e9af';
+      }
+    }
+    .icn-layer.icn-layer-3 {
+      &:before {
+        content: '\e9b0';
+      }
+    }
+    .icn-layer.icn-layer-4 {
+      &:before {
+        content: '\e9b1';
+      }
+    }
+    .icn-layer.icn-layer-5 {
+      &:before {
+        content: '\e9b2';
+      }
+    }
+    .icn-layer.icn-layer-6 {
+      &:before {
+        content: '\e9b3';
+      }
+    }
+    .icn-layer.icn-layer-7 {
+      &:before {
+        content: '\e9b4';
+      }
+    }
+    .icn-layer.icn-layer-8 {
+      &:before {
+        content: '\e9b5';
+      }
+    }
+  }
+
+  &.icn-participation {
+    .icn-layer.icn-layer-1 {
+      &:before {
+        content: '\e941';
+        opacity: 0.2;
+      }
+    }
+    .icn-layer.icn-layer-2 {
+      &:before {
+        content: '\e942';
+        opacity: 0.2;
+        margin-left: -1em;
+      }
+    }
+    .icn-layer.icn-layer-3 {
+      &:before {
+        content: '\e943';
+        opacity: 0.2;
+        margin-left: -1em;
+      }
+    }
+    .icn-layer.icn-layer-4 {
+      &:before {
+        content: '\e944';
+        opacity: 0.2;
+        margin-left: -1em;
+      }
+    }
+    .icn-layer.icn-layer-5 {
+      &:before {
+        content: '\e945';
+        opacity: 0.2;
+        margin-left: -1em;
+      }
+    }
+    .icn-layer.icn-layer-6 {
+      &:before {
+        content: '\e946';
+        opacity: 0.2;
+        margin-left: -1em;
+      }
+    }
+    .icn-layer.icn-layer-7 {
+      &:before {
+        content: '\e947';
+        margin-left: -1em;
+      }
+    }
+    .icn-layer.icn-layer-8 {
+      &:before {
+        content: '\e948';
+        margin-left: -1em;
+      }
+    }
+  }
+
+  &.icn-process {
+    @include icon('\e980');
+  }
+  &.icn-hack {
+    @include icon('\e982');
+  }
+  &.icn-cap {
+    @include icon('\e981');
+  }
+  &.icn-cup {
+    @include icon('\e983');
+  }
+  &.icn-link {
+    @include icon('\e97e');
+  }
+  &.icn-drive-sheet {
+    @include icon('\e97a');
+  }
+  &.icn-drive-doc {
+    @include icon('\e979');
+  }
+  &.icn-drive-slide {
+    @include icon('\e97b');
+  }
+  &.icn-drive-upload {
+    @include icon('\e97c');
+  }
+  &.icn-drive {
+    @include icon('\e97d');
+  }
+  &.icn-star {
+    @include icon('\e930');
+  }
+  &.icn-warning {
+    @include icon('\e974');
+  }
+  &.icn-no-entry {
+    @include icon('\e984');
+  }
+  &.icn-trophy {
+    @include icon('\e98c');
+  }
+  &.icn-trophy-simple {
+    @include icon('\ea6c');
+  }
+  &.icn-yammer {
+    @include icon('\e98b');
+  }
+  &.icn-discussion {
+    .icn-layer.icn-layer-1 {
+      &:before {
+        content: '\e98d';
+      }
+    }
+    .icn-layer.icn-layer-2 {
+      &:before {
+        content: '\e98e';
+        margin-left: -1em;
+      }
+    }
+    .icn-layer.icn-layer-3 {
+      &:before {
+        content: '\e98f';
+        margin-left: -1em;
+        opacity: 0.2;
+      }
+    }
+    .icn-layer.icn-layer-4 {
+      &:before {
+        content: '\e990';
+        margin-left: -1em;
+        opacity: 0.2;
+      }
+    }
+    .icn-layer.icn-layer-5 {
+      &:before {
+        content: '\e991';
+        margin-left: -1em;
+        opacity: 0.2;
+      }
+    }
+    .icn-layer.icn-layer-6 {
+      &:before {
+        content: '\e992';
+        margin-left: -1em;
+        opacity: 0.2;
+      }
+    }
+    .icn-layer.icn-layer-7 {
+      &:before {
+        content: '\e993';
+        margin-left: -1em;
+      }
+    }
+  }
+
+  &.icn-add {
+    @include icon('\e9b8');
+  }
+  &.icn-arrow-back {
+    @include icon('\e9b9');
+  }
+  &.icn-cancel {
+    @include icon('\e9bb');
+  }
+  &.icn-attach-file {
+    @include icon('\e9ba');
+  }
+  &.icn-check-circle {
+    @include icon('\e9bd');
+  }
+  &.icn-close {
+    @include icon('\e9be');
+  }
+  &.icn-new-folder {
+    @include icon('\e9c0');
+  }
+  &.icn-remove-folder {
+    @include icon('\e9e4');
+  }
+  &.icn-delete {
+    @include icon('\e9c1');
+  }
+  &.icn-done-all {
+    @include icon('\e9c2');
+  }
+  &.icn-done {
+    @include icon('\e9c3');
+  }
+  &.icn-file-download {
+    @include icon('\e9c5');
+  }
+  &.icn-file-upload {
+    @include icon('\e9c6');
+  }
+  &.icn-find-page {
+    @include icon('\e9c7');
+  }
+  &.icn-list-item {
+    @include icon('\e9c8');
+  }
+  &.icn-grade {
+    @include icon('\e9ca');
+  }
+  &.icn-group {
+    @include icon('\e9cb');
+  }
+  &.icn-help {
+    @include icon('\e9cd');
+  }
+  &.icn-help-outline {
+    @include icon('\e9ce');
+  }
+  &.icn-image {
+    @include icon('\e9cf');
+  }
+  &.icn-drive-file {
+    @include icon('\e9d0');
+  }
+  &.icn-description-file {
+    @include icon('\ea7b');
+  }
+  &.icn-keyboard {
+    @include icon('\e9d1');
+  }
+  &.icn-link-simple {
+    @include icon('\e9d2');
+  }
+  &.icn-lock {
+    @include icon('\e9d3');
+  }
+  &.icn-mail {
+    @include icon('\e9d4');
+  }
+  &.icn-edit {
+    @include icon('\e9d5');
+  }
+  &.icn-bell {
+    @include icon('\e9d6');
+  }
+  &.icn-person {
+    @include icon('\e9d7');
+  }
+  &.icn-public {
+    @include icon('\e9d8');
+  }
+  &.icn-conversation {
+    @include icon('\e9d9');
+  }
+  &.icn-screen-share {
+    @include icon('\e9da');
+  }
+  &.icn-setting {
+    @include icon('\e9db');
+  }
+  &.icn-stars {
+    @include icon('\e9dc');
+  }
+  &.icn-swap {
+    @include icon('\e9de');
+  }
+  &.icn-sms {
+    @include icon('\e9df');
+  }
+  &.icn-visibility {
+    @include icon('\e9e0');
+  }
+  &.icn-visibility-off {
+    @include icon('\e9e1');
+  }
+  &.icn-warning-simple {
+    @include icon('\e9e2');
+  }
+  &.icn-help-center {
+    @include icon('\e9e3');
+  }
+  &.icn-jury {
+    @include icon('\e9e7');
+  }
+  &.icn-group-solo {
+    @include icon('\e9ec');
+  }
+  &.icn-no-image {
+    @include icon('\ea64');
+  }
+  &.icn-dropdown-back {
+    @include icon('\ea68');
+  }
+  &.icn-info {
+    @include icon('\ea65');
+  }
+  &.icn-overview {
+    @include icon('\ea69');
+  }
+  &.icn-mentors {
+    @include icon('\ea67');
+  }
+  &.icn-monitoring-forum {
+    @include icon('\ea66');
+  }
+  &.icn-trakers {
+    @include icon('\ea6a');
+  }
+  &.icn-group-add {
+    @include icon('\ea6b');
+  }
+  &.icn-gavel {
+    @include icon('\ea6e');
+  }
+  &.icn-light {
+    @include icon('\ea6f');
+  }
+  &.icn-dropdown-back-circle {
+    @include icon('\ea70');
+  }
+  &.icn-arrow-right {
+    @include icon('\ea71');
+  }
+  &.icn-dashboard {
+    @include icon('\ea72');
+  }
+  &.icn-exclamation {
+    @include icon('\ea73');
+  }
+
+  &.icn-simple {
+    .icn-layer.icn-layer-1 {
+      &:before {
+        content: '\e9ed';
+        opacity: 0.7;
+      }
+    }
+    .icn-layer.icn-layer-2 {
+      &:before {
+        content: '\e9ee';
+        opacity: 0.5;
+        margin-left: -1em;
+      }
+    }
+    .icn-layer.icn-layer-3 {
+      &:before {
+        content: '\e9ef';
+        opacity: 0.5;
+        margin-left: -1em;
+      }
+    }
+    .icn-layer.icn-layer-4 {
+      &:before {
+        content: '\e9f0';
+        margin-left: -1em;
+      }
+    }
+    .icn-layer.icn-layer-5 {
+      &:before {
+        content: '\e9f1';
+        opacity: 0.7;
+        margin-left: -1em;
+      }
+    }
+    .icn-layer.icn-layer-6 {
+      &:before {
+        content: '\e9f2';
+        opacity: 0.5;
+        margin-left: -1em;
+      }
+    }
+    .icn-layer.icn-layer-7 {
+      &:before {
+        content: '\e9f3';
+        opacity: 0.5;
+        margin-left: -1em;
+      }
+    }
+    .icn-layer.icn-layer-8 {
+      &:before {
+        content: '\e9f4';
+        opacity: 0.5;
+        margin-left: -1em;
+      }
+    }
+  }
+
+  &.icn-article {
+    .icn-layer.icn-layer-1 {
+      &:before {
+        content: '\ea5a';
+        opacity: 0.5;
+      }
+    }
+    .icn-layer.icn-layer-2 {
+      &:before {
+        content: '\ea5b';
+        opacity: 0.7;
+        margin-left: -1em;
+      }
+    }
+    .icn-layer.icn-layer-3 {
+      &:before {
+        content: '\ea5c';
+        margin-left: -1em;
+      }
+    }
+    .icn-layer.icn-layer-4 {
+      &:before {
+        content: '\ea5d';
+        opacity: 0.7;
+        margin-left: -1em;
+      }
+    }
+    .icn-layer.icn-layer-7 {
+      &:before {
+        content: '\ea60';
+        opacity: 0.7;
+        margin-left: -1em;
+      }
+    }
+    .icn-layer.icn-layer-8 {
+      &:before {
+        content: '\ea61';
+        opacity: 0.5;
+        margin-left: -1em;
+      }
+    }
+    .icn-layer.icn-layer-9 {
+      &:before {
+        content: '\ea62';
+        opacity: 0.5;
+        margin-left: -1em;
+      }
+    }
+    .icn-layer.icn-layer-10 {
+      &:before {
+        content: '\ea63';
+        opacity: 0.5;
+        margin-left: -1em;
+      }
+    }
+    .icn-layer.icn-layer-5 {
+      &:before {
+        content: '\ea5e';
+        margin-left: -1em;
+      }
+    }
+    .icn-layer.icn-layer-6 {
+      &:before {
+        content: '\ea5f';
+        margin-left: -1em;
+      }
+    }
+  }
+
+  &.icn-gallery {
+    .icn-layer.icn-layer-1 {
+      &:before {
+        content: '\ea00';
+        opacity: 0.5;
+      }
+    }
+    .icn-layer.icn-layer-2 {
+      &:before {
+        content: '\ea01';
+        opacity: 0.7;
+        margin-left: -1em;
+      }
+    }
+    .icn-layer.icn-layer-3 {
+      &:before {
+        content: '\ea02';
+        opacity: 0.7;
+        margin-left: -1em;
+      }
+    }
+    .icn-layer.icn-layer-4 {
+      &:before {
+        content: '\ea03';
+        opacity: 0.5;
+        margin-left: -1em;
+      }
+    }
+    .icn-layer.icn-layer-5 {
+      &:before {
+        content: '\ea04';
+        opacity: 0.5;
+        margin-left: -1em;
+      }
+    }
+    .icn-layer.icn-layer-6 {
+      &:before {
+        content: '\ea05';
+        opacity: 0.5;
+        margin-left: -1em;
+      }
+    }
+    .icn-layer.icn-layer-7 {
+      &:before {
+        content: '\ea06';
+        opacity: 0.5;
+        margin-left: -1em;
+      }
+    }
+    .icn-layer.icn-layer-8 {
+      &:before {
+        content: '\ea07';
+        opacity: 0.7;
+        margin-left: -1em;
+      }
+    }
+    .icn-layer.icn-layer-9 {
+      &:before {
+        content: '\ea08';
+        opacity: 0.7;
+        margin-left: -1em;
+      }
+    }
+    .icn-layer.icn-layer-10 {
+      &:before {
+        content: '\ea09';
+        opacity: 0.5;
+        margin-left: -1em;
+      }
+    }
+    .icn-layer.icn-layer-11 {
+      &:before {
+        content: '\ea0a';
+        opacity: 0.5;
+        margin-left: -1em;
+      }
+    }
+    .icn-layer.icn-layer-12 {
+      &:before {
+        content: '\ea0b';
+        opacity: 0.5;
+        margin-left: -1em;
+      }
+    }
+    .icn-layer.icn-layer-13 {
+      &:before {
+        content: '\ea0c';
+        opacity: 0.5;
+        margin-left: -1em;
+      }
+    }
+    .icn-layer.icn-layer-14 {
+      &:before {
+        content: '\ea0d';
+        opacity: 0.7;
+        margin-left: -1em;
+      }
+    }
+    .icn-layer.icn-layer-15 {
+      &:before {
+        content: '\ea0e';
+        opacity: 0.7;
+        margin-left: -1em;
+      }
+    }
+    .icn-layer.icn-layer-16 {
+      &:before {
+        content: '\ea0f';
+        opacity: 0.5;
+        margin-left: -1em;
+      }
+    }
+    .icn-layer.icn-layer-17 {
+      &:before {
+        content: '\ea10';
+        opacity: 0.5;
+        margin-left: -1em;
+      }
+    }
+    .icn-layer.icn-layer-18 {
+      &:before {
+        content: '\ea11';
+        opacity: 0.5;
+        margin-left: -1em;
+      }
+    }
+    .icn-layer.icn-layer-19 {
+      &:before {
+        content: '\ea12';
+        opacity: 0.7;
+        margin-left: -1em;
+      }
+    }
+    .icn-layer.icn-layer-20 {
+      &:before {
+        content: '\ea13';
+        margin-left: -1em;
+      }
+    }
+    .icn-layer.icn-layer-21 {
+      &:before {
+        content: '\ea14';
+        margin-left: -1em;
+      }
+    }
+  }
+
+  &.icn-landscape {
+    .icn-layer.icn-layer-1 {
+      &:before {
+        content: '\ea15';
+        // color: $gray;
+      }
+    }
+    .icn-layer.icn-layer-3 {
+      &:before {
+        content: '\ea17';
+        margin-left: -1em;
+      }
+    }
+    .icn-layer.icn-layer-5 {
+      &:before {
+        content: '\ea19';
+        margin-left: -1em;
+      }
+    }
+    .icn-layer.icn-layer-6 {
+      &:before {
+        content: '\ea1a';
+        margin-left: -1em;
+      }
+    }
+    .icn-layer.icn-layer-2 {
+      &:before {
+        content: '\ea16';
+        opacity: 0.7;
+        margin-left: -1em;
+      }
+    }
+    .icn-layer.icn-layer-4 {
+      &:before {
+        content: '\ea18';
+        opacity: 0.7;
+        margin-left: -1em;
+      }
+    }
+    .icn-layer.icn-layer-7 {
+      &:before {
+        content: '\ea1b';
+        opacity: 0.7;
+        margin-left: -1em;
+      }
+    }
+    .icn-layer.icn-layer-8 {
+      &:before {
+        content: '\ea1c';
+        color: white;
+        margin-left: -1em;
+      }
+    }
+    .icn-layer.icn-layer-9 {
+      &:before {
+        content: '\ea1d';
+        color: white;
+        margin-left: -1em;
+      }
+    }
+  }
+
+  &.icn-map {
+    .icn-layer.icn-layer-1 {
+      &:before {
+        content: '\e9f5';
+        // color: $gray-light;
+      }
+    }
+    .icn-layer.icn-layer-2 {
+      &:before {
+        content: '\e9f6';
+        margin-left: -1em;
+      }
+    }
+    .icn-layer.icn-layer-3 {
+      &:before {
+        content: '\e9f7';
+        margin-left: -1em;
+      }
+    }
+    .icn-layer.icn-layer-4 {
+      &:before {
+        content: '\e9f8';
+        margin-left: -1em;
+      }
+    }
+    .icn-layer.icn-layer-5 {
+      &:before {
+        content: '\e9f9';
+        opacity: 0.7;
+        margin-left: -1em;
+      }
+    }
+    .icn-layer.icn-layer-6 {
+      &:before {
+        content: '\e9fa';
+        color: white;
+        margin-left: -1em;
+      }
+    }
+    .icn-layer.icn-layer-7 {
+      &:before {
+        content: '\e9fb';
+        color: white;
+        margin-left: -1em;
+      }
+    }
+    .icn-layer.icn-layer-8 {
+      &:before {
+        content: '\e9fc';
+        color: white;
+        margin-left: -1em;
+      }
+    }
+    .icn-layer.icn-layer-9 {
+      &:before {
+        content: '\e9fd';
+        opacity: 0.5;
+        margin-left: -1em;
+      }
+    }
+    .icn-layer.icn-layer-10 {
+      &:before {
+        content: '\e9fe';
+        opacity: 0.5;
+        margin-left: -1em;
+      }
+    }
+    .icn-layer.icn-layer-11 {
+      &:before {
+        content: '\e9ff';
+        opacity: 0.7;
+        margin-left: -1em;
+      }
+    }
+  }
+
+  &.icn-awards {
+    .icn-layer.icn-layer-1 {
+      &:before {
+        content: '\ea1e';
+        opacity: 0.7;
+      }
+    }
+    .icn-layer.icn-layer-2 {
+      &:before {
+        content: '\ea1f';
+        opacity: 0.5;
+        margin-left: -1em;
+      }
+    }
+    .icn-layer.icn-layer-3 {
+      &:before {
+        content: '\ea20';
+        opacity: 0.5;
+        margin-left: -1em;
+      }
+    }
+    .icn-layer.icn-layer-4 {
+      &:before {
+        content: '\ea21';
+        opacity: 0.5;
+        margin-left: -1em;
+      }
+    }
+    .icn-layer.icn-layer-5 {
+      &:before {
+        content: '\ea22';
+        opacity: 0.7;
+        margin-left: -1em;
+      }
+    }
+    .icn-layer.icn-layer-6 {
+      &:before {
+        content: '\ea23';
+        opacity: 0.7;
+        margin-left: -1em;
+      }
+    }
+    .icn-layer.icn-layer-7 {
+      &:before {
+        content: '\ea24';
+        opacity: 0.7;
+        margin-left: -1em;
+      }
+    }
+    .icn-layer.icn-layer-8 {
+      &:before {
+        content: '\ea25';
+        opacity: 0.7;
+        margin-left: -1em;
+      }
+    }
+    .icn-layer.icn-layer-9 {
+      &:before {
+        content: '\ea26';
+        opacity: 0.7;
+        margin-left: -1em;
+      }
+    }
+    .icn-layer.icn-layer-10 {
+      &:before {
+        content: '\ea27';
+        opacity: 0.7;
+        margin-left: -1em;
+      }
+    }
+  }
+
+  &.icn-empty {
+    .icn-layer.icn-layer-1 {
+      &:before {
+        content: '\ea28';
+        opacity: 0.7;
+      }
+    }
+    .icn-layer.icn-layer-2 {
+      &:before {
+        content: '\ea29';
+        opacity: 0.5;
+        margin-left: -1em;
+      }
+    }
+    .icn-layer.icn-layer-3 {
+      &:before {
+        content: '\ea2a';
+        opacity: 0.5;
+        margin-left: -1em;
+      }
+    }
+    .icn-layer.icn-layer-4 {
+      &:before {
+        content: '\ea2b';
+        opacity: 0.5;
+        margin-left: -1em;
+      }
+    }
+    .icn-layer.icn-layer-5 {
+      &:before {
+        content: '\ea2c';
+        opacity: 0.5;
+        margin-left: -1em;
+      }
+    }
+    .icn-layer.icn-layer-6 {
+      &:before {
+        content: '\ea2d';
+        opacity: 0.5;
+        margin-left: -1em;
+      }
+    }
+    .icn-layer.icn-layer-7 {
+      &:before {
+        content: '\ea2e';
+        opacity: 0.5;
+        margin-left: -1em;
+      }
+    }
+  }
+
+  &.icn-column {
+    .icn-layer.icn-layer-1 {
+      &:before {
+        content: '\ea2f';
+        opacity: 0.7;
+      }
+    }
+    .icn-layer.icn-layer-2 {
+      &:before {
+        content: '\ea30';
+        opacity: 0.7;
+        margin-left: -1em;
+      }
+    }
+    .icn-layer.icn-layer-3 {
+      &:before {
+        content: '\ea31';
+        opacity: 0.7;
+        margin-left: -1em;
+      }
+    }
+    .icn-layer.icn-layer-4 {
+      &:before {
+        content: '\ea32';
+        opacity: 0.7;
+        margin-left: -1em;
+      }
+    }
+    .icn-layer.icn-layer-5 {
+      &:before {
+        content: '\ea33';
+        opacity: 0.7;
+        margin-left: -1em;
+      }
+    }
+    .icn-layer.icn-layer-6 {
+      &:before {
+        content: '\ea34';
+        opacity: 0.7;
+        margin-left: -1em;
+      }
+    }
+    .icn-layer.icn-layer-7 {
+      &:before {
+        content: '\ea35';
+        opacity: 0.7;
+        margin-left: -1em;
+      }
+    }
+    .icn-layer.icn-layer-8 {
+      &:before {
+        content: '\ea36';
+        opacity: 0.7;
+        margin-left: -1em;
+      }
+    }
+    .icn-layer.icn-layer-9 {
+      &:before {
+        content: '\ea37';
+        opacity: 0.7;
+        margin-left: -1em;
+      }
+    }
+    .icn-layer.icn-layer-10 {
+      &:before {
+        content: '\ea38';
+        opacity: 0.7;
+        margin-left: -1em;
+      }
+    }
+    .icn-layer.icn-layer-11 {
+      &:before {
+        content: '\ea39';
+        opacity: 0.7;
+        margin-left: -1em;
+      }
+    }
+    .icn-layer.icn-layer-12 {
+      &:before {
+        content: '\ea3a';
+        opacity: 0.7;
+        margin-left: -1em;
+      }
+    }
+    .icn-layer.icn-layer-13 {
+      &:before {
+        content: '\ea3b';
+        opacity: 0.7;
+        margin-left: -1em;
+      }
+    }
+    .icn-layer.icn-layer-14 {
+      &:before {
+        content: '\ea3c';
+        opacity: 0.7;
+        margin-left: -1em;
+      }
+    }
+    .icn-layer.icn-layer-15 {
+      &:before {
+        content: '\ea3d';
+        opacity: 0.7;
+        margin-left: -1em;
+      }
+    }
+    .icn-layer.icn-layer-16 {
+      &:before {
+        content: '\ea3e';
+        opacity: 0.7;
+        margin-left: -1em;
+      }
+    }
+    .icn-layer.icn-layer-17 {
+      &:before {
+        content: '\ea3f';
+        opacity: 0.7;
+        margin-left: -1em;
+      }
+    }
+    .icn-layer.icn-layer-18 {
+      &:before {
+        content: '\ea40';
+        opacity: 0.7;
+        margin-left: -1em;
+      }
+    }
+    .icn-layer.icn-layer-19 {
+      &:before {
+        content: '\ea41';
+        opacity: 0.7;
+        margin-left: -1em;
+      }
+    }
+    .icn-layer.icn-layer-20 {
+      &:before {
+        content: '\ea42';
+        opacity: 0.7;
+        margin-left: -1em;
+      }
+    }
+    .icn-layer.icn-layer-21 {
+      &:before {
+        content: '\ea43';
+        opacity: 0.7;
+        margin-left: -1em;
+      }
+    }
+    .icn-layer.icn-layer-22 {
+      &:before {
+        content: '\ea44';
+        opacity: 0.7;
+        margin-left: -1em;
+      }
+    }
+    .icn-layer.icn-layer-23 {
+      &:before {
+        content: '\ea45';
+        opacity: 0.7;
+        margin-left: -1em;
+      }
+    }
+    .icn-layer.icn-layer-24 {
+      &:before {
+        content: '\ea46';
+        opacity: 0.7;
+        margin-left: -1em;
+      }
+    }
+    .icn-layer.icn-layer-25 {
+      &:before {
+        content: '\ea47';
+        opacity: 0.5;
+        margin-left: -1em;
+      }
+    }
+    .icn-layer.icn-layer-26 {
+      &:before {
+        content: '\ea48';
+        opacity: 0.7;
+        margin-left: -1em;
+      }
+    }
+    .icn-layer.icn-layer-27 {
+      &:before {
+        content: '\ea49';
+        opacity: 0.7;
+        margin-left: -1em;
+      }
+    }
+    .icn-layer.icn-layer-28 {
+      &:before {
+        content: '\ea4a';
+        opacity: 0.5;
+        margin-left: -1em;
+      }
+    }
+    .icn-layer.icn-layer-29 {
+      &:before {
+        content: '\ea4b';
+        opacity: 0.7;
+        margin-left: -1em;
+      }
+    }
+  }
+
+  &.icn-timeline {
+    .icn-layer.icn-layer-1 {
+      &:before {
+        content: '\ea4c';
+        opacity: 0.7;
+      }
+    }
+    .icn-layer.icn-layer-2 {
+      &:before {
+        content: '\ea4d';
+        opacity: 0.7;
+        margin-left: -1em;
+      }
+    }
+    .icn-layer.icn-layer-3 {
+      &:before {
+        content: '\ea4e';
+        opacity: 0.5;
+        margin-left: -1em;
+      }
+    }
+    .icn-layer.icn-layer-4 {
+      &:before {
+        content: '\ea4f';
+        opacity: 0.5;
+        margin-left: -1em;
+      }
+    }
+    .icn-layer.icn-layer-5 {
+      &:before {
+        content: '\ea50';
+        opacity: 0.7;
+        margin-left: -1em;
+      }
+    }
+    .icn-layer.icn-layer-6 {
+      &:before {
+        content: '\ea51';
+        opacity: 0.5;
+        margin-left: -1em;
+      }
+    }
+    .icn-layer.icn-layer-7 {
+      &:before {
+        content: '\ea52';
+        opacity: 0.7;
+        margin-left: -1em;
+      }
+    }
+    .icn-layer.icn-layer-8 {
+      &:before {
+        content: '\ea53';
+        opacity: 0.5;
+        margin-left: -1em;
+      }
+    }
+    .icn-layer.icn-layer-9 {
+      &:before {
+        content: '\ea54';
+        opacity: 0.5;
+        margin-left: -1em;
+      }
+    }
+    .icn-layer.icn-layer-10 {
+      &:before {
+        content: '\ea55';
+        opacity: 0.7;
+        margin-left: -1em;
+      }
+    }
+    .icn-layer.icn-layer-11 {
+      &:before {
+        content: '\ea56';
+        opacity: 0.7;
+        margin-left: -1em;
+      }
+    }
+    .icn-layer.icn-layer-12 {
+      &:before {
+        content: '\ea57';
+        opacity: 0.7;
+        margin-left: -1em;
+      }
+    }
+    .icn-layer.icn-layer-13 {
+      &:before {
+        content: '\ea58';
+        opacity: 0.7;
+        margin-left: -1em;
+      }
+    }
+    .icn-layer.icn-layer-14 {
+      &:before {
+        content: '\ea59';
+        opacity: 0.7;
+        margin-left: -1em;
+      }
+    }
+  }
+  &.icn-thumbnail {
+    @include icon('\ea64');
+    opacity: 0.5;
+  }
+  &.icn-translate {
+    @include icon('\e9dd');
+  }
+  &.icn-error {
+    @include icon('\e9cc');
+  }
+  &.icn-tag {
+    @include icon('\ea80');
+  }
+  &.icn-duplicate {
+    @include icon('\ea79');
+  }
+  &.icn-map-marker {
+    @include icon('\ea78');
+  }
+  &.icn-time {
+    @include icon('\ea76');
+  }
+  &.icn-time-off {
+    @include icon('\ea75');
+  }
+  &.icn-draggable-vertical {
+    @include icon('\ea74');
+  }
+  &.icn-filter {
+    @include icon('\ea7a');
+  }
+  &.icn-announcement {
+    @include icon('\ea7d');
+  }
+  &.icn-list-view {
+    @include icon('\ea7e');
+  }
+  &.icn-grid-view {
+    @include icon('\ea7f');
+  }
+  &.icn-school {
+    @include icon('\ea81');
+  }
+  &.icn-assignment {
+    @include icon('\ea82');
+  }
+  &.icn-first-page {
+    @include icon('\ea83');
+  }
+  &.icn-last-page {
+    @include icon('\ea84');
+  }
+  &.icn-add-file {
+    @include icon('\ea85');
+  }
+  &.icn-euro {
+    @include icon('\ea86');
+  }
+  &.icn-print {
+    @include icon('\ea87');
+  }
+  &.icn-collaborater {
+    .icn-layer.icn-layer-1 {
+      &:before {
+        content: '\ea8b';
+        color: rgb(124, 128, 130);
+      }
+    }
+    .icn-layer.icn-layer-2 {
+      &:before {
+        content: '\ea8c';
+        margin-left: -1em;
+        color: rgb(208, 210, 213);
+      }
+    }
+    .icn-layer.icn-layer-3 {
+      &:before {
+        content: '\ea8d';
+        margin-left: -1em;
+        color: rgb(124, 128, 130);
+      }
+    }
+    .icn-layer.icn-layer-4 {
+      &:before {
+        content: '\ea8e';
+        margin-left: -1em;
+        color: rgb(208, 210, 213);
+      }
+    }
+    .icn-layer.icn-layer-5 {
+      &:before {
+        content: '\ea8f';
+        margin-left: -1em;
+        color: rgb(124, 128, 130);
+      }
+    }
+    .icn-layer.icn-layer-6 {
+      &:before {
+        content: '\ea90';
+        margin-left: -1em;
+        color: rgb(208, 210, 213);
+      }
+    }
+  }
+
+  &.icn-student {
+    .icn-layer.icn-layer-1 {
+      &:before {
+        content: '\ea88';
+        color: rgb(124, 128, 130);
+      }
+    }
+    .icn-layer.icn-layer-2 {
+      &:before {
+        content: '\ea89';
+        margin-left: -1em;
+        color: rgb(208, 210, 213);
+      }
+    }
+    .icn-layer.icn-layer-3 {
+      &:before {
+        content: '\ea8a';
+        margin-left: -1em;
+        color: rgb(124, 128, 130);
+      }
+    }
+  }
+
+  &.icn-start-up {
+    .icn-layer.icn-layer-1 {
+      &:before {
+        content: '\ea91';
+        color: rgb(208, 210, 213);
+      }
+    }
+    .icn-layer.icn-layer-2 {
+      &:before {
+        content: '\ea92';
+        margin-left: -1em;
+        color: rgb(208, 210, 213);
+      }
+    }
+    .icn-layer.icn-layer-3 {
+      &:before {
+        content: '\ea93';
+        margin-left: -1em;
+        color: rgb(208, 210, 213);
+      }
+    }
+    .icn-layer.icn-layer-4 {
+      &:before {
+        content: '\ea94';
+        margin-left: -1em;
+        color: rgb(124, 128, 130);
+      }
+    }
+  }
+  &.icn-tiny-custombutton {
+    @include icon('\ea98');
+  }
+}

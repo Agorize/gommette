@@ -1,6 +1,6 @@
 import { createLocalVue, mount } from '@vue/test-utils'
-import AgoUikit from '../../../src'
-import renderCases from './render-cases'
+import * as AgoUikit from '../../../src'
+import renderCases from './col.render-cases'
 
 const localVue = createLocalVue()
 

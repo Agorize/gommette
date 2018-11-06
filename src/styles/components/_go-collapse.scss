@@ -1,0 +1,68 @@
+.go-collapse {
+  .go-collapse__button {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    padding: 8px;
+  }
+
+  .go-header__title {
+    flex: 1;
+    min-width: 0;
+    h5 {
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      line-height: normal;
+      margin: 0;
+    }
+  }
+
+  .go-header__delete {
+    color: $brand-danger;
+  }
+
+  .go-header__delete,
+  .go-header__arrow {
+    display: inherit;
+    padding: 0 0 0 4px;
+  }
+
+  .go-collapse__header {
+    background: white;
+    border: 1px solid #dee2e4;
+    border-radius: 3px;
+  }
+
+  .go-collapse__header--active {
+    border-radius: 3px 3px 0 0;
+  }
+
+  .go-header__actions {
+    display: flex;
+  }
+
+  .go-prefix__icon {
+    margin-right: 10px;
+  }
+
+  .go-header__arrow {
+    color: $text-muted;
+    transition: transform .3s ease-in-out
+  }
+
+  .go-header__arrow--active {
+    transform: rotate(90deg);
+  }
+
+  .go-collapse__body {
+    background-color: #ffffff;
+    border: 1px solid #dee2e4;
+    border-top: 0px;
+    border-radius: 0 0 3px 3px;
+  }
+
+  .go-body__container {
+    padding: 8px;
+  }
+}

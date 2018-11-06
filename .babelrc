@@ -3,12 +3,29 @@
     [
       "env",
       {
-        "modules": false
+        "modules": false,
+        "targets": {
+          "browsers": [
+            "> 1%",
+            "last 2 versions",
+            "not ie <= 8"
+          ]
+        }
       }
     ]
   ],
+  "plugins": [
+    "transform-es2015-modules-commonjs",
+    "babel-plugin-dynamic-import-node",
+    "transform-object-rest-spread"
+  ],
   "env": {
     "test": {
+      "plugins": [
+        "transform-es2015-modules-commonjs",
+        "babel-plugin-dynamic-import-node",
+        "transform-object-rest-spread"
+      ],
       "presets": [
         [
           "env",

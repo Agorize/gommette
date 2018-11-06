@@ -1,5 +1,7 @@
 {
-  "name": "@agorize/agorize-uikit",
+  "name": "@agorize/gommette",
+  "main": "dist/gommette.common.js",
+  "module": "dist/gommette.esm.js",
   "release": {
     "plugins": [
       [
@@ -53,7 +55,7 @@
     "url": "git+https://github.com/Agorize/agorize-uikit.git"
   },
   "scripts": {
-    "build": "rollup -c",
+    "build": "rollup -c build/rollup.conf.js",
     "commit": "git-cz",
     "semantic-release": "semantic-release",
     "styleguide": "vue-styleguidist server",
@@ -66,7 +68,6 @@
   "author": "",
   "keywords": [],
   "license": "ISC",
-  "main": "dist/index.min.js",
   "bugs": {
     "url": "https://github.com/Agorize/agorize-uikit/issues"
   },
@@ -84,14 +85,18 @@
     "@semantic-release/npm": "^5.0.5",
     "@semantic-release/release-notes-generator": "^7.1.1",
     "@vue/eslint-config-standard": "^4.0.0",
+    "@vue/server-test-utils": "^1.0.0-beta.26",
     "@vue/test-utils": "^1.0.0-beta.25",
     "autoprefixer": "^9.2.1",
     "axios": "^0.18.0",
     "babel-eslint": "^10.0.1",
+    "babel-plugin-dynamic-import-node": "^2.2.0",
     "commitizen": "^3.0.4",
+    "css-loader": "^1.0.1",
     "cz-conventional-changelog": "2.1.0",
     "eslint": "^5.8.0",
     "eslint-plugin-vue": "^4.7.1",
+    "file-loader": "^2.0.0",
     "fs": "^0.0.1-security",
     "fs-extra": "^7.0.0",
     "hygen": "^1.6.2",
@@ -104,21 +109,32 @@
     "path": "^0.12.7",
     "postcss": "^7.0.5",
     "rollup": "^0.66.6",
+    "rollup-plugin-alias": "^1.4.0",
     "rollup-plugin-buble": "^0.19.4",
+    "rollup-plugin-commonjs": "^9.2.0",
     "rollup-plugin-eslint": "^5.0.0",
     "rollup-plugin-node-resolve": "^3.4.0",
     "rollup-plugin-scss": "^0.4.0",
     "rollup-plugin-uglify": "^6.0.0",
     "rollup-plugin-vue": "^4.3.2",
+    "sass-loader": "^7.1.0",
+    "sass-resources-loader": "^2.0.0",
     "semantic-release": "^15.10.5",
-    "vue": "^2.5.17",
+    "style-loader": "^0.23.1",
+    "url-loader": "^1.1.2",
+    "vue": "2.5.17",
     "vue-jest": "^3.0.0",
+    "vue-loader": "^15.4.2",
+    "vue-server-renderer": "2.5.17",
     "vue-styleguidist": "^1.8.9",
-    "vue-template-compiler": "^2.5.17",
-    "webpack": "^4.20.2"
+    "vue-template-compiler": "2.5.17",
+    "webpack": "^4.27.1"
   },
   "homepage": "https://github.com/Agorize/agorize-uikit#readme",
   "jest": {
+    "moduleNameMapper": {
+      "@/(.*)$": "<rootDir>/src/$1"
+    },
     "moduleFileExtensions": [
       "js",
       "json",
@@ -133,5 +149,9 @@
     "collectCoverageFrom": [
       "src/**/*.{js,jsx}"
     ]
+  },
+  "dependencies": {
+    "vue2-transitions": "^0.2.3",
+    "vuedraggable": "^2.16.0"
   }
 }

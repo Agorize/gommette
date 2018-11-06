@@ -1,7 +1,40 @@
 @import './utils';
 
+// FONTS
+// ----------------------------------------
+$font-family-sans-serif: 'Open Sans', sans-serif !default;
+
+// ICON
+// ----------------------------------------
+$font-family-icon: 'Icomoon' !default;
+$font-size-icon: 20px !default;
+
+// PADDINGS
+// ----------------------------------------
+$padding-base: 8px !default;
+
 // COLORS
 // ----------------------------------------
+$gray-base: #0f2031 !default;
+$gray-darker: darker($gray-base, 30, 30) !default;
+$gray-dark: #949697 !default;
+$gray: #dee2e4 !default;
+$gray-light: #f5f5f5 !default;
+$gray-lighter: #ffffff !default;
+// $brand-dark: #0f2031
+// $brand-grey: #949697
+// $brand-light: #dee2e4
+// $brand-white: #f5f5f5
+
+$brand-primary: #4da3f8 !default; // blue
+$brand-success: #0cb87d !default; // green
+$brand-info: $brand-primary !default; // primary super darker
+$brand-warning: #f5a24e !default; // orange
+$brand-danger: #f04a4a !default; // red
+
+
+$text-muted: rgba($gray-base, 0.4)!default;
+$text-secondary: rgba($gray-base, 0.7) !default;
 
 // Primary
 $colors-brand: #4DA3F8;
