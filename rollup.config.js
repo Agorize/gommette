@@ -2,7 +2,7 @@ import buble from 'rollup-plugin-buble'
 import { uglify } from 'rollup-plugin-uglify'
 import node from 'rollup-plugin-node-resolve'
 import vue from 'rollup-plugin-vue'
-import sass from 'rollup-plugin-sass'
+import scss from 'rollup-plugin-scss'
 import postcss from 'postcss'
 import autoprefixer from 'autoprefixer'
 import { eslint } from 'rollup-plugin-eslint'
@@ -23,7 +23,7 @@ export default {
     }),
     vue(),
     node(),
-    sass({
+    scss({
       output: true,
       processor: css => postcss([autoprefixer])
         .process(css)
