@@ -2,7 +2,7 @@ import Row from './components/Row/Row.vue'
 import Col from './components/Col/Col.vue'
 
 import './styles/index.scss'
-
+// test
 const components = [
   Row,
   Col
