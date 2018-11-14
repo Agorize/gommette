@@ -1,5 +1,6 @@
 ---
-to: tests/unit/<%= folderName %>/<%= folderName %>.spec.js
+to: "tests/unit/<%= needFolderName ? componentName : folderName %>/<%= componentName %>.spec.js"
+unless_exists: true
 ---
 import { createLocalVue, mount } from '@vue/test-utils'
 import AgoUikit from '../../../src'

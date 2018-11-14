@@ -1,5 +1,6 @@
 ---
-to: src/components/<%= folderName %>/<%= folderName %>.vue
+to: "src/components/<%= needFolderName ? componentName : folderName %>/<%= componentName %>.vue"
+unless_exists: true
 ---
 <template>
   <div>
@@ -12,6 +13,10 @@ export default {
   name: '<%= componentName %>'
 }
 </script>
+
+<style lang="scss">
+
+</style>
 
 <docs>
 
