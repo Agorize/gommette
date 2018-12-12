@@ -106,7 +106,7 @@ export default {
   },
   data () {
     return {
-      collapse: { ...this.item }
+      collapse: Object.assign({}, this.item)
     }
   },
   computed: {
