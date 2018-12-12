@@ -6,6 +6,8 @@ import postcss from 'postcss'
 import autoprefixer from 'autoprefixer'
 import alias from 'rollup-plugin-alias'
 import scss from 'rollup-plugin-scss'
+import babel from 'rollup-plugin-babel'
+import babelrc from 'babelrc-rollup'
 
 const base = path.resolve(__dirname, '..')
 const src = path.resolve(base, 'src')
@@ -35,9 +37,11 @@ module.exports = {
       processor: css => postcss([autoprefixer])
         .process(css)
         .then(result => result.css)
-    })
+    }),
+    babel(babelrc())
   ],
-  output: [{
+  output: [
+    {
       format: 'cjs',
       file: path.resolve(dist, `gommette.common.js`),
       sourcemap: true
@@ -46,6 +50,11 @@ module.exports = {
       format: 'es',
       file: path.resolve(dist, `gommette.esm.js`),
       sourcemap: true
+    },
+    {
+      format: 'iife',
+      name: 'gommette',
+      file: path.resolve(dist, `gommette.min.js`)
     }
   ]
 }

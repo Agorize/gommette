@@ -15,9 +15,8 @@
     ]
   ],
   "plugins": [
-    "transform-es2015-modules-commonjs",
     "babel-plugin-dynamic-import-node",
-    "transform-object-rest-spread"
+    ["transform-object-rest-spread", { "useBuiltIns": true }]
   ],
   "env": {
     "test": {
