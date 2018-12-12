@@ -1,20 +1,16 @@
----
-to: "tests/unit/<%= needFolderName ? componentName : folderName %>/<%= componentName %>.spec.js"
-unless_exists: true
----
 import { createLocalVue, shallowMount } from '@vue/test-utils'
 import * as AgoUikit from '../../../src'
-import { <%= componentName %> } from '../../../src'
-import renderCases from './<%= componentName %>.render-cases'
+import { GoIcon } from '../../../src'
+import renderCases from './GoIcon.render-cases'
 
 const localVue = createLocalVue()
 
 localVue.use(AgoUikit)
 
-describe('<%= componentName %>', () => {
+describe('GoIcon', () => {
   // Install
   it('should be installed', () => {
-    expect(localVue.options.components['<%= componentName %>']).toBeTruthy()
+    expect(localVue.options.components['GoIcon']).toBeTruthy()
   })
 
   // Render testing
