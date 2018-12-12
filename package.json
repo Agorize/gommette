@@ -52,7 +52,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Agorize/agorize-uikit.git"
+    "url": "git+https://github.com/Agorize/gommette.git"
   },
   "scripts": {
     "build": "rollup -c build/rollup.conf.js",
@@ -69,7 +69,7 @@
   "keywords": [],
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/Agorize/agorize-uikit/issues"
+    "url": "https://github.com/Agorize/gommette/issues"
   },
   "bundleDependencies": false,
   "config": {
@@ -130,7 +130,7 @@
     "vue-template-compiler": "2.5.17",
     "webpack": "^4.27.1"
   },
-  "homepage": "https://github.com/Agorize/agorize-uikit#readme",
+  "homepage": "https://github.com/Agorize/gommette#readme",
   "jest": {
     "moduleNameMapper": {
       "@/(.*)$": "<rootDir>/src/$1"
