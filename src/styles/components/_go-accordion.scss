@@ -1,0 +1,5 @@
+.go-accordion {
+  .go-accordion__item  + .go-accordion__item {
+    margin-top: $padding-base;
+  }
+}

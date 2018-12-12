@@ -4,6 +4,12 @@ const path = require('path')
 module.exports = {
   title: 'Agorize UI-Kit',
   components: './src/components/**/*.vue',
+  ignore: [
+    './src/components/**/*.md',
+  ],
+  require: [
+    path.resolve('src/styles/index.scss')
+  ],
   exampleMode: 'expand',
   usageMode: 'expand',
   pagePerSection: true,
@@ -22,28 +28,73 @@ module.exports = {
     resolve: {
       extensions: ['.js', '.vue', '.json'],
       alias: {
-        '@': path.resolve('src')
+        '@': path.resolve('src'),
+        'public': path.resolve('public')
       }
     },
     module: {
       rules: [
         {
           test: /\.vue$/,
-          exclude: /node_modules/,
-          loader: "vue-loader"
-        },
-        {
-          test: /\.js?$/,
-          exclude: /node_modules/,
-          loader: "babel-loader"
+          loader: 'vue-loader',
+          options: {
+            transformToRequire: {
+              video: ['src', 'poster'],
+              source: 'src',
+              img: 'src',
+              image: 'xlink:href'
+            },
+            loaders: {
+              sass: [
+                'vue-style-loader',
+                'css-loader',
+                {
+                  loader: 'sass-loader',
+                  options: {
+                    indentedSyntax: true,
+                    outputStyle: 'compressed',
+                  },
+                },
+              ],
+            },
+          }
         },
         {
           test: /\.scss$/,
-          loader: "sass-loader!css-loader"
+          use: [
+            'style-loader',
+            'css-loader',
+            'sass-loader',
+            {
+              loader: 'sass-resources-loader',
+              options: {
+                resources: [
+                  path.resolve('src/styles/index.scss')
+                ]
+              }
+            }
+          ],
         },
         {
-          test: /\.css$/,
-          loader: "style-loader!css-loader"
+          test: /\.sass$/,
+          use: [
+            'style-loader',
+            'css-loader',
+            {
+              loader: 'sass-loader',
+              options: {
+                indentedSyntax: true
+              }
+            },
+          ],
+        },
+        {
+          test: /\.(woff2?|eot|ttf|otf|svg)$/,
+          loader: 'url-loader',
+          options: {
+            limit: 10000,
+            name: './public/fonts/[name]/[name].[ext]',
+          }
         }
       ]
     },
