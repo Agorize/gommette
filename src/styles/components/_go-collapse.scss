@@ -3,7 +3,7 @@
     display: flex;
     align-items: center;
     cursor: pointer;
-    padding: $padding-collapse;
+    padding: $padding-collapse-header;
   }
 
   .go-header__title {
@@ -63,6 +63,6 @@
   }
 
   .go-body__container {
-    padding: $padding-collapse;
+    padding: $padding-collapse-body;
   }
 }
