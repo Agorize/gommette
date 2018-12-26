@@ -15,6 +15,10 @@ $padding-base: 8px !default;
 $padding-collapse-header: $padding-base !default;
 $padding-collapse-body: 16px !default;
 
+// RADIUS
+//
+$radius-popover: 5px !default;
+
 // COLORS
 // ----------------------------------------
 $gray-base: #0f2031 !default;
@@ -35,8 +39,10 @@ $brand-warning: #f5a24e !default; // orange
 $brand-danger: #f04a4a !default; // red
 
 
-$text-muted: rgba($gray-base, 0.4)!default;
+$text-muted: rgba($gray-base, 0.4) !default;
 $text-secondary: rgba($gray-base, 0.7) !default;
+
+$popover-background: #1E344A !default;
 
 // Primary
 $colors-brand: #4DA3F8;
