@@ -179,9 +179,24 @@ export default {
     body: '<h3>My text body My text body My text body  My text body  My text body  My text body</h3>'
   }
 
-  <go-collapse
-    :item="itemInfo"
-    :beDeleted="true"
-  />
+  const itemInfoActive = {
+    isActive: true,
+    title: `<h1>Myheader<b>withaverylongtitlewithoutanyblankandthereisnooverflowissuethankstothe
+      wordbreakbreakallitsamazing!</b></h1>`,
+    body: `<h3>MytextbodyMytextbodyMytextbodyMytextbodyMytextbodyMytextbodyMytextbodyMytextbody
+      MytextbodyMytextbodyMytextbody</h3>`
+  }
+
+  <div>
+    <go-collapse
+      :item="itemInfo"
+      :beDeleted="true"
+    />
+
+    <go-collapse
+      :item="itemInfoActive"
+      :beDeleted="true"
+    />
+  </div>
 ````
 </docs>
