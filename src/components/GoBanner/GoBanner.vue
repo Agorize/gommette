@@ -5,7 +5,8 @@
       <button
         v-if="beClose"
         class="go-banner__close go-button"
-        @click.prevent="$emit('close')"
+        ref="go-banner__close"
+        @click.prevent="$emit('closeBanner')"
       >
         <go-icon
           name="cross"
