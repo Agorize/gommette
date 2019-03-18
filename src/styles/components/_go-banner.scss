@@ -28,6 +28,10 @@
   &.is-danger {
     .go-banner__close {
       color: white;
+      &:focus,
+      &:active {
+        outline-color: white;
+      }
     }
   }
 }
@@ -37,11 +41,16 @@
 }
 
 .go-banner__close {
-  width: $padding-banner-horizontal*2;
+  width: $padding-banner-horizontal;
   height: 100%;
   position: absolute;
   top: 0;
   right: 0;
   color: $gray-base;
   opacity: 1;
+  &:focus,
+  &:active {
+    outline-color: $gray-base;
+    outline-offset: -2px;
+  }
 }
