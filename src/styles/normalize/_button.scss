@@ -1,0 +1,12 @@
+button.go-button {
+  line-height: 1;
+  font-family: inherit;
+  font-size: 100%;
+  text-transform: none; // Remove the inheritance of text transform in Firefox.
+  cursor: pointer;
+  -webkit-appearance: none;
+  background: transparent;
+  border: none;
+  overflow: visible; // Show the overflow in IE and edge.
+  margin: 0;
+}

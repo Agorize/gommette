@@ -1,0 +1,22 @@
+a.go-button:focus,
+button.go-button:focus {
+  outline-style: dashed;
+  outline-width: 2px;
+  box-shadow: none;
+  &:active {
+    outline: 0;
+    &:hover {
+      visibility: hidden;
+      &:-moz-focusring {
+        visibility: visible;
+        outline: 0;
+      }
+      & > * {
+        visibility: visible;
+      }
+    }
+    &:not(:-moz-focusring) {
+      visibility: inherit;
+    }
+  }
+}

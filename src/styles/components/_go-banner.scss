@@ -1,0 +1,56 @@
+.go-banner {
+  width: 100%;
+  height: auto;
+  position: relative;
+  text-align: center;
+  color: $gray-base;
+  background: white;
+  &.is-primary {
+    background: $brand-primary;
+    color: white;
+  }
+  &.is-success {
+    background: $brand-success;
+    color: white;
+  }
+  &.is-warning {
+    background: $brand-warning;
+    color: white;
+  }
+  &.is-danger {
+    background: $brand-danger;
+    color: white;
+  }
+
+  &.is-primary,
+  &.is-success,
+  &.is-warning,
+  &.is-danger {
+    .go-banner__close {
+      color: white;
+      &:focus,
+      &:active {
+        outline-color: white;
+      }
+    }
+  }
+}
+
+.go-banner__inner {
+  padding: $padding-banner-vertical $padding-banner-horizontal;
+}
+
+.go-banner__close {
+  width: $padding-banner-horizontal;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  right: 0;
+  color: $gray-base;
+  opacity: 1;
+  &:focus,
+  &:active {
+    outline-color: $gray-base;
+    outline-offset: -2px;
+  }
+}
