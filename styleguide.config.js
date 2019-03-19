@@ -29,7 +29,8 @@ module.exports = {
       extensions: ['.js', '.vue', '.json'],
       alias: {
         '@': path.resolve('src'),
-        'public': path.resolve('public')
+        'public': path.resolve('public'),
+        '@agorize/gommette/src/styles': path.resolve('src/styles')
       }
     },
     module: {
