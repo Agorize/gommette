@@ -1,0 +1,57 @@
+.tooltip {
+  display: block;
+  z-index: 10000;
+
+  &.popover.vue-popover-theme .popover-inner {
+    background: $popover-background;
+    color: $colors-grey-superlight;
+    border-radius: $radius-popover;
+    padding: 5px 10px;
+  }
+
+  &[aria-hidden="true"] {
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity .5s, visibility .5s, margin.5s;
+    transform: translate3d(0, -10px, 0);
+
+    &[x-placement^="top"] {
+      margin-top: 5px;
+    }
+
+    &[x-placement^="bottom"] {
+      margin-top: -5px;
+    }
+
+    &[x-placement^="left"] {
+      margin-left: 5px;
+    }
+
+    &[x-placement^="right"] {
+      margin-left: -5px;
+    }
+  }
+
+  &[aria-hidden="false"] {
+    visibility: visible;
+    opacity: 1;
+    transition: opacity .5s, margin .5s;
+    transform: translate3d(0, 0, 0);
+
+    &[x-placement^="top"] {
+      margin-top: -5px;
+    }
+
+    &[x-placement^="bottom"] {
+      margin-top: 5px;
+    }
+
+    &[x-placement^="left"] {
+      margin-left: -5px;
+    }
+
+    &[x-placement^="right"] {
+      margin-left: 5px;
+    }
+  }
+}
