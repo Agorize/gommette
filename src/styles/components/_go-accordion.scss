@@ -2,4 +2,8 @@
   .go-accordion__item  + .go-accordion__item {
     margin-top: $padding-base;
   }
+
+  .go-header__title * {
+    word-break: break-word;
+  }
 }

@@ -25,6 +25,7 @@
 
 <script>
 import GoCollapse from './GoCollapse.vue'
+// To test the component with styleguide you have to import vuedraggable without require
 const draggable = require('vuedraggable')
 
 export default {
