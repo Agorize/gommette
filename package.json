@@ -8,6 +8,9 @@
         "@semantic-release/commit-analyzer",
         {
           "preset": "angular",
+          "parserOpts": {
+            "headerPattern" : "^(?:(?:ORPHAN|PROD-\\d+|TS-\\d+) )(\\w*)(?:\\(([\\w\\$\\.\\-\\* ]*)\\))?\\: (.*)$"
+          },
           "releaseRules": [
             {
               "type": "docs",
