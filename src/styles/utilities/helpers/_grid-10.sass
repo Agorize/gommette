@@ -1,0 +1,27 @@
+$grid-columns: 10
+.row-10
+  @import '../mixins/bootstrap-grid'
+  @include make-grid-columns
+  @include make-grid(xs)
+  @include make-row
+
+  @media (min-width: $screen-sm-min)
+    @include make-grid(sm)
+  @media (min-width: $screen-md-min)
+    @include make-grid(md)
+  @media (min-width: $screen-lg-min)
+    @include make-grid(lg)
+
+$grid-columns: 12
+.row-10 .row
+  @import '../mixins/bootstrap-grid'
+  @include make-grid-columns
+  @include make-grid(xs)
+  @include make-row
+
+  @media (min-width: $screen-sm-min)
+    @include make-grid(sm)
+  @media (min-width: $screen-md-min)
+    @include make-grid(md)
+  @media (min-width: $screen-lg-min)
+    @include make-grid(lg)

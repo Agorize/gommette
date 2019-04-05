@@ -1,0 +1,33 @@
+// //////////// //
+//    FOOTER    //
+// //////////// //
+#footer
+  @extend .text-white
+  background: $footer-bg
+  position: relative
+  z-index: $z-index-footer
+  .nav-footer
+    @extend .m-t-xl
+    width: 100%
+    > ul
+      width: 100%
+      display: inline-block
+      vertical-align: top
+      float: left
+      text-align: center
+      margin: 0
+      padding: 0
+      > li
+        @extend .m-sm
+        list-style: none
+        display: inline-block
+        vertical-align: middle
+        padding: 0
+        >a
+          @extend .text-white
+  .copyright
+    @extend .m-t-md
+    @extend .m-b-md
+    @extend .font-weight-medium
+    color: white
+    text-align: center

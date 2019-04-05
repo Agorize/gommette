@@ -1,0 +1,268 @@
+label
+  @extend .font-weight-medium
+
+.form-group
+  &.hide-label,
+  .hide-label
+    label
+      display: none
+  &.has-error label,
+  .has-error label
+    span:before
+      content: ' '
+
+.form-control
+  @include box-shadow(none)
+  padding: 0 $padding-base-horizontal
+select.form-control
+  padding: 0 30px 0 $padding-base-horizontal
+textarea.form-control
+  max-width: 100%
+  padding: $padding-base-vertical $padding-base-horizontal
+
+// Select
+.select-style
+  @extend .form-control
+  position: relative
+  z-index: 0
+  padding: 0
+  margin: 0
+  &.disabled
+    opacity: 0.6
+    select
+      cursor: not-allowed
+  &:after
+    @extend .caret
+    content: ''
+    position: absolute
+    top: 50%
+    right: 10px
+    z-index: -1
+    padding: 0
+    margin: -2px 0 0 0
+  &.select-style-focus
+    border-color: $brand-primary
+
+  select,
+  .form-control
+    appearance: none
+    @include transparent(white, 0)
+    width: 100%
+    border: 0
+    cursor: pointer
+    padding-top: 7px
+    padding-bottom: 9px
+    &.selected
+      color: $text-secondary
+
+
+// State text
+.state-success,
+.state-warning
+  @extend .text-right
+  @extend .text-nowrap
+  @extend .m-t-xs
+  @extend .m-b-sm
+  display: block
+  &.m-b-none
+    @extend .m-b-none
+  .bullet
+    @extend .bg-success
+    @extend .m-r-xs
+    width: 10px
+    height: 10px
+    display: inline-block
+    vertical-align: middle
+    border-radius: 10px
+.state-warning
+  @extend .text-warning
+  .bullet
+    @extend .bg-warning
+
+
+// Radio & Checkbox
+.radio,
+.checkbox
+  label
+    cursor: pointer
+    position: relative
+    padding: 0 0 0 30px
+  [type='radio'],
+  [type='checkbox']
+    display: none
+    & + span:before
+      content: ''
+      width: 20px
+      height: 20px
+      position: absolute
+      top: 0
+      left: 0
+      border: 2px solid lighter($gray-dark, 20, 20)
+      border-radius: 50px
+    & + span:after
+      content: ''
+      width: 10px
+      height: 10px
+      display: none
+      position: absolute
+      top: 5px
+      left: 5px
+      background: $brand-primary
+      background-repeat: no-repeat
+      background-position: center center
+      background-size: 8px 6px
+      border-radius: 50px
+    &:checked + span:before
+      border-color: $brand-primary
+    &:checked + span:after
+      display: inline-block
+  [type='checkbox']
+    & + span:before
+      border-radius: $border-radius-base
+    & + span:after
+      content: '\e9c3'
+      width: 20px
+      height: 20px
+      top: 0
+      left: 0
+      font-family: 'Icomoon'
+      font-size: 20px
+      color:  white
+      text-align: center
+      border-radius: $border-radius-base
+      background: transparent
+    &:checked + span:before
+      background: $brand-primary
+  &.rounded
+    [type='checkbox']
+      & + span:before
+        border-radius: 50px
+      & + span:after
+        font-size: 16px
+  &.middle
+    [type='radio'],
+    [type='checkbox']
+      & + span:before,
+      & + span:after
+        @extend .m-t-n-sm
+        top: 50%
+
+  // Disable
+  &.disabled [type='radio'],
+  &.disabled [type='checkbox']
+    & + span:before
+      border-color: $gray
+  &.disabled [type='checkbox']
+    &:checked + span:before
+      background: $gray
+  &.disabled [type='radio']
+    &:checked + span:after
+      background: $gray
+
+  // Error
+  &.has-error [type='radio'],
+  &.has-error [type='checkbox']
+    & + span:before
+      border-color: $brand-danger
+    & + span:after
+      @extend .bg-danger
+  &.has-error [type='checkbox']
+    & + span:before
+      background: transparent
+
+  &.has-error
+    span.control-label
+      @extend .m-b-sm
+      padding: 0 5px
+      & + .control-label
+        display: block
+
+.radio + .radio,
+.checkbox + .checkbox
+  margin-top: 0
+
+@media (min-width: $screen-sm-min)
+  .checkbox-simple-sm
+    .form-group
+      margin: 5px 0 0 0
+    .checkbox
+      margin: 0
+      label
+        padding: 0 9px
+        input
+          margin: 0
+
+// Switch
+.switch
+  line-height: 10px
+  cursor: pointer
+  position: relative
+  label
+    line-height: 10px
+    cursor: pointer
+    position: relative
+    @extend .m-b-none
+  input
+    position: absolute
+    @include opacity(0)
+    &:checked
+      + span:after
+        left: 16px
+  span
+    position: relative
+    width: 35px
+    height: 20px
+    border-radius: 20px
+    background-color: $gray
+    border-color: rgba(0,0,0,0.1)
+    display: inline-block
+    @include transition(background-color 0.2s)
+    &:after
+      content: ''
+      position: absolute
+      background-color: #fff
+      width: 18px
+      top: 1px
+      left: 1px
+      bottom: 1px
+      border-radius: 18px
+      @include transition(left 0.2s)
+  &.switch-primary input:checked + span
+    background: $brand-primary
+  &.switch-success input:checked + span
+    background: $brand-success
+
+////////////////////////
+// form inline-select //
+////////////////////////
+.form-inline-select
+  .form-group
+    width: 100%
+    display: table
+    label,
+    select
+      width: 100%
+    select
+      display: table-cell
+      & + select
+        margin: 10px 0 0 0
+  @media(min-width: $screen-sm-min)
+    .form-group
+      width: 100%
+      select
+        width: 32%
+        float: left
+        & + select
+          margin: 0 0 0 2%
+    &.full-inline
+      .form-group select
+        width: 16%
+        float: none
+
+////////////////////////
+//    multi select    //
+////////////////////////
+.bootstrap-select.btn-group.open
+  .dropdown-toggle
+    &, &:focus
+      box-shadow: none

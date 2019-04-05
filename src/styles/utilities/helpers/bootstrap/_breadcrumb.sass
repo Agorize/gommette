@@ -1,0 +1,21 @@
+ol.breadcrumb
+  border-radius: 0
+  li
+    line-height: normal
+    padding: 0
+    span
+      @extend .text-sm
+      @extend .font-weight-medium
+      display: inline-block
+      line-height: 30px
+      color: $breadcrumb-color
+    & + li
+      &:before
+        font-family: $breadcrumb-separator-font-family
+        vertical-align: middle
+        padding: 0 15px
+        margin: 0
+  & > .active
+    span,
+    &:before
+      color: $breadcrumb-active-color

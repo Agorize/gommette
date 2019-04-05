@@ -1,0 +1,677 @@
+// ///////////////// //
+//  Override button  //
+// ///////////////// //
+.navbar-default,
+.navbar-panel
+  .navbar-nav > li
+    .btn-default
+      @extend .btn-default
+    .btn-primary
+      @extend .btn-primary
+    .btn-success
+      @extend .btn-success
+    .btn-info
+      @extend .btn-info
+    .btn-warning
+      @extend .btn-warning
+    .btn-danger
+      @extend .btn-danger
+    .btn-inverse
+      @extend .btn-inverse
+
+// ///////////////// //
+//     Navbar-panel  //
+// ///////////////// //
+.navbar
+  min-height: 0
+  .collapse-dropdown
+    width: 100%
+  .navbar-right > li
+    margin: 10px 0 0 0
+  .navbar-form
+    margin: 0
+  @media (min-width: $screen-sm-min)
+    .collapse-dropdown
+      width: auto
+    .navbar-right > li
+      margin: 0
+      & + li
+        margin: 0 0 0 10px
+
+//////////////////////
+// Navbar-dropdown ///
+/////////////////////
+.navbar-dropdown
+  position: relative
+  .icn
+    position: absolute
+    top: 50%
+    right: 25px
+    margin: -10px 0 0 0
+    &.icn-cross
+      display: none
+  .btn-dropdown
+    width: 100%
+    height: 50px
+    position: absolute
+    top: 0
+    left: 0
+    border: 0
+    outline: none
+    z-index: 1
+  ul.list-edit-challenge
+    width: 100%
+    text-align: left
+    list-style: none
+    padding: 50px 0 0 0
+    li
+      width: 100%
+      display: none
+      border-top: 1px solid $menu-border-color
+      padding: 0
+      margin: 0
+      a
+        width: 100%
+        display: inline-block
+        padding: 15px 25px
+        &:hover
+          background: $gray-light
+      &.active
+        display: block
+        position: absolute
+        top: 0
+        left: 0
+        border: 0
+    @media (min-width: $screen-md-min)
+      text-align: center
+      padding: 0
+      li
+        display: block
+        border: 0
+        &.active
+          position: relative
+          &:before
+            content: ''
+            width: 5px
+            height: 100%
+            background: $brand-primary
+            position: absolute
+            left: 0
+            top: 0
+          a,
+          a:hover,
+          a:focus
+            color: $brand-primary
+            background: transparent
+
+        & + li,
+        & + .active
+          border-top: 1px solid $menu-border-color
+  &.open
+    ul.list-edit-challenge li,
+    .icn-cross
+      display: block
+    .icn-more
+      display: none
+
+// ///////////////// //
+//     Navbar Top    //
+// ///////////////// //
+.navbar-top
+  width: 100%
+  max-height: $navbar-regular-height
+  border: 0
+  border-radius: 0
+  background: white
+  position: relative
+  z-index: $zindex-dropdown
+  border-bottom: 1px solid $menu-border-color
+  margin: 0
+
+  .nav-side-trigger
+    @extend .visible-xs
+    @extend .hidden
+    min-width: 46px
+    height: 46px
+    position: absolute
+    cursor: pointer
+    top: 0
+    left: 0
+    z-index: 1
+    padding: 0 0 0 40px
+    .icn
+      position: absolute
+      top: 50%
+      left: 23px
+      margin: -10px 0 0 -10px
+    .media-notification
+      height: $navbar-height
+      display: table-cell
+      vertical-align: middle
+    .badge
+      float: left
+    &.right
+      left: auto
+      right: 0
+      .badge
+        position: relative
+        margin: 5px 5px 0 -16px
+
+  .navbar-header
+    width: 100%
+    height: 100%
+    position: relative
+    .brand-logo
+      width: auto
+      height: $navbar-height
+      display: table
+      text-align: center
+      padding: 0 50px
+      margin: auto
+      .navbar-brand
+        max-height: 100%
+        display: table-cell
+        vertical-align: middle
+        float: none
+        padding: 0
+        img
+          height: 24px
+          margin: auto
+
+  .navbar-collapse
+    a
+      @extend .font-weight-medium
+    .open .dropdown-menu
+      li .notification-action
+        .btn
+          width: auto
+          display: inline-block
+        .btn-xs
+          @extend .btn-xs
+
+  @media (min-width: $screen-sm-min)
+    .navbar-header
+      width: auto
+      display: inline-block
+      .brand-logo
+        height: $navbar-regular-height
+        padding: 0 20px
+
+    .navbar-collapse
+      padding: 0 20px
+      ul
+        list-style: none
+      li, a
+        height: $navbar-regular-height
+        display: table-cell
+        vertical-align: middle
+        position: relative
+      li
+        padding: 0 40px 0 0
+      a span
+        vertical-align: middle
+
+      .details-user
+        position: absolute
+        top: auto
+        right: -10px
+        bottom: 5px
+        vertical-align: middle
+
+      .icn + .badge
+        float: none
+        margin: 0 0 10px -10px
+      .navbar-right
+        margin: 0 -20px 0 0
+      .media-photo
+        @include avatar(48px, 2px, 2px)
+        vertical-align: middle
+      .navbar-profile
+        .media-left
+          padding: 0
+      .open .dropdown-menu
+        width: auto
+        min-width: 280px
+        height: auto
+        max-height: 500px
+        left: auto
+        right: 20px
+        overflow: visible
+        border-radius: 5px
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175)
+        padding: 0
+        margin: 7px 0 0 0
+        .badge.details-user
+          position: relative
+          top: 0
+          right: 0
+        li
+          height: auto
+          display: block
+          position: relative
+          z-index: 1
+          padding: 0
+          & + li
+            border-top: 1px solid $gray
+          &:first-child,
+          &:last-child
+            border-radius: 5px 5px 0 0
+            overflow: hidden
+          &:last-child
+            border-radius: 0 0 5px 5px
+          .current-profile
+            h4,
+            span
+              width: 100%
+              display: inline-block
+              float: left
+          a
+            height: auto
+            display: block
+            padding: 10px 15px
+        .media-photo
+          @include avatar(40px, 0, 0)
+          margin: 0 15px 0 0
+        &.user-notifications-dropdown
+          width: 370px
+          max-height: none
+          overflow: visible
+          .setting-notifications a,
+          .user-notifications-more
+            color: $brand-primary
+            margin: 0
+          .user-notifications-more
+            border-top: 1px solid $gray
+          li.user-notifications
+            max-height: 300px
+            position: static
+            top: auto
+            left: auto
+            bottom: auto
+            overflow: hidden
+            overflow-y: scroll
+          li.notification-item
+            &:hover
+              background: $gray-light
+            & > a
+              padding: 20px
+            .media-photo
+              @include avatar(32px, 0, 0)
+
+// ///////////////// //
+//    Navbar Side    //
+// ///////////////// //
+.navbar-side
+  @extend .nav-primary
+  width: 262px
+  display: none
+  position: absolute
+  top: 0
+  left: -262px
+  overflow: auto
+  overflow-x: hidden
+  &.right
+    right: -262px
+    left: auto
+
+  .tab
+    display: block
+    & + .tab
+      display: none
+
+  &.active
+    .tab
+      display: none
+      & + .tab
+        display: block
+
+  @media (min-width: $screen-sm-min)
+    display: none
+
+.open-sidenav .navbar-side
+  display: block
+
+// ///////////////// //
+//    Nav Primary    //
+// ///////////////// //
+.nav-primary
+  ul
+    margin: 10px 0
+  li
+    padding: 0 10px
+    > a
+      @extend .text-sm
+      @extend .text-secondary-inverse
+      display: block
+      border-radius: 5px
+      padding: 8px 10px
+      &:hover
+        background: darker($gray-base, 10, 10)
+      &:focus
+        background: darker($gray-base, 10, 20)
+      .icn
+        font-size: $font-size-h6
+        line-height: 20px
+    &.active
+      a,
+      a:hover
+        @extend .text-white
+        background: $brand-primary
+  h3
+    background: darker($gray-base, 10, 10)
+    padding: 15px 0
+  .title
+    @extend .text-white
+    @extend .text-uppercase
+    @extend .m-t
+    @extend .m-b-none
+    @extend .font-weight-medium
+    padding: 0 20px
+  .nav-main + .title
+    @extend .m-t-xl
+  .back
+    border-bottom: 1px solid darker($gray-base, 10, 10)
+  .nav-profile
+    border-bottom: 1px solid darker($gray-base, 10, 10)
+    margin: 0
+    .user-profile
+      padding: 0
+      > a
+        border-radius: 0
+        padding: 20px
+    .media-photo
+      @include avatar(40px, 0, 0)
+    .media-left
+      padding: 0 20px 0 0
+    .media-body
+      h4, span
+        width: 100%
+        display: block
+        float: left
+
+
+// ////////////////// //
+//    Navbar Votes    //
+// ////////////////// //
+.navbar-preview
+  height: auto
+  border-radius: 0
+  border: 0
+  border-bottom: 1px solid $menu-border-color
+  z-index: 30
+  padding: 10px
+  margin: 0
+  .media,
+  .media-body,
+  .media-right
+    overflow: visible
+  .navigation-project
+    transform: translateX(-50%)
+    position: absolute
+    left: 50%
+    margin-left: 10px
+  .left-project,
+  .right-project,
+  .all-projects
+    @extend .font-weight-medium
+    height: 20px
+    line-height: 20px
+    display: inline-block
+    white-space: nowrap
+    border: 0
+    span
+      vertical-align: middle
+      padding: 0
+      span
+        padding: 0
+    .icn
+      display: inline-block
+      vertical-align: text-bottom
+      padding: 0
+  .divider
+    position: relative
+    &:after
+      content: ''
+      position: absolute
+      width: 1px
+      height: 30px
+      background: $menu-border-color
+      top: 50%
+      right: 0
+      margin: -15px 0 0 0
+  .count-voted
+    @extend .font-weight-medium
+    display: inline-block
+    white-space: nowrap
+  .list-team-inline
+    margin: 0
+    .media-photo
+      @include avatar(36px, 0, 2px)
+  @media (min-width: $screen-sm-min)
+    .navigation-project
+      transform: translateX(0)
+      position: static
+      margin-left: 0
+
+// ////////////////// //
+//  Navbar Challenges //
+// ////////////////// //
+.navbar-challenges
+  position: relative
+  border-bottom: 1px solid $menu-border-color
+  .dropdown-backdrop
+    display: none
+  a.dropdown-list
+    width: 100%
+    height: 50px
+    position: absolute
+    top: 0
+    left: 0
+    border: none
+    z-index: 15
+    padding: 0
+  .icn
+    position: absolute
+    top: 50%
+    right: 20px
+    margin: -10px 0 0 0
+  .nav-challenges
+    @extend .bg-white
+    position: relative
+    padding: 51px 0 0 0
+    li
+      display: none
+      border-top: 1px solid $menu-border-color
+      padding: 0
+      &.active
+        width: 100%
+        display: block
+        position: absolute
+        top: 0
+        border: 0
+      &.separator
+        display: none
+      a
+        @extend .text-secondary
+        padding: 15px 20px
+        &:hover
+          background: $gray-light
+  &.open
+    .nav-challenges
+      li
+        display: block
+        &.separator
+          display: none
+  @media (min-width: $screen-sm-min)
+    .nav-challenges
+      text-align: center
+      padding: 0
+      li
+        display: inline-block
+        position: relative
+        border-top: none
+        padding: 0
+        &  li
+          border-top: none
+        &.active
+          width: auto
+          position: relative
+          display: inline-block
+          border: 0
+          &:after
+            content: ''
+            width: 100%
+            height: 2px
+            background: $nav-pills-active-link-hover-color
+            position: absolute
+            bottom: 0
+            left: 0
+          a
+            color: $nav-pills-active-link-hover-color
+            &:hover
+              background: transparent
+        a
+          padding: 18px 20px
+        & + .separator
+          display: inline-block
+          vertical-align: middle
+          margin: 0 0 0 40px
+        &.separator:before
+          content: ''
+          width: 1px
+          height: 30px
+          background: $menu-border-color
+          position: absolute
+          top: 50%
+          left: -20px
+          margin: -15px 0 0 0
+    &.open
+      .nav-challenges
+        li,
+        li.separator
+          display: inline-block
+    .icn
+      display: none
+
+
+// ///////////////// //
+//  Navbar Current   //
+// ///////////////// //
+
+.navbar-current-challenge
+  position: relative
+  border-bottom: 1px solid $menu-border-color
+  z-index: $zindex-hero
+  .logo-challenge
+    height: 40px
+    .img
+      @extend .m-r-md
+      width: 50px
+      text-align: center
+    img
+      max-width: 50px
+      max-height: 40px
+  .challenge-dropdown
+    display: none
+    &.active
+      display: block
+  .dropdown
+    line-height: 0
+    button
+      width: 100%
+      position: relative
+      padding: 0 20px
+    .title
+      width: 100%
+      max-width: 1px
+      h5
+        overflow: hidden
+        text-overflow: ellipsis
+        white-space: nowrap
+    .logo-challenge,
+    .title,
+    .action
+      display: table-cell
+      vertical-align: middle
+    .caret
+      position: absolute
+      top: 50%
+      right: 20px
+    .dropdown-menu
+      width: 100%
+      box-shadow: 0 0 0
+      li + li
+        border: 0
+    &.open
+      .dropdown-menu
+        max-height: 100%
+        display: block
+        position: relative
+        border: 0
+        border-radius: 0
+        margin: 0
+        .title
+          width: 10000px
+          max-width: none
+          h5
+            overflow: initial
+            text-overflow: clip
+            white-space: normal
+  @media (min-width: $screen-sm-min)
+    .media-body
+      overflow: visible
+    .challenge-dropdown,
+    .challenge-dropdown.active,
+    .participation-dropdown
+      display: table-cell
+      vertical-align: middle
+      .title h5
+        line-height: ceil($font-size-h4 * 1.3)
+        margin: 5px 0
+    .participation-dropdown
+      border-left: 1px solid $menu-border-color
+      border-right: 1px solid $menu-border-color
+      .logo-challenge
+        display: none
+      .title
+        padding: 0
+      .title h5
+        font-size: $font-size-h6
+        color: $text-secondary
+    .dropdown
+      .title
+        width: auto
+        max-width: none
+        h5
+          overflow: initial
+          text-overflow: clip
+          white-space: normal
+      &.open
+        .dropdown-menu
+          width: 100%
+          min-width: 440px
+          max-height: none
+          position: absolute
+          top: 100%
+          right: auto
+          bottom: auto
+          left: 0
+          box-shadow: 5px 5px 20px 0 rgba(15, 32, 49, 0.1)
+          border: 1px solid $menu-border-color
+          border-radius: $border-radius-base
+          li
+            border: 0
+          .logo-challenge
+            height: 40px
+            .img
+              width: 60px
+            img
+              max-width: 60px
+              max-height: 40px
+          .title
+            h5,
+            .h5
+              font-size: $font-size-h6
+              font-weight: normal
+              &.font-weight-medium
+                font-weight: $headings-font-weight

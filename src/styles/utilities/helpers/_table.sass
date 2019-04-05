@@ -1,0 +1,131 @@
+.container-table
+  .table-expansive
+    position: relative
+    background: $gray-lighter
+    border: 1px solid $table-border-color
+    border-radius: $border-radius-base
+    margin: 0
+    .table
+      width: 200px
+      min-width: 0
+      &.copy
+        transition: box-shadow .4s ease-in-out
+    &.sticky-right
+      .table
+        width: 200px
+        min-width: 0
+      .table.copy
+        width: 0
+        min-width: 0
+      &.table-scrollable
+        .table.copy
+          box-shadow: -5px 0 8px -1px rgba(0, 0, 0, 0.05)
+    .panel-default
+      border: 0
+      border-bottom: 1px solid $table-border-color
+      border-radius: 4px 4px 0 0
+      margin: 0
+    .navbar-panel
+      border: 0
+    .sticky-right
+      width: auto
+      opacity: 0
+    .attached-table-body
+      position: absolute
+      top: auto
+      left: 0
+      z-index: 10
+      th
+        @extend .text-base
+        @extend .font-weight-medium
+      &.fixed
+        position: fixed
+        top: 0
+        z-index: 1060
+    .table-body
+      position: relative
+    .table-responsive
+      border: 0
+      margin: 0
+      .table
+        margin: 0
+        &.copy
+          width: auto
+          height: auto
+          position: absolute
+          right: 0
+          top: 0
+          .sticky-right
+            opacity: 1
+        > thead,
+        > tbody,
+        > tfoot
+          > tr
+            > th,
+            > td
+              padding: $table-expansive-cell-padding
+              border-top: 0
+              border-bottom: 1px solid $table-border-color
+      td,
+      th,
+      a
+        white-space: nowrap
+    .table-contents
+      td
+        vertical-align: middle
+        .media-photo
+          @include avatar(50px, 0, 0)
+
+  @media (min-width: $screen-sm-min)
+    &.full-height .table-body .table-responsive
+      height: 400px
+
+.table-expansive,
+.table-responsive,
+.table-ellipsis
+  tr.clickable
+    cursor: pointer
+    &:hover,
+    &:active
+      background: $gray-light
+  .logo-challenge
+    width: 60px
+    min-height: 40px
+    line-height: 40px
+    display: inline-block
+    img
+      max-height: 40px
+      max-width: 100%
+
+.container-table-overflow
+  @media (min-width: $screen-sm-min)
+    height: 350px
+    max-height: 350px
+    min-height: 350px
+    overflow: auto
+    background: white
+
+.container-table-ellipsis
+  @extend .m-b-md
+  border: 1px solid $table-border-color
+  .table.table-ellipsis
+    thead tr th
+      border-bottom: 1px solid $table-border-color
+    tr
+      td
+        border-top: 0
+        border-bottom: 1px solid $table-border-color
+      td, th
+        vertical-align: middle
+        padding: $table-expansive-cell-padding
+      th
+        h1, h2, h3, h4, h5, h6
+          overflow: hidden
+          text-overflow: ellipsis
+    .cell-full
+      width: 100%
+      max-width: 1px
+    .cell-ellipsis
+      overflow: hidden
+      text-overflow: ellipsis
+      white-space: nowrap

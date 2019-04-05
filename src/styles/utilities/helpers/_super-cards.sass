@@ -1,0 +1,445 @@
+.super-card
+  position: relative
+  border-radius: $border-radius-base
+  border: 1px solid $gray
+  &.dashed
+    border: 2px dashed lighter($gray-dark, 20, 20)
+  &.highlight
+    border: 2px solid rgba($brand-warning, 0.5)
+    box-shadow: 0 3px 7px rgba($brand-warning, 0.5)
+  &.selectable
+    &:hover
+      border: 1px solid $brand-primary
+  &.shadow
+    border: 0
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, .11)
+    overflow: hidden
+    transition: all .15s ease-out
+    &.active,
+    &:hover
+      transform: translateY(-3px)
+      box-shadow: 0 10px 14px 0 rgba(0, 0, 0, .11)
+  &.danger
+    border: 1px solid $brand-danger
+    &.dashed
+      border: 2px dashed $brand-danger
+
+  & + .super-card
+    @extend .m-t-md
+  .content
+    padding: 20px
+  .content-sm
+    padding: 10px
+  .content-md
+    padding: 30px
+  .section
+    & + .section
+      border-top: 1px solid $gray
+
+  .thumbnail
+    height: 200px
+    position: relative
+    text-align: center
+    overflow: hidden
+    border: 0
+    background-color: #cacaca
+    border-radius: 3px 3px 0 0
+    z-index: 0
+    padding: 0
+
+    .card-status
+      width: 100%
+      position: absolute
+      bottom: 0
+      left: 0
+      z-index: $zindex-banner
+
+    .select-card,
+    .filter-select
+      position: absolute
+      top: 0
+      left: 0
+
+    .select-card
+      width: 60px
+      height: 60px
+      transition: opacity .2s ease-in-out
+      z-index: 4
+
+    .filter-select
+      width: 100%
+      height: 100%
+      background: linear-gradient(307deg, rgba($gray-base, 0), rgba(black, 0.5)), linear-gradient(transparent, transparent)
+      z-index: 1
+
+    .over-link,
+    .bg,
+    .filter,
+    .title
+      width: 100%
+      height: 100%
+      position: absolute
+      top: 0
+      left: 0
+    .title
+      width: auto
+      height: auto
+      top: auto
+      bottom: 0
+      z-index: 1
+    .bg
+      @include background-size(cover)
+      background-position: center center
+      border-radius: 3px 3px 0 0
+      z-index: 0
+    .icn-no-image
+      transform: translate(-50%, -50%)
+      position: absolute
+      top: 50%
+      left: 50%
+      font-size: 100px
+    .over-link
+      z-index: 2
+    .filter
+      @extend .text-white
+      background: linear-gradient(to top, rgba(0, 0, 0, 0.8), rgba(255, 255, 255, 0))
+      border-radius: 3px 3px 0 0
+      opacity: 0.8
+      z-index: 1
+      &.full
+        background: rgba($gray-base, 0.8)
+        opacity: 1
+        @media (min-width: $screen-md-min)
+          &.hover-filter
+            opacity: 0
+            &:hover,
+            &.focus
+              opacity: 1
+
+      &.viewer
+        opacity: 0
+        transition: opacity .5s ease-in-out
+        & + .bg
+          filter: none
+        .thumbnail-info
+          line-height: normal
+          opacity: 0
+        .thumbnail-viewer,
+        .thumbnail-info
+          transform: translate(-50%, -50%)
+          position: absolute
+          left: 50%
+          transition: top .2s ease-in-out
+        .thumbnail-viewer
+          top: 130%
+        .thumbnail-info
+          top: 50%
+        &.active
+          opacity: 1
+          .thumbnail-info
+            opacity: 1
+          & + .bg
+            filter: blur(5px)
+
+    &.min
+      height: 140px
+    &.sample
+      border-radius: $border-radius-base
+      overflow: hidden
+      .filter
+        @include transition(background 0.1s ease-in)
+        @include transparent($gray-base, 0.5)
+        border-radius: $border-radius-base
+      .title
+        width: 100%
+        height: 100%
+        z-index: 2
+      h4
+        display: inline-block
+        vertical-align: middle
+
+  .empty-description
+    min-height: 20px
+    position: relative
+
+  .block-radius
+    border-radius: $border-radius-base
+    overflow: hidden
+
+  .logo-challenge
+    width: 100px
+    min-height: 60px
+    line-height: 60px
+    display: inline-block
+    img
+      max-height: 60px
+      max-width: 100%
+
+  // card jury
+  .mark
+    .btn,
+    .grade
+      position: relative
+  .share
+    height: 20px
+    .call_to_action
+      display: none
+    .list-share
+      position: relative
+      li
+        margin: 0 -10px 0 15px
+
+  // Card team with video
+  .thumbnail
+    .container-iframe
+      height: 100%
+      display: none
+      z-index: 20
+      padding: 0
+  .btn-player
+    display: none
+    position: absolute
+    top: 50%
+    left: 50%
+    z-index: 10
+    opacity: 0.7
+    margin: -30px 0 0 -30px
+    &:hover
+      opacity: 1
+    i.fa-play-circle
+      font-size: 60px
+  &.video-player,
+  &.video-played,
+  &.picture-preview
+    .loader
+      display: none
+  &.video-player
+    .btn-player
+      display: block
+  &.video-played
+    .title,
+    .bg,
+      display: none
+    .container-iframe
+      display: block
+
+  // Card hire
+  .matching
+    margin: 20px auto 20px auto
+  @media (min-width: $screen-sm-min)
+    .matching
+      margin: 0 auto 10px auto
+      .btn-guide
+        position: absolute
+        top: 10px
+        right: 10px
+  .thumbnail
+    &:hover
+      .viewer
+        opacity: 1
+        .thumbnail-viewer
+          top: 50%
+        .thumbnail-info
+          top: -30%
+        & + .bg
+          filter: blur(5px)
+      .over-link + .filter:after // a supprimer quand toutes les cards seront remplacées
+        background: linear-gradient(to bottom, rgba(lighten(black, 10%), 0), rgba(lighten(black, 10%), 0.2)), linear-gradient(rgba(lighten($gray-base, 10%), 0.2), rgba(lighten($gray-base, 10%), 0.2))
+        content: ''
+        width: 100%
+        height: 100%
+        position: absolute
+        top: 0
+        left: 0
+        z-index: 1
+  @media (min-width: $screen-md-min)
+    .thumbnail
+      .select-card
+        opacity: 0
+        transition: opacity .2s ease-in-out
+        &.active
+          opacity: 1
+      &:hover
+        .select-card
+          opacity: 1
+
+  // Submitted Banner
+  .submitted-banner
+    background: white
+    padding: 10px 20px
+    margin: auto
+    &.absolute
+      transform: translateX(-50%)
+      width: 100%
+      position: absolute
+      left: 50%
+      right: 0
+      z-index: 1
+    &.fixed
+      transform: translateX(0)
+      position: fixed
+      bottom: 0
+      left: 0
+      right: 0
+      z-index: $zindex-banner
+      box-shadow: 0 -4px 8px 0 rgba(0, 0, 0, 0.1)
+
+  // Participation
+  .participation-status
+    .bg-success
+      min-height: 55px
+  .answer-section-form
+    position: relative
+    .save
+      position: absolute
+      top: 0
+      right: 0
+  @media (min-width: $screen-sm-min)
+    .content-participation
+      padding: 30px 40px
+      .header
+        position: relative
+        .save
+          position: absolute
+          top: 0
+          right: 0
+    .answer-section-form
+      .control-label
+        padding: 0 100px 0 0
+
+
+  // Template
+  .template-image
+    @include center-image-vertical(120px)
+    background: lighter($gray-dark, 30, 30)
+    border-radius: 5px 5px 0 0
+    overflow: hidden
+    .image img
+      width: auto
+      height: 170px
+      left: -50%
+      right: -50%
+    @media (min-width: $screen-sm-min)
+      width: auto
+      height: auto
+      min-width: 214px
+      display: table-cell
+      vertical-align: top
+      border-radius: 0
+      border: 0
+      .image
+        position: relative
+        img
+          width: 100%
+          height: auto
+          position: relative
+          left: auto
+          right: auto
+      .img-center
+        padding: 0
+  .template-description
+    text-align: center
+    @media (min-width: $screen-sm-min)
+      text-align: left
+
+  // Add asset
+  .add-asset
+    height: 298px // like to card-extra-thumbnail
+    position: relative
+    .btn-fpicker
+      width: 100%
+      height: 100%
+      position: absolute
+      top: 0
+      left: 0
+    .media
+      transform: translateY(-50%)
+      width: 100%
+      position: absolute
+      top: 50%
+      left: 0
+      z-index: 0
+    &.min
+      height: 200px // like to thumbnail
+
+  // hiring-button
+  .hiring-button
+    text-align: center
+    p,
+    .btn,
+    .chat-link,
+    & + .chat-link
+      float: right
+    .invitation-button
+      &,
+      form,
+      .btn,
+      & + .chat-link
+        @extend .d-inline-block
+        @extend .align-middle
+        float: none
+      & + .chat-link
+        @extend .m-l-sm
+    @media (min-width: $screen-sm-min)
+      text-align: right
+      .invitation-button
+        &,
+        form,
+        .btn,
+        & + .chat-link
+          float: right
+  // Discussion
+  &.discussion
+    @include transition(z-index 0s ease-in-out 0.3s)
+    max-width: 710px
+    position: relative
+    box-shadow: 0 3px 10px 0 rgba(0, 0, 0, 0.1)
+    margin-right: auto
+    margin-left: auto
+    .content-discussion
+      position: relative
+      padding: 15px 20px
+    .media-body
+      overflow: visible
+    .icn
+      line-height: normal
+      vertical-align: middle
+      & + span
+        line-height: normal
+        vertical-align: middle
+    .icn-like,
+    .icn-liked
+      font-size: 14px
+    .icn-email
+      font-size: 16px
+    .post-textarea
+      border: 1px solid $menu-border-color
+      border-radius: $border-radius-base
+    &.active
+      @include transition(z-index 0s ease-in-out 0s)
+      z-index: $zindex-card-discussion
+    &.disabled
+      max-height: 240px
+      overflow: hidden
+      opacity: 0.5
+    // post
+    .post-discussion
+      &.active
+        .post-edit,
+        .post-body,
+        .post-body + .list-documents
+          display: none
+
+  // Preview doc
+  &.full-width
+    border-radius: 0
+    border: 0
+    .thumbnail
+      border-radius: 0
+      .bg,
+      .filter
+        border-radius: 0
+
+  // Animation Show up
+  .animation-show-up
+    animation: 0.3s ease-out 0 1 show-up

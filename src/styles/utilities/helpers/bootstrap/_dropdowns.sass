@@ -1,0 +1,78 @@
+.dropdown-backdrop
+  display: none
+
+.dropdown-menu
+  @extend .dropdown-menu-right
+  max-height: 260px
+  overflow: auto
+  border: 1px solid $gray
+  padding: 0
+  &.datetimepicker
+    right: auto
+    max-height: none
+  li
+    padding: 0
+    list-style: none
+    a
+      width: 100%
+      white-space: normal
+      padding: 10px 20px
+      margin: 0
+      &.text-danger
+        @extend .text-danger
+        &:hover
+          color: $brand-danger
+      &.text-nowrap
+        @extend .text-nowrap
+  &.dropdown-menu-top
+    top: auto
+    bottom: 30px
+    margin: 0 0 2px
+  .accordion-toggle
+    width: 100%
+    display: block
+    font-size: $font-size-base
+    line-height: $line-height-base
+    background: transparent
+    clear: both
+    font-weight: normal
+    color: $dropdown-link-color
+    white-space: normal
+    border: 0
+    text-align: left
+    padding: 10px
+    margin: 0
+    &:hover
+      background: $dropdown-link-hover-bg
+      border: 0
+  .accordion-toggle,
+  .accordion-toggle:hover
+    border-bottom: 1px solid $menu-border-color
+    .caret
+      position: absolute
+      right: 10px
+      margin: 10px 0
+
+.option-dropdown
+  .dropdown-toggle
+    display: inline-block
+    font-size: inherit
+    border-radius: 50px
+    padding: 2px
+    &:hover
+      background: $gray-light
+  &.open
+    .dropdown-toggle
+      box-shadow: none
+      background: $gray-light
+  input[type="submit"],
+  button[type="submit"]
+    color: $dropdown-link-color
+    white-space: normal
+    border: 0
+    text-align: left
+    padding: 10px
+    margin: 0
+    &:hover
+      background: $dropdown-link-hover-bg
+      border: 0

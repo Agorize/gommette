@@ -1,0 +1,28 @@
+.post-discussion
+  position: relative
+  border: 0
+  padding: 15px 20px
+  margin: 0
+
+  .post-avatar
+    @extend .pull-left
+    @extend .m-r-md
+
+  .post-content
+    margin-left: 60px
+    a.text-exposed-hide
+      display: inline
+      &:before
+        content: ' '
+  .post-header
+    label,
+    .label
+      @extend .align-top
+      margin-bottom: 0
+
+  @media (min-width: $screen-sm-min)
+    padding: 20px
+    .post-content
+      .video
+        &, iframe
+          height: 250px

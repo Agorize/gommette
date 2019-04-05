@@ -1,0 +1,375 @@
+//
+// Buttons
+//
+// .default          - Default button.
+// .text-danger      - Danger link.
+//
+// Styleguide 1.1
+//
+.btn
+  @include button-size(0, 0, 16px, normal, 0)
+  @extend .font-weight-medium
+  border: 0
+  vertical-align: middle
+
+  &,
+  &:active,
+  &.active
+    &:focus,
+    &.focus
+      outline: 0
+      outline-offset: 0
+
+  &:active,
+  &.active
+    @include box-shadow(inset 0 0 0 rgba(0,0,0,0))
+
+  &.underline,
+  &.no-underline
+    vertical-align: top
+    background: transparent
+    text-decoration: underline
+  &.no-underline
+    text-decoration: none
+  &.text-default
+    @extend .text-default
+  span
+    vertical-align: middle
+
+  &.disabled,
+  &[disabled],
+  fieldset[disabled] &
+    color: lighter($gray-dark, 20, 20)
+    opacity: 1
+
+.btn-quiet
+  cursor: not-allowed
+  opacity: 0.20
+  -webkit-box-shadow: none
+  box-shadow: none
+  &.btn-link
+    &:hover,
+    &:focus,
+    &:active
+      color: $gray-dark
+      background: transparent
+
+input[type="submit"].btn.link
+  background: transparent
+  .text-primary
+    @extend .text-primary
+  .text-danger
+    @extend .text-danger
+  .text-warning
+    @extend .text-warning
+  .text-success
+    @extend .text-success
+  .text-info
+    @extend .text-info
+
+//
+// Default Buttons
+//
+// .btn-default           - Default Button
+// .btn-primary           - Primary Button.
+// .btn-success           - Success Button.
+// .btn-info              - Info Button.
+// .btn-warning           - Warning Button.
+// .btn-danger            - Danger Button.
+//
+// Styleguide 1.2.1
+//
+.btn-default,
+.btn-primary,
+.btn-success,
+.btn-info,
+.btn-warning,
+.btn-danger,
+.btn-inverse,
+.btn-ghost
+  border: 2px solid $gray-base
+  border-radius: 50px
+  &.disabled,
+  &[disabled],
+  fieldset[disabled] &
+    @include button-variant(white, lighter($gray-dark, 20, 20), lighter($gray-dark, 20, 20))
+
+.btn-default
+  @include button-variant(white, $gray-base, $gray-base)
+.btn-primary
+  @include button-variant(white, $brand-primary, $brand-primary)
+.btn-success
+  @include button-variant(white, $brand-success, $brand-success)
+.btn-info
+  @include button-variant(white, $brand-info, $brand-info)
+.btn-warning
+  @include button-variant(white, $brand-warning, $brand-warning)
+.btn-danger
+  @include button-variant(white, $brand-danger, $brand-danger)
+.btn-inverse
+  @include button-variant($gray-base, white, white)
+
+
+//
+// Ghost Buttons
+//
+// .default           - Default Ghost Button.
+// .primary           - Primary Ghost Button.
+// .success           - Success Ghost Button.
+// .info              - Info Ghost Button.
+// .warning           - Warning Ghost Button.
+// .danger            - Danger Ghost Button.
+//
+// Styleguide 1.2.2
+//
+.btn-ghost
+  @include button-variant($gray-base, transparent, $gray-base)
+  &.primary
+    @include button-variant($brand-primary, transparent, $brand-primary)
+  &.success
+    @include button-variant($brand-success, transparent, $brand-success)
+  &.info
+    @include button-variant($brand-info, transparent, $brand-info)
+  &.warning
+    @include button-variant($brand-warning, transparent, $brand-warning)
+  &.danger
+    @include button-variant($brand-danger, transparent, $brand-danger)
+  &.inverse
+    @include button-variant(white, transparent, white)
+  &.disabled,
+  &[disabled],
+  fieldset[disabled] &
+    @include button-variant(lighter($gray-dark, 20, 20), transparent, lighter($gray-dark, 20, 20))
+
+
+//
+// Dropdown buttons
+//
+// .btn-dropdown         - Button dropdown.
+//
+// Styleguide 1.2.3
+//
+.btn-dropdown
+  @include button-size(9px, 20px, 14px, 20px, 3px)
+  min-height: 40px
+  border: 1px solid $gray
+  color: $text-secondary
+
+//
+// Buttons size
+//
+// .btn-lg    - Large Button.
+// .btn-md    - Medium long Button.
+// .btn-sm    - Medium Button.
+// .btn-xs    - Small Button.
+//
+// Styleguide 1.3
+//
+.btn-lg
+  @include button-size(19px, 50px, 16px, normal, 50px)
+  text-transform: uppercase
+.btn-md
+  @include button-size(10px, 50px, 14px, 20px, 50px)
+  text-transform: uppercase
+.btn-sm
+  @include button-size(8px, 30px, 14px, 20px, 50px)
+.btn-xs
+  @include button-size(5px, 24px, 14px, 20px, 50px)
+
+//
+// Dash buttons
+//
+// .none    - Default dash button.
+//
+// Styleguide 1.6
+//
+.btn-dash
+  width: 100%
+  border: 2px dashed $menu-border-color
+  border-radius: $border-radius-large
+  padding: 7px 0
+  margin: 0
+  span
+    margin: 0 5px
+
+
+//
+// Guide buttons
+//
+// .btn-link         - Default guide button.
+//
+// Styleguide 1.7
+//
+.btn-guide
+  @include button-size(3px, 0, 16px, 20px, 50px)
+  width: 28px
+  box-shadow: 0 3px 7px rgba(0, 0, 0, 0.05)
+  span
+    vertical-align: top
+    line-height: 14px
+  &.btn-xxs.btn-link
+    width: 15px
+    height: 15px
+    color: white
+    border: 1px solid $menu-border-color
+    border-radius: 50px
+    padding: 0
+
+//
+// Like button
+//
+// .like      - Like button.
+//
+// Styleguide 1.8
+//
+.btn-like
+  width: 40px
+  height: 40px
+  background: white
+  border: 0
+  border-radius: 40px
+  padding: 0
+  margin: 0
+  .icn
+    margin: 0
+    span
+      vertical-align: top
+
+//
+// Flag buttons
+//
+// .none   - Default flag button.
+// .dark   - Dark flag button.
+//
+// Styleguide 1.9
+//
+.btn-lang
+  border-radius: 5px
+  border: 1px solid $menu-border-color
+  position: relative
+  padding-left: 10px
+  padding-right: 30px
+  &.bg-base
+    @extend .text-white
+    border-color: $gray
+    a
+      @extend .text-white
+  .icn-dropdown,
+  .icn-dropup
+    position: absolute
+    top: 50%
+    right: 6px
+    margin: -10px 0 0 0
+  &.open
+    &.to-top
+      border-radius: 5px 5px 0 0
+      border-bottom: 1px solid transparent
+    &.to-bottom
+      border-radius: 0 0 5px 5px
+      border-top: 1px solid transparent
+.btn-group.dropup .dropdown-menu
+  width: 100%
+  min-width: 0
+  max-height: none
+  border-radius: 0
+  border: 0
+  border-top-left-radius: 5px
+  border-top-right-radius: 5px
+  border-top: 1px solid white
+  border-left: 1px solid white
+  border-right: 1px solid white
+  margin: 0
+  li
+    padding: 0
+    a
+      @extend .bg-base
+      @extend .text-white
+      padding: 8px 10px
+
+//
+// Link buttons
+//
+// .none    - Default link button
+// .active  - Active link button
+// .primaru - Link button primary
+//
+//
+// Styleguide 1.10
+//
+.btn-link
+  @extend .font-weight-medium
+  @extend .d-inline-block
+  @extend .text-nowrap
+  border-radius: 4px
+  padding: 10px 20px
+  &.active,
+  &.active:hover
+    background: rgba($gray, 0.4)
+  &.primary
+    color: $brand-primary
+    &:hover
+      color: lighter($brand-primary, 10, 10)
+  &.font-weight-normal
+    @extend .font-weight-normal
+
+
+//
+// Fpicker
+//
+.btn-fpicker
+  .icn-add
+    font-size: $font-size-base
+
+//
+// Hiring buttons
+//
+// .by-email      - Email button.
+// .by-facebook   - Facebook button.
+//
+// Styleguide 2.0
+//
+.btn.by-email,
+.btn.by-facebook
+  position: relative
+  padding-left: 35px
+  padding-right: 35px
+  .icn
+    position: absolute
+    top: 50%
+    left: 15px
+    margin: -8px 0 0 0
+
+.btn.by-facebook
+  color: #385a97
+  border-color: #385a97
+  .icn
+    margin: -10px 0 0 0
+
+// Base Style
+
+button
+  font-size: $font-size-base
+  background: transparent
+  border: 0
+  outline: none
+  padding: 0
+  .icn,
+  .fa
+    vertical-align: middle
+
+.btn-scroll-window
+  width: 55px
+  height: 55px
+  position: absolute
+  bottom: 20px
+  left: 50%
+  cursor: pointer
+  padding: 0
+  margin: 0 0 0 -28px
+  .icn-scroll-indicator
+    width: 55px
+    height: 55px
+    background-image: amazon-asset('scroll_indicator.png')
+
+.btn-popover
+  display: inline-block

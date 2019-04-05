@@ -1,0 +1,367 @@
+.preview-doc
+  width: 100%
+  height: 100%
+  position: fixed
+  top: 100%
+  bottom: 0
+  left: 0
+  z-index: $zindex-viewer
+  background: white
+  &.active
+    top: 0
+  & + .modal-backdrop
+    display: none
+  .preview-container
+    width: 100%
+    height: 100%
+    position: absolute
+    top: 0
+    left: 0
+    overflow: auto
+  .dashboard-sidebar
+    width: 100%
+    height: 100%
+    background: white
+    z-index: 2
+    padding: 0
+    .popover
+      width: 100%
+    &.vote .clearfix
+      height: 60px
+    .super-card
+      .thumbnail:hover .viewer .thumbnail-info
+        top: 50%
+    .share
+      height: 20px
+      overflow: hidden
+      ul.list-share
+        li
+          margin: 0 -10px 0 10px
+          & + li
+            margin: 0 -10px 0 15px
+    .upload
+      display: inline-block
+      vertical-align: top
+      padding: 20px 10px
+      .media
+        display: table
+        table-layout: fixed
+      .media-left
+        min-width: 56px
+    #vote-comments
+      textarea
+        resize: none
+        &:focus,
+        &.focus
+          min-height: 100px
+          max-height: 100px
+      .post-discussion
+        @extend .m-t-md
+        padding: 0
+    .main-vote-button
+      width: 100%
+      position: fixed
+      bottom: 0
+      left: 0
+      z-index: 25
+      box-shadow: -2px -3px 10px 0 rgba(0, 0, 0, 0.08)
+      @media (min-width: $screen-sm-min)
+        width: 350px
+    &.over-hidden
+      overflow-y: hidden
+      .overlay
+        width: 100%
+        height: 100%
+        @include transparent(white, 0.7)
+        position: absolute
+        top: 0
+        left: 0
+        z-index: 25
+
+  .dashboard-container-asset,
+  .dashboard-container
+    position: relative
+    .preload
+      width: 60px
+      height: 60px
+      position: absolute
+      top: 50%
+      left: 50%
+      margin: -30px 0 0 -30px
+      .spinner-layer
+        border-color: darker($gray-dark, 10, 10)
+
+  .dashboard-container
+    display: none
+    .header
+      @extend .bg-white
+      width: 100%
+      position: relative
+      top: 0
+      left: 0
+      border-bottom: 1px solid $menu-border-color
+      padding: 10px
+      .dashboard-title
+        transform: translateX(-15px)
+
+    &.active
+      width: 100%
+      height: 100%
+      display: block
+      display: flex
+      flex: 1 0 auto
+      flex-direction: column
+      background: $gray-light
+      position: fixed
+      top: 0
+      left: 0
+      z-index: 10000000
+
+  .box
+    align-items: stretch
+    width: 100%
+    height: 100%
+    text-align: center
+    position: relative
+    iframe
+      width: 100%
+      height: 100%
+      position: absolute
+      left: 0
+      border: 0
+    .btn
+      margin: 40px 0
+    &.video-container
+      z-index: -1
+      margin: -50px 0 0 0
+      video
+        width: 100%
+        height: 100%
+        max-height: 100%
+
+  .media-image
+    @extend .media-left
+    @extend .media-middle
+    width: 100px
+    max-width: 100px
+    min-width: 100px
+    img
+      max-width: 80px
+  .category
+    @extend .text-center
+    padding: 0 20px
+    margin: 15px 0
+    h5
+      margin: 0 0 5px 0
+  .nav-dash
+    width: 100%
+    display: table
+    table-layout: fixed
+    border-bottom: 1px solid $menu-border-color
+    li
+      width: 100%
+      display: table-cell
+      text-align: center
+      float: none
+      padding: 0
+      a
+        @extend .text-secondary
+        height: 40px
+        padding: 10px 20px
+        &:hover
+          background: $gray-light
+      &.active
+        position: relative
+        &:after
+          content: ''
+          width: 100%
+          height: 2px
+          position: absolute
+          bottom: 0
+          left: 0
+          background: $nav-pills-active-link-hover-color
+        a
+          @extend .text-primary
+          &:hover
+            background: transparent
+  .list-team
+    margin: 0
+    border-bottom: 1px solid $gray-light
+    li
+      margin: 0
+      padding: 20px 10px
+    a
+      display: table
+    h6
+      @include ellipsis()
+      width: 100%
+      display: inline-block
+      white-space: nowrap
+    .media-left,
+    .media-body
+      vertical-align: middle
+
+  .vote-panel
+    width: 100%
+    height: auto
+    position: fixed
+    bottom: 0
+    left: 0
+    z-index: 30
+    padding: 0
+    margin: 0
+    .vote-inner
+      overflow: auto
+      box-shadow: -2px -3px 10px 0 rgba(0, 0, 0, 0.08)
+      padding: 20px
+    .close
+      opacity: 1
+      text-shadow: 0 0 0
+      position: absolute
+      top: 15px
+      right: 15px
+      .icn
+        vertical-align: middle
+        margin: 0 4px
+    .total
+      width: 100%
+      position: relative
+      padding: 30px 0 0 0
+      &:before
+        content: ''
+        width: 32px
+        height: 1px
+        background: $gray
+        position: absolute
+        top: 0
+        right: 0
+      p
+        &.success
+          @extend .text-success
+        &.warning
+          @extend .text-warning
+
+    .submit
+      .btn span
+        text-transform: none
+
+    .success-message
+      .animation-field
+        transition: all .2s ease-in-out
+        transform: translate(0, 50%)
+        position: relative
+        opacity: 0
+      &.active
+        .animation-field
+          transform: translate(0, 0)
+          opacity: 1
+
+  #footer
+    display: none
+
+  &.preview-doc-asset
+    .preview-container
+      width: 100%
+      height: 100%
+      position: relative
+      top: auto
+      left: auto
+      overflow: inherit
+      display: flex
+      flex-direction: column
+      align-items: stretch
+    .dashboard
+      display: flex
+      flex: auto 1 auto
+      height: 100%
+      position: relative
+    .dashboard-container-asset
+      width: 100%
+      height: auto
+      display: block
+      display: flex
+      flex: 1 0 auto
+      flex-direction: row
+      align-items: stretch
+      position: relative
+      overflow: hidden
+      background: $gray-light
+      z-index: 1
+      top: auto
+      left: auto
+      padding: 0
+      .box
+        display: none
+        height: auto
+        &.active
+          display: block
+        &.video-container
+          margin: 0
+  @media (min-width: $screen-sm-min)
+    transform: translateY(0)
+    &.full-width
+      .dashboard-sidebar
+        display: none
+      .dashboard-container,
+      .dashboard-container.active
+        padding: 0
+    .preview-container
+      width: 100%
+      height: 100%
+      position: relative
+      top: auto
+      left: auto
+      overflow: inherit
+      display: flex
+      flex-direction: column
+      align-items: stretch
+    .dashboard
+      display: flex
+      flex: auto 1 auto
+      height: 100%
+      position: relative
+    .dashboard-sidebar
+      width: 350px
+      max-width: 100%
+      height: 100%
+      min-height: 100%
+      overflow-x: hidden
+      overflow-y: auto
+      box-shadow: 0 5px 10px 0 rgba(0, 0, 0, .11)
+      position: absolute
+      top: 0
+      bottom: 0
+      left: 0
+      z-index: 2
+      padding: 0
+      #vote-comments
+        .post-discussion
+          .destroy-file
+            opacity: 0
+          &:hover .destroy-file
+            opacity: 1
+    .dashboard-container,
+    .dashboard-container.active
+      width: 100%
+      height: auto
+      display: block
+      display: flex
+      flex: 1 0 auto
+      flex-direction: row
+      align-items: stretch
+      position: relative
+      overflow: hidden
+      background: $gray-light
+      z-index: 1
+      top: auto
+      left: auto
+      padding: 0 0 0 350px
+      .header
+        display: none
+      .box
+        height: auto
+        &.video-container
+          margin: 0
+
+    .vote-panel
+      width: 350px

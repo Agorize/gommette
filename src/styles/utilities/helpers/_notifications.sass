@@ -1,0 +1,58 @@
+// ////////////////// //
+//    Notification    //
+// ////////////////// //
+.notification
+  width: 350px
+  height: auto
+  display: none
+  list-style: none
+  list-decoration: none
+  position: fixed
+  top: 90px
+  right: 0
+  z-index: 10
+  padding: 0
+  margin: 0
+  li
+    width: 100%
+    height: auto
+    position: absolute
+    top: 0
+    border: 1px solid $menu-border-color
+    border-radius: 5px
+    box-shadow: 0 0 20px rgba(32,40,43,.2)
+    @include transition(right 1.0s ease 0s, opacity 1.0s ease 0s)
+    padding: 8px 44px 12px 12px
+    margin: 12px 0 0 0
+    &.fade
+      right: -350px
+      &.in
+        right: 22px
+        &.out
+          right: -350px
+          opacity: 0
+    .new-message
+      position: relative
+      padding: 0 30px 0 0
+    .media-photo
+      @include avatar(48px, 2px, 2px)
+      position: absolute
+      top: 50%
+      right: -16px
+      margin-top: -24px
+    .description
+      text-align: left
+      margin: 0
+      .author p
+        @extend .h6
+        margin-bottom: 0
+      .timestamp p
+        position: absolute
+        top: 8px
+        right: 44px
+        text-align: right
+      .message p
+        line-height: 16px
+@media (min-width: $screen-sm-min)
+  .notification
+    display: block

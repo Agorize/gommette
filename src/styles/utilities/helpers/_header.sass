@@ -1,0 +1,120 @@
+//
+// Header page
+//
+// .header-page   Page header, with background
+//
+// Styleguide 3.1
+//
+
+.header-page
+  @extend .text-white
+  @include background-size(cover)
+  background-repeat: no-repeat
+  background-position: center
+  position: relative
+  text-align: center
+  padding: 85px 0
+  .overlay
+    @include transparent(black, 0.6)
+    width: 100%
+    height: 100%
+    position: absolute
+    top: 0
+    left: 0
+  h1
+    @extend .h3
+    @extend .text-white
+    margin: 0 0 10px 0
+
+//
+// Header description
+//
+// .header-description   Description header, simple header
+//
+// Styleguide 3.3
+//
+
+.header-description
+  @extend .text-center
+  padding: 30px 0
+  h3
+    @extend .m-t-none
+    @extend .m-b-sm
+
+//
+// Header profile
+//
+// .header-profile   Profile header
+//
+// Styleguide 3.4
+//
+
+.header-profile
+  @extend .bg-base
+  @extend .text-white
+  padding: 20px 0
+  margin: 0 0 20px 0
+  .media-photo
+    @include avatar(100px, 0, 0)
+    display: block
+    padding: 0
+    margin: auto
+    &.media-empty span
+      @extend .h3
+      @extend .m-t-none
+      @extend .m-b-none
+  .media-profile
+    text-align: center
+    h1
+      @extend .h4
+      @extend .text-white
+      margin: 0
+    .list-label
+      @extend .m-t-sm
+      .label
+        border-color: white
+    .localisation
+      i.fa
+        @extend .m-r-xs
+  .media-stats
+    text-align: center
+    @extend .m-t-sm
+  @media (min-width: $screen-sm-min)
+    padding: 30px 0 0 0
+    .media
+      display: table
+      overflow: visible
+      margin: 0 0 -10px 0
+    .media-photo
+      @include avatar(140px, 0, 0)
+      padding-right: 20px
+    .media-photo,
+    .media-profile,
+    .media-stats
+      width: auto
+      display: table-cell
+      vertical-align: middle
+      text-align: left
+    .media-profile
+      width: 10000px
+      padding: 25px 0
+    .media-stats
+      padding-left: 20px
+
+//
+// Header section
+//
+// .header-section   Section header
+//
+// Styleguide 3.5
+//
+
+.section-header
+  @extend .m-t-lg
+  @extend .m-b-lg
+  h3
+    @extend .h4
+    @extend .m-t-xs
+    @extend .m-b-sm
+  &.m-b-none
+    @extend .m-b-none
