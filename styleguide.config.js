@@ -3,11 +3,14 @@ const path = require('path')
 
 module.exports = {
   title: 'Agorize UI-Kit',
-  components: './src/components/**/*.vue',
+  components: [
+    './src/components/**/*.vue',
+  ],
   ignore: [
     './src/components/**/*.md',
   ],
   require: [
+    path.resolve('global.require.js'),
     path.resolve('src/styles/index.scss')
   ],
   exampleMode: 'expand',
