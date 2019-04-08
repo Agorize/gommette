@@ -1,0 +1,70 @@
+// Pagination
+.pagination
+  @extend .m-t-none
+  @extend .m-b-md
+  > li
+    display: inline-block
+    float: left
+    > a,
+    > span
+      @extend .font-weight-medium
+      border-top-width: 1px
+      border-bottom-width: 1px
+      border-left-width: 0
+      border-right-width: 0
+      border-color: transparent
+      border-top-color: $gray
+      border-bottom-color: $gray
+      padding: 10px 20px
+      &:hover
+        background: white
+        border-color: transparent
+        border-top-color: $gray
+        border-bottom-color: $gray
+    > a
+      @extend .text-primary
+    &:first-child,
+    &:last-child
+      > a,
+      > span
+        border-width: 1px
+        border-color: $gray
+        z-index: 4
+        &:hover
+          border-width: 1px
+          border-color: $gray
+    &:first-child
+      > a,
+      > span,
+        border-right: 0
+        &:hofer
+          border-right: 0
+    &:last-child
+      > a,
+      > span,
+        border-left: 0
+        &:hofer
+          border-left: 0
+    &.disabled,
+    &.ais-pagination--item__disabled
+      > a,
+      > span
+        @extend .text-secondary
+        cursor: not-allowed
+  > .active > a,
+  > .active > span
+    @extend .text-white
+    border-right: 0
+    background: $brand-primary
+    border-top-color: $brand-primary
+    border-bottom-color: $brand-primary
+    &,
+    &:hover,
+    &:focus
+      background: $brand-primary
+      border-top-color: $brand-primary
+      border-bottom-color: $brand-primary
+
+// Inifinite Scroll
+.pagination-infinite
+  display: none

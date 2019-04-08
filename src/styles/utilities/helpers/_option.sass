@@ -1,0 +1,184 @@
+.btn-group-tabs
+  @extend .btn-group
+  .btn
+    @extend .text-sm
+    border: 0
+    border-radius: $border-radius-base
+    background: rgba($gray, 0.5)
+    padding: 10px 20px
+    &:hover,
+    &.active,
+    &.active:hover
+      background: $gray
+    &+.btn
+      margin-left: 2px
+    .badge
+      @extend .m-l-sm
+
+.option-nav
+  margin: 0 0 20px 0
+  .option
+    .option-group
+      position: relative
+      .icon-container
+        padding: 8px
+        border-radius: 50%
+        &.selected
+          background-color: rgba($gray, 0.4)
+      p
+        display: inline-block
+        vertical-align: middle
+    .btn-popover
+      display: inline-block
+      vertical-align: middle
+      cursor: pointer
+      position: relative
+      &.pills
+        position: absolute
+        top: 0
+        right: 6px
+      &.round
+        width: 100%
+        border: 1px solid $gray
+        border-radius: 100px
+        padding: 0 14px
+        .icn-bracket
+          position: absolute
+          top: 50%
+          right: 7px
+          margin: -9px 0 0 0
+      &.active
+        border-color: $brand-primary
+        color: $brand-primary
+      .icn
+        font-size: 18px
+        vertical-align: middle
+        margin: 0 8px
+        & + .badge
+          position: absolute
+          top: 50%
+          right: -6px
+          margin: -8px 0 0 0
+    .btn-collapse
+      border-bottom: 1px solid $gray
+      .icn
+        font-size: 18px
+        vertical-align: middle
+        float: right
+        margin: 0 8px
+    .btn-group
+      margin: 0 0 0 10px
+      & + .btn
+        margin: 0 0 0 10px
+    ul.list-collapse
+      @extend .list-unstyled
+      padding: 6px 0 0 0
+      margin: 0
+      li
+        padding: 0
+        margin: 6px 0 0 0
+  @media (min-width: $screen-sm-min)
+    .form-inline
+      margin: 0
+      input.form-control
+        min-width: 215px
+    .option
+      width: 100%
+      .option-group
+        display: inline-block
+        padding: 10px 0
+        .dropdown-menu
+          right: 0
+          left: auto
+        & + .option-group
+          float: right
+      .btn-popover.round
+        padding: 0 30px 0 14px
+        .icn-bracket
+          right: 5px
+      ul.list-collapse
+        display: inline
+        vertical-align: middle
+        padding: 0
+        li
+          display: inline-block
+          vertical-align: top
+          padding: 0
+          margin: 0 0 0 10px
+
+
+.options
+  position: relative
+  margin: 0 0 40px 0
+  p
+    display: inline-block
+    vertical-align: middle
+    padding: 0 14px
+  .option-group
+    width: 100%
+    display: inline-block
+    white-space: nowrap
+    .search
+      display: inline-block
+      vertical-align: top
+    .toggle
+      margin: 0 0 20px 0
+      label input + span
+        float: right
+  .option-nav
+    display: none
+    &.active
+      @extend .bg-base
+      display: block
+      border-radius: 5px
+      margin: 20px 0 0 0
+      ul
+        list-style: none
+        padding: 0
+        margin: 0
+      li
+        width: 100%
+        padding: 15px
+      a
+        @extend .text-white
+        &.active
+          @extend .text-primary
+
+  .option-group.active
+    display: table
+    width: 100%
+    .search
+      width: 10000px
+      display: table-cell
+      .form-search,
+      input
+        width: 100%
+      input
+        border-color: $gray-dark
+      .icn-cross.xs
+        width: 20px
+        height: 20px
+        @extend .show
+        position: absolute
+        right: 24px
+        left: auto
+        top: 50%
+        cursor: pointer
+        margin: -10px 0 0 0
+    .btn
+      display: table-cell
+      white-space: nowrap
+  .icn-settings
+    position: absolute
+    top: 50%
+    right: 0
+    margin: -10px 0 0 0
+    cursor: pointer
+
+  @media (min-width: $screen-sm-min)
+    .option-group
+      width: auto
+    .icn-settings
+      display: none
+    .option-nav.active
+      display: none

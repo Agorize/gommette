@@ -1,0 +1,20 @@
+.intl-tel-input
+  width: 100%
+  .country-list
+    @extend .m-t-sm
+    border-radius: $border-radius-base
+    border-color: $menu-border-color
+    box-shadow: 0 3px 7px 0 rgba(0, 0, 0, 0.05)
+    .country
+      padding: 10px
+      & + .country
+        border-top: 1px solid $menu-border-color
+    .divider
+      border-top: 0
+      padding: 0
+      margin: 0
+    .country-name
+      color: $gray-base
+    .dial-code
+      color: $text-secondary
+

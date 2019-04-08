@@ -1,0 +1,61 @@
+//
+// Default Labels
+//
+// .label-default           - Default Label
+// .label-primary           - Primary Label.
+// .label-success           - Success Label.
+// .label-info              - Info Label.
+// .label-warning           - Warning Label.
+// .label-danger            - Danger Label.
+//
+// Styleguide 7.1
+//
+.label
+  @extend .text-xs
+  @extend .m-r-xs
+  @extend .m-b-xs
+  width: auto
+  display: inline-block
+  border-radius: 4px
+  padding: 5px 10px
+  &.label-xs
+    padding: 2px 5px
+
+//
+// Ghost Labels
+//
+// .default           - Default Ghost Label.
+// .primary           - Primary Ghost Label.
+// .success           - Success Ghost Label.
+// .info              - Info Ghost Label.
+// .warning           - Warning Ghost Label.
+// .danger            - Danger Ghost Label.
+//
+// Styleguide 7.2
+//
+.label-ghost
+  color: $gray-base
+  background: transparent
+  border: 1px solid $gray-base
+  &.primary
+    color: $brand-primary
+    border: 1px solid $brand-primary
+  &.success
+    color: $brand-success
+    border: 1px solid $brand-success
+  &.warning
+    color: $brand-warning
+    border: 1px solid $brand-warning
+  &.danger
+    color: $brand-danger
+    border: 1px solid $brand-danger
+  &.info
+    color: $brand-info
+    border: 1px solid $brand-info
+
+// list label
+.nowrap-label
+  .show-more
+    @extend .label
+    @extend .label-ghost
+    @extend .primary

@@ -1,0 +1,50 @@
+.nav-affix
+  display: inline-block
+  &.affix-top
+    position: relative
+  &.affix-bottom
+    position: relative
+  &.affix
+    position: fixed
+    top: 0
+
+.nav-main
+  > li > a  .fa
+    width: 20px
+    text-align: center
+
+.nav-tabs
+  max-height: 50px
+  position: relative
+  overflow: auto
+  white-space: nowrap
+  border: 0
+  background: $gray-lighter
+  > li
+    position: relative
+    display: inline-block
+    float: none
+    margin: 0
+    > a
+      border: 0
+      border-radius: 0
+      padding: 15px 60px
+      margin: 0
+      &:hover
+        color: $nav-tabs-link-hover-color
+        background: $nav-tabs-link-hover-bg
+        border: 0
+    &.active
+      &:after
+        content: ' '
+        width: 100%
+        height: 2px
+        position: absolute
+        bottom: 1px
+        left: 0
+        background: $brand-primary
+      > a
+        &,
+        &:hover,
+        &:focus
+          border: 0

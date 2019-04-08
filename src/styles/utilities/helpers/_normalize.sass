@@ -1,0 +1,157 @@
+.open-sidenav
+  .main,
+  #footer
+    left: 262px
+  .main
+    overflow: visible
+  #footer
+    position: relative
+  &.right
+    .main,
+    #footer
+      right: 262px
+      left: auto
+
+  @media (min-width: $screen-sm-min)
+    .main,
+    #footer
+      left: auto
+
+.container
+  width: 100%
+  .container-fluid
+    padding: 0
+
+.container-fluid
+  width: 100%
+  padding: 0 $padding-base-horizontal
+
+.row-10
+  min-width: 0
+  min-height: 0
+
+.over-hidden
+  overflow: hidden
+  body
+    overflow: hidden
+
+.over-visible
+  overflow: visible
+
+.vertical-middle
+  transform: translateY(-50%)
+  width: 100%
+  position: absolute
+  top: 50%
+  left: 0
+
+.divider
+  border-top: 1px solid $gray
+//Bootstrap 4
+.d-inline
+  display: inline
+.d-block
+  display: block
+.d-inline-block
+  display: inline-block
+.d-table
+  display: table
+.align-baseline
+  vertical-align: baseline
+.align-top
+  vertical-align: top
+.align-middle
+  vertical-align: middle
+.align-bottom
+  vertical-align: bottom
+.align-text-top
+  vertical-align: text-top
+.align-text-bottom
+  vertical-align: text-bottom
+.font-weight-normal
+  font-weight: normal
+.font-weight-medium
+  font-weight: bold
+.font-weight-bold
+  font-weight: bold
+
+.border-0
+  border: 0 !important // like bootstrap 4
+
+.pos-relative
+  position: relative
+.pos-absolute
+  position: absolute
+
+// Reset
+.row-10-xs-full
+  margin: 0 -20px
+
+.text-wrap
+  word-wrap: break-word
+
+.text-no-wrap
+  white-space: nowrap
+
+.text-pre-wrap
+  white-space: pre-wrap
+
+// Break
+.break-sm,
+.break-md,
+.break-lg
+  width: 100%
+  height: 0
+  display: none
+  float: left
+
+strong
+  @extend .font-weight-medium
+
+@media (min-width: $screen-sm-min)
+  .container
+    max-width: $screen-lg
+  // Reset
+  .row-10-xs-full
+    margin-left: -$padding-base-horizontal/2
+    margin-right: -$padding-base-horizontal/2
+  .row-10-sm-full
+    margin: 0 -20px
+  .col-sm-align-top
+    display: flex
+    align-items: top
+
+  // Text
+  // ----
+  .text-sm-left
+    text-align: left
+  .text-sm-right
+    text-align: right
+
+  // Break
+  .break-sm
+    display: inline-block
+
+@media (min-width: $screen-md-min)
+  // Reset
+  .row-10-md-full
+    margin: 0 -20px
+  .col-md-reset
+    padding-left: 0
+    padding-right: 0
+
+  .container-constrained
+    max-width: $screen-lg - 200
+
+
+  //Break
+  .break-sm
+    display: none
+  .break-md
+    display: inline-block
+
+@media (min-width: $screen-lg-min)
+  .break-md
+    display: none
+  .break-lg
+    display: inline-block

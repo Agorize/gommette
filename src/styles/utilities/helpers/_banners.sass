@@ -1,0 +1,45 @@
+//
+// Banner colors
+//
+// .default      - Default color.
+// .primary      - Primary color.
+// .success      - Success color.
+// .info         - Info color.
+// .warning      - Warning color.
+// .danger       - Danger color.
+// .inverse      - Inverse color.
+//
+// Styleguide Banner
+//
+.banner
+  @extend .text-white
+  width: 100%
+  height: auto
+  position: relative
+  text-align: center
+  padding: 10px 18px // fix to mobile
+  p, a
+    display: inline-block
+    vertical-align: baseline
+    margin: 0
+  a
+    @extend .text-white
+    text-decoration: underline
+  .close
+    height: 20px
+    opacity: 1
+    position: absolute
+    top: 50%
+    right: 4px
+    margin: -10px 0 0 0
+  &.inverse,
+  &.inverse a
+    @extend .text-base
+    background: white
+  & + .banner
+    display: none
+  &.hidden + .banner
+    display: block
+
+  &.banner-radius
+    border-radius: $border-radius-large

@@ -1,0 +1,18 @@
+.filter-panel
+  @include transition(right .15s ease-in-out)
+  width: 80%
+  overflow: auto
+  position: fixed
+  top: 0
+  bottom: 0
+  right: calc(-85%)
+  background: white
+  box-shadow: -5px 0 10px 0 rgba(0, 0, 0, 0.11)
+  z-index: $zindex-filter
+  padding: 0
+  &.active
+    right: 0
+  @media (min-width: $screen-sm-min)
+    width: 300px
+    position: fixed
+    right: -310px // width and box-shwadow

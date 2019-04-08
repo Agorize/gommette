@@ -1,0 +1,654 @@
+ul
+  padding: 0
+  margin: 0
+  li
+    list-style-position: outside
+
+.container-list-inside
+  ul li
+    list-style-position: inside
+    list-style-type: disc
+
+ul.settings
+  @extend .list-unstyled
+  li
+    border-top: 1px solid $menu-border-color
+    padding: 20px 0
+  a, form
+    width: 100%
+    max-width: 574px
+    display: block
+    padding: 0 20px
+    margin: auto
+    .icn-bracket-right
+      margin: 10px 0
+  form
+    @extend .text-base
+    margin: auto
+    text-align: center
+  label
+    vertical-align: middle
+  .select-style
+    width: 100%
+    min-width: 200px
+    margin: 0
+  .media
+    margin: 0
+  @media (min-width: $screen-sm-min)
+    form
+      text-align: left
+    label
+      margin: 0
+
+ul.list-card
+  @extend .list-unstyled
+  display: flex
+  justify-content: space-around
+  flex-flow: row wrap
+  margin: 0 0 20px 0
+  &.center
+    justify-content: center
+  li
+    width: 100%
+    display: block
+    text-align: center
+  .super-card
+    width: 250px
+    display: inline-block
+
+  @media (min-width: $screen-sm-min)
+    justify-content: flex-start
+    li
+      width: auto
+      display: inline-block
+      margin: 0 10px
+
+ul.list-team-inline
+  @extend .list-unstyled
+  li
+    width: auto
+    display: inline-block
+    vertical-align: top
+    float: none
+    padding: 0 3px
+  @media (min-width: $screen-sm-min)
+    li
+      width: auto
+      float: none
+      padding: 0 3px
+      .user-more
+        background-color: $brand-primary
+    &.over
+      li
+        padding: 0
+        margin: 0
+        & + li
+          margin: 0 0 0 -40px
+
+ul.list-team-vertical
+  @extend .list-unstyled
+  padding: 0 10px
+  margin: 0
+  li
+    border-top: 1px solid rgba(255, 255, 255, 0.2)
+    padding: 10px 0
+    margin: 0
+    a
+      display: inline-block
+      padding: 0
+  .media-photo
+    @include avatar(40px, 2px, 2px)
+    margin: 0 0 0 10px
+  .profile
+    padding: 0 0 0 10px
+  .icn
+    width: 20px
+    opacity: 0.5
+    &:hover
+      opacity: 1
+
+ul.list-documents
+  @extend .list-unstyled
+  li
+    position: relative
+    border-bottom: 1px solid $menu-border-color
+    padding: 0
+    .media
+      width: 100%
+      display: table
+      table-layout: fixed
+    .media-left
+      width: 56px
+    .media-body
+      width: 100%
+    .extra-information
+      width: 50px
+    a
+      display: inline-block
+      vertical-align: top
+      padding: 20px 10px
+    a.active
+      background: $gray-light
+    h6
+      @include ellipsis()
+      width: 100%
+      display: inline-block
+      white-space: nowrap
+    p
+      overflow: hidden
+      text-overflow: ellipsis
+    .destroy-file
+      width: 40px
+      height: 40px
+      display: none
+      font-size: 20px
+      line-height: 40px
+      text-align: center
+      position: absolute
+      top: 50%
+      right: 0
+      padding: 0
+      margin: -20px 0 0 0
+    &:hover .destroy-file
+      display: block
+  @media (min-width: $screen-sm-min)
+    li
+      &.active a
+        p,
+        h6,
+        &
+          color: $btn-primary-color
+      .extra-information
+        width: 30px
+
+ul.list-min-image
+  @extend .list-unstyled
+  margin: 10px 0
+  li
+    width: 40px
+    height: 40px
+    position: relative
+    display: inline-block
+    padding: 0
+    margin: 10px 5px 0 5px
+    float: left
+    &.active
+      &:before
+        content: ''
+        width: 44px
+        height: 44px
+        position: absolute
+        top: 50%
+        left: 50%
+        border: 2px solid $nav-pills-active-link-hover-color
+        border-radius: 3px
+        margin: -22px 0 0 -22px
+    a,
+    .img
+      @include background-size(cover)
+      width: 100%
+      height: 100%
+      display: inline-block
+      position: absolute
+      top: 0
+      left: 0
+      border-radius: 2px
+      overflow: hidden
+    .img
+      @extend .img-responsive
+    img
+      display: none
+  @media (min-width: $screen-sm-min)
+    margin: 15px 0 0 0
+
+ul.list-checkbox
+  @extend .list-unstyled
+  .checkbox + .checkbox
+    margin: 20px 0 0 0
+  li
+    padding: 0
+    .media-photo
+      @include avatar(40px, 0, 0)
+      display: inline-block
+      margin: 0 0 0 10px
+    .media-body
+      h5
+        padding: 0
+    & + li
+      border: 0
+
+ul.list-category
+  @extend ul.list-checkbox
+  li
+    .media-photo
+      margin: 0
+    & + li
+      margin: 10px 0 0 0
+
+ul.list-answer
+  @extend .list-unstyled
+  li
+    padding: 0
+    .title
+      padding: 0
+    .subtitle
+      margin: 10px 0 0 0
+    & + li
+      margin: 20px 0 0 0
+
+ul.list-invite-friends
+  @extend .list-unstyled
+  text-align: center
+  margin: 0 0 16px 0
+  li
+    display: inline-block
+    vertical-align: top
+    border: 0
+    padding: 0
+    .media-photo
+      @include avatar(76px, 2px, 2px)
+    &.dashed
+      line-height: 68px
+      border: 0
+      .media-photo
+        border: 2px dashed $gray
+    & + li
+      margin: 0 0 0 35px
+  @media (min-width: $screen-sm-min)
+    margin: 0 0 35px 0
+
+ul.list-comments
+  @extend .list-unstyled
+  li
+    padding: 0
+  .label
+    @extend .font-weight-normal
+    font-size: 11px
+    line-height: normal
+
+ul.list-vote
+  @extend .list-unstyled
+  li
+    padding: 0
+    & + li
+      @extend .m-t-lg
+    .head
+      display: block
+    p
+      display: inline-block
+      vertical-align: middle
+      &[data-toggle=popover]
+        cursor: pointer
+      .btn
+        @extend .m-l-sm
+        opacity: 0.5
+        vertical-align: middle
+      &[aria-describedby] .btn
+        opacity: 1
+
+    .media, .media-body
+      overflow: visible
+    .btn.btn-information
+      width: 17px
+      height: 17px
+      border: 1px solid white
+      vertical-align: middle
+      span
+        width: 15px
+        height: 15px
+        display: block
+    .slider
+      background: transparent
+      height: 20px
+      margin: 0
+      &:before
+        background: $gray
+        content: ''
+        width: 100%
+        height: 2px
+        position: absolute
+        top: 50%
+        left: 0
+      span
+        @extend .bg-primary
+        width: 20px
+        height: 20px
+        margin: -10px 0 0 -10px
+      .complete
+        @extend .bg-primary
+        position: absolute
+        top: 50%
+        left: 0
+        height: 2px
+        margin: 0
+    .slider-value
+      width: 100px
+    &.warning
+      .slider
+        span,
+        .complete
+          @extend .bg-warning
+      .slider-value p.h6
+        @extend .text-warning
+    &.success
+      .slider
+        span, .complete
+          @extend .bg-success
+      .slider-value p.h6
+        @extend .text-success
+    &.danger
+      .slider
+        span, .complete
+          @extend .bg-danger
+      .slider-value p.h6
+        @extend .text-danger
+
+ul.list-conversation
+  width: 100%
+  max-height: 100%
+  position: relative
+  overflow: auto
+  border-top: 1px solid $menu-border-color
+  border-bottom: 1px solid $menu-border-color
+  padding: 0
+  li
+    display: block
+    & > a,
+    & > .form-group
+      width: 100%
+      display: block
+      padding: 10px 20px
+    & + li
+      border-top: 1px solid $menu-border-color
+  .media-left
+    .extra-members
+      @extend .m-r-sm
+      position: relative
+      .badge
+        @extend .text-white
+        position: absolute
+        right: 0
+        bottom: -5px
+        background: lighter($gray-base, 20, 20)
+        font-weight: normal
+        z-index: 1
+  @media (min-width: $screen-sm-min)
+    overflow: hidden
+    &:hover
+      overflow: auto
+
+ul.list-messages
+  @extend .list-unstyled
+  text-align: left
+  padding: 0 20px
+  li.message
+    @extend .media
+    table-layout: fixed
+    margin: 0
+    padding: 15px 0
+  .avatar
+    @extend .media-left
+    padding: 0 20px 0 0
+    a
+      display: inline-block
+  .message-author
+    width: auto
+  .message-body,
+  .message-author
+    @extend .media-body
+    padding: 0
+  .message-content
+    @extend .container-list-inside
+    p
+      @extend .m-b-none
+      word-wrap: break-word
+  .timestamp,
+  .post-label
+    @extend .media-right
+    @extend .media-middle
+    p
+      display: inline-block
+      white-space: nowrap
+      text-align: right
+  li.empty-message
+    padding: 15px
+
+.list-popover-team
+  padding: 0
+  li
+    & > a
+      display: block
+      padding: 10px
+    &.team-member
+      padding: 10px 10px 10px 40px
+    & + li
+      border-top: 1px solid $gray
+
+ul.list-signup-social-media
+  @extend .list-unstyled
+  li.social-media
+    width: 100%
+    border: solid 2px rgba(0, 0, 0, 0.05)
+    border-radius: 5px
+    box-shadow: 0 3px 7px 0 rgba(0, 0, 0, 0.05)
+    padding: 0
+    & + li.social-media
+      @extend .m-t-md
+    &.facebook
+      background-color: #3b5998
+    &.linkedin
+      background-color: #007ebb
+    &.twitter
+      background-color: #55acee
+    &.wechat
+      background-color: #1aad19
+    &.google
+      background-color: #db4437
+    &.yammer
+      background-color: #386cbb
+    & > a
+      @extend .text-white
+      display: block
+    .media
+      min-height: 56px
+      display: table
+      vertical-align: middle
+      padding: 10px 20px
+      p
+        @extend .m-b-none
+      .icn
+        @extend .m-r-sm
+        font-size: 30px
+      img.icn
+        width: 30px
+        height: auto
+        max-height: 30px
+    &.mail
+      a
+        @extend .text-base
+  li.separator
+    @extend .m-t-md
+    @extend .m-b-md
+    text-align: center
+    span.text
+      width: 75px
+      position: relative
+      display: inline-block
+      background: white
+      z-index: 2
+    span.line
+      @extend .m-t-n-xxs
+      width: 100%
+      height: 2px
+      background: $text-secondary
+      position: absolute
+      top: 50%
+      left: 0
+
+ul.list-order
+  @extend .list-unstyled
+  li
+    display: none
+    padding: 0
+    margin: 0 0 20px 0
+    & + li
+      margin: 0
+    &.active
+      display: block
+    p
+      white-space: normal
+    h6
+      margin: 0 0 10px 0
+
+  @media (min-width: $screen-sm-min)
+    li
+      display: block
+      h6
+        margin: 6px 0 0 0
+      p
+        margin: 6px 0
+
+
+.list-end
+  max-width: 600px
+  display: block
+  text-align: center
+  position: relative
+  padding: 0 40px
+  margin: 40px auto
+  p
+    display: inline-block
+    position: relative
+    z-index: 1
+    padding: 0 10px
+  hr
+    width: 100%
+    height: 2px
+    position: absolute
+    top: 50%
+    left: 0
+    z-index: 0
+    margin: 0
+
+ul.list-stat
+  @extend .list-unstyled
+  li
+    width: 33%
+    display: inline-block
+    vertical-align: top
+    padding: 10px
+    span
+      display: block
+    .number
+      @extend .h4
+      @extend .text-white
+      @extend .m-t-none
+      @extend .m-b-none
+    & + li
+      border-left: 1px solid $gray
+  @media (min-width: $screen-sm-min)
+    display: inline-block
+    white-space: nowrap
+    float: right
+    li
+      width: auto
+      display: inline-block
+      text-align: center
+      border: none
+      padding: 5px 20px
+      span
+        display: block
+
+ul.list-label
+  .label
+    display: inline-block
+    border: 1px solid $brand-primary
+    margin: 0 6px 6px 0
+
+ul.list-popover
+  @extend .list-unstyled
+  padding: 0 5px
+  li
+    padding: 12px 20px
+    margin: 0
+    & + li
+      border-top: 1px solid rgba(#d8d8d8, 0.2)
+    .checkbox
+      margin: 0
+  .badge
+    margin: 0 6px
+  &.dark
+    p,
+    a
+      @extend .text-white
+
+ul.list-team
+  li
+    display: block
+    padding: 0
+    margin: 0
+    & + li
+      border-top: 1px solid $gray-light
+      padding: 10px 0 0 0
+      margin: 10px 0 0 0
+  .media-photo
+    @include avatar(48px, 2px, 2px)
+
+ul.user-notifications-dropdown
+  margin: 0
+  .loader
+    @extend .m-t-md
+    @extend .m-b-md
+    text-align: center
+  .setting-notifications
+    a
+      margin: 10px 0
+  .user-notifications
+    width: 100%
+    position: absolute
+    top: 56px
+    left: 0
+    bottom: 0
+    display: inline-block
+    overflow: hidden
+    overflow-y: auto
+    border-top: 1px solid $gray
+    padding: 0
+  .empty-message,
+  .timestamp
+    @extend .text-white
+  ul.list-user-notifications
+    margin: 0
+    li.notification-item
+      display: block
+      padding: 10px
+      .media-photo
+        @include avatar(32px, 0, 0)
+        .media-challenge img
+          width: 32px
+  .notification-action
+    .btn
+      float: right
+      margin: 10px 5px 0 0
+  .user-notifications-more
+    margin: 10px
+  @media (min-width: $screen-sm-min)
+    .empty-message
+      color: $text-secondary
+    .timestamp
+      color: $text-muted
+    .notification-action
+      padding: 0 20px
+      .btn
+        margin: 0 0 20px 0
+      .hiring-button
+        .btn
+          margin: 0 0 20px 10px
+
+ul.list-mark
+  @extend .list-inline
+  @extend .text-secondary
+  @extend .m-l-n-sm
+  @extend .font-weight-medium
+  > li
+    padding: 0 10px

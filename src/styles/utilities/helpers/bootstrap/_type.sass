@@ -1,0 +1,80 @@
+// //////////// //
+//  Typography  //
+// //////////// //
+
+// Headings
+// -------------------------
+
+h1, .h1
+  line-height: ceil($font-size-h1 * 1.3)
+h2, .h2
+  line-height: ceil($font-size-h2 * 1.3)
+h3, .h3
+  line-height: ceil($font-size-h3 * 1.3)
+h4, .h4
+  line-height: ceil($font-size-h4 * 1.3)
+h5, .h5
+  line-height: ceil($font-size-h5 * 1.3)
+h6, .h6
+  line-height: ceil($font-size-h6 * 1.3)
+.text-default
+  font-size: $font-size-base
+  line-height: $line-height-base
+.text-md
+  font-size: $font-size-md
+  line-height: $font-size-md * 1.5
+.text-sm
+  font-size: $font-size-sm
+  line-height: $font-size-sm * 1.5
+.text-xs
+  font-size: $font-size-xs
+  line-height: $font-size-xs * 1.5
+
+// Body text
+// -------------------------
+p .icn
+  vertical-align: text-bottom
+.lead
+  margin-bottom: 0
+  font-size: $font-size-base
+  font-weight: normal
+  line-height: $line-height-base
+
+  @media (min-width: $screen-sm-min)
+    font-size: $font-size-base
+
+// Emphasis & misc
+// -------------------------
+
+// Contextual backgrounds
+@include bg-variant('.bg-base', $gray-base)
+@include bg-variant('.bg-secondary', $text-secondary)
+@include bg-variant('.bg-white', white)
+@include bg-variant('.bg-light', $gray-light)
+@include bg-variant('.bg-primary', $brand-primary)
+@include bg-variant('.bg-success', $brand-success)
+@include bg-variant('.bg-info', $brand-info)
+@include bg-variant('.bg-warning', $brand-warning)
+@include bg-variant('.bg-danger', $brand-danger)
+
+.help-block
+  @extend .text-sm
+  color: $text-muted
+
+// Contextual colors
+
+@include text-emphasis-variant('.text-white', $gray-lighter)
+@include text-emphasis-variant('.text-base', $gray-base)
+@include text-emphasis-variant('.text-secondary', $text-secondary)
+@include text-emphasis-variant('.text-secondary-inverse', rgba(white, 0.7))
+@include text-emphasis-variant('.text-primary', $brand-primary)
+@include text-emphasis-variant('.text-danger-lighter', lighter($brand-danger, 30, 30))
+
+// Overflow text
+
+.text-ellipsis,
+.text-ellipsis-wrap
+  @include text-overflow
+
+.text-ellipsis-wrap
+  white-space: normal

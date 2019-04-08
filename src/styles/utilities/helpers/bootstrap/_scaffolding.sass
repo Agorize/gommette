@@ -1,0 +1,50 @@
+a:focus,
+a.btn:focus,
+button.btn:focus,
+.tab-checkbox[tabindex='0']:focus
+  outline-style: dashed
+  outline-width: 2px
+  box-shadow: none
+  &:active
+    outline: 0
+    &:hover
+      visibility: hidden
+      &:-moz-focusring
+        visibility: visible
+        outline: 0
+      & > *
+        visibility: visible
+    &:not(:-moz-focusring)
+      visibility: inherit
+
+a:focus,
+[tabindex='0']:focus,
+a.tabindex-primary:focus,
+button.tabindex-primary:focus
+  outline-color: $brand-primary
+  outline-offset: -2px
+
+a.btn-primary:focus,
+button.btn-primary:focus,
+a.tabindex-white:focus,
+button.tabindex-white:focus
+  outline-color: white
+
+a.tabindex-base:focus,
+button.tabindex-base:focus
+  outline-color: $gray-base
+
+.social-media a:focus,
+a.btn-primary:focus,
+button.btn-primary:focus
+  outline-offset: -8px
+
+.noFocus
+  a:focus,
+  a.btn:focus,
+  button.btn:focus,
+  .tab-checkbox[tabindex='0']:focus
+    outline: none !important // fix vendors who put default outline
+    &:active
+      &:hover
+        visibility: visible

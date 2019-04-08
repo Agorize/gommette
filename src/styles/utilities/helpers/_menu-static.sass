@@ -1,0 +1,21 @@
+// //////////////// //
+//    Menu-static   //
+// //////////////// //
+.menu-static
+  @extend .bg-white
+  width: 100%
+  position: relative
+  z-index: $zindex-navbar
+
+  &.absolute
+    position: absolute
+    left: 0
+
+  @media (min-width: $screen-sm-min)
+    &.fixed
+      position: fixed
+      top: 0!important
+      #enrollment-nav
+        position: relative
+        bottom: auto
+        left: auto

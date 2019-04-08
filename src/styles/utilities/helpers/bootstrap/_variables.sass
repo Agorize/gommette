@@ -1,0 +1,510 @@
+/////////////////////
+/////   Color   /////
+/////////////////////
+$gray-base: #0f2031
+$gray-darker: darker($gray-base, 30, 30)
+$gray-dark: #949697
+$gray: #dee2e4
+$gray-light: #f5f5f5
+$gray-lighter: #ffffff
+
+// $brand-dark: #0f2031
+// $brand-grey: #949697
+// $brand-light: #dee2e4
+// $brand-white: #f5f5f5
+
+$brand-primary: #4da3f8 // blue
+$brand-success: #0cb87d // green
+$brand-info: darker($brand-primary, 30, 30) // primary super darker
+$brand-warning: #f5a24e // orange
+$brand-danger: #f04a4a // red
+
+$transparent: rgba(255,255,255, 0)
+
+$text-secondary: rgba($gray-base, 0.7)
+
+//== Scaffolding
+//
+//## Settings for some of the most global styles.
+
+//** Global text color on `<body>`.
+$text-color: $text-secondary
+
+//** Global textual link color.
+$link-color: $gray-base
+//** Link hover color set via `lighter()` function.
+$link-hover-color: lighter($gray-base, 20, 20)
+//** Link hover decoration.
+$link-hover-decoration: none
+
+
+// ----------
+// Typography
+// ----------
+$font-family-sans-serif: 'Liszt_FY', Helvetica , Arial, sans-serif
+$font-family-base: $font-family-sans-serif
+$font-family-icon: 'Icomoon'
+
+$icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/'
+
+// Font size
+$font-size-base: 14px
+$font-size-md: 16px
+$font-size-sm: 13px
+$font-size-xs: 12px
+
+$font-size-h1: floor(($font-size-base * 3.6)) //~50px
+$font-size-h2: floor(($font-size-base * 2.7)) //~37px
+$font-size-h3: ceil(($font-size-base * 2))    //~28px
+$font-size-h4: ceil(($font-size-base * 1.5))  //~21px
+$font-size-h5: floor(($font-size-base * 1.3)) //~18px
+$font-size-h6: ceil(($font-size-base * 1.1))  //~16px
+
+$font-size-icon: 20px
+
+$line-height-base: $font-size-base * 1.5
+$line-height-computed: $line-height-base
+
+$headings-color: $gray-base
+$headings-font-weight: bold
+
+// ---------
+// Paddings
+// ---------
+$padding-base: 10px
+$padding-collapse-header: 10px
+$padding-collapse-body: 20px
+
+
+
+// ----------
+// Components
+// ----------
+$padding-base-vertical: 11px
+$padding-base-horizontal: 20px
+
+$border-radius-base: 3px
+$border-radius-large: 5px
+
+
+// -----------
+// Grid system
+// -----------
+$grid-columns: 12
+$grid-gutter-width: 20px
+
+
+// ---------------
+// Container sizes
+// ---------------
+$container-tablet: 100%
+$container-sm: $container-tablet
+
+$container-desktop: 100%
+$container-md: $container-desktop
+
+$container-large-desktop: (1380px + $grid-gutter-width)
+$container-lg: 100%
+
+
+// -------------------------
+// Media queries breakpoints
+// -------------------------
+$screen-md: 992px
+$screen-md-min: $screen-md
+$screen-sm-min: 768px
+$screen-lg: 1400px
+$screen-lg-min: $screen-lg
+$screen-lg-desktop: $screen-lg-min
+$screen-md-max: ($screen-lg-min - 1)
+
+
+//== Tables
+//
+//## Customizes the `.table` component with basic values, each used across all table variations.
+
+//** Padding for `<th>`s and `<td>`s.
+$table-cell-padding: 15px
+//** Padding for cells in `.table-expansive`.
+$table-expansive-cell-padding: 15px
+
+//** Default background color used for all tables.
+$table-bg: $gray-lighter
+//** Background color used for `.table-hover`.
+$table-bg-hover: $gray-light
+$table-bg-active: $table-bg-hover
+
+
+// -----------
+// Buttons
+// -----------
+$btn-font-weight: normal
+
+$btn-default-color: $gray-base
+$btn-default-bg-img: white amazon-asset('stripe-pattern-gray.png')repeat
+$btn-default-border: $btn-default-color
+
+$btn-primary-color: $brand-primary
+$btn-primary-bg-img: white amazon-asset('stripe-pattern.png')repeat
+$btn-primary-border: $btn-primary-color
+
+$btn-danger-color: $brand-danger
+$btn-danger-bg-img: white amazon-asset('stripe-pattern-alert.png')repeat
+$btn-danger-border: $btn-danger-color
+
+
+//== Jumbotron
+//
+//##
+
+$jumbotron-padding:              30px !default
+$jumbotron-color:                inherit !default
+$jumbotron-bg:                   $gray-lighter !default
+$jumbotron-heading-color:        inherit !default
+$jumbotron-font-size:            $font-size-base
+$jumbotron-heading-font-size:    $font-size-h3
+
+
+// ---------
+//  Forms
+// ---------
+$input-bg-disabled: $gray-light
+$input-color: rgba($gray-base, 0.7)
+$input-border: $gray
+$input-border-radius: $border-radius-base
+$input-border-focus: $brand-primary
+$input-color-placeholder: rgba($gray-base, 0.4)
+$input-height-base: 40px
+$form-group-margin-bottom: 30px
+$input-group-addon-bg: #fff
+$input-group-addon-border-color: $gray
+
+
+// ---------
+//  Navbar
+// ---------
+
+// Basics of a navbar
+$navbar-height: 46px
+$navbar-regular-height: 60px
+$navbar-margin-bottom: 0
+$navbar-border-radius: $border-radius-base
+$navbar-default-bg: $gray-lighter
+$navbar-default-link-color: $gray-base
+$navbar-default-link-active-bg: transparent
+
+
+//== Navs
+//
+//##
+
+//== Tabs
+$nav-tabs-border-color: transparent
+
+$nav-tabs-link-hover-border-color: transparent
+$nav-tabs-link-hover-color: $gray-base
+$nav-tabs-link-hover-bg: $gray-light
+
+$nav-tabs-active-link-hover-bg: $gray-lighter
+$nav-tabs-active-link-hover-color: $brand-primary
+$nav-tabs-active-link-hover-border-color: transparent
+
+//== Pills
+$nav-link-padding: 0
+$nav-link-hover-bg: white
+$nav-pills-border-radius: 0
+$nav-pills-active-link-hover-bg: transparent
+$nav-pills-active-link-hover-color: $brand-primary
+
+
+//== Pagination
+//
+//##
+
+$pagination-border: $gray
+
+$pagination-hover-color: $gray-base
+$pagination-hover-bg: $gray-light
+$pagination-hover-border: $gray
+
+$pagination-active-color: $brand-primary
+$pagination-active-bg: $gray-lighter
+$pagination-active-border: $brand-primary
+
+$pagination-disabled-color: $gray-light
+$pagination-disabled-bg: #fff
+$pagination-disabled-border: $gray-light
+
+
+// --------
+// Form states and alerts
+// --------
+//== Jumbotron
+//
+//##
+
+$jumbotron-color: $gray-lighter
+$jumbotron-heading-color: $gray-lighter
+
+//== Form states and alerts
+//
+//## Define colors for form feedback states and, by default, alerts.
+
+$state-success-text: $brand-success
+$state-success-border: $brand-success
+$state-info-text: $brand-info
+$state-warning-text: $brand-warning
+$state-warning-border: $brand-warning
+$state-danger-text: $brand-danger
+$state-danger-border: $brand-danger
+$state-danger-bg: white
+
+// --------
+// Horizontal Nav
+// --------
+$horizontal-navigation-height: 50px
+$horizontal-indicators-height: 20px
+$horizontal-navigation-background: $gray-light
+
+
+//== Popovers
+//
+//##
+
+//** Popover body background color
+$popover-bg: lighter($gray-base, 20, 20)
+//** Popover body color
+$popover-color: $gray-lighter
+//** Popover arrow color
+$popover-arrow-color: $popover-bg
+//** Popover border color
+$popover-border-color: $popover-bg
+//** Popover fallback border color
+$popover-fallback-border-color: $popover-bg
+
+//** Popover arrow width
+$popover-arrow-width: 8px
+//** Popover outer arrow width
+$popover-arrow-outer-width: $popover-arrow-width
+
+
+//== Labels
+//
+//##
+
+//** Default label background color
+$label-default-bg: $gray-dark
+//** Primary label background color
+$label-primary-bg: $brand-primary
+//** Success label background color
+$label-success-bg: $brand-success
+//** Info label background color
+$label-info-bg: $brand-info
+//** Warning label background color
+$label-warning-bg: $brand-warning
+//** Danger label background color
+$label-danger-bg: $brand-danger
+
+//** Default label text color
+$label-color: $gray-lighter
+//** Default text color of a linked label
+$label-link-hover-color: #fff
+
+
+
+// --------
+// Menu
+// --------
+$menu-default-bg: $gray-light
+$menu-border-color: $gray
+$menu-nav-font-weight: normal
+$menu-nav-line-height: 46px
+
+
+// -------
+// Box
+// -------
+$box-color: white
+
+
+// -------
+// Live
+// -------
+$live-bg: $gray-base
+$live-color: white
+
+
+
+//== Dropdowns
+//
+//## Dropdown menu container and contents.
+
+//** Dropdown menu `border-color`.
+$dropdown-border: transparent
+//** Dropdown link text color.
+$dropdown-link-color: $text-secondary
+//** Hover color for dropdown links.
+$dropdown-link-hover-color: darker($dropdown-link-color, 30, 30)
+//** Hover background for dropdown links.
+$dropdown-link-hover-bg: $gray-light
+
+
+//== Pagination
+//
+//##
+
+$pagination-color: $link-color
+$pagination-bg: $gray-lighter
+$pagination-border: $gray-light
+
+$pagination-hover-color: $link-hover-color
+$pagination-hover-bg: $gray-light
+$pagination-hover-border: $gray-light
+
+$pagination-active-color: $brand-primary
+$pagination-active-bg: $gray-lighter
+$pagination-active-border: $gray-lighter
+
+$pagination-disabled-color: $gray-light
+$pagination-disabled-bg: $gray-lighter
+$pagination-disabled-border: $gray-light
+
+// -------
+// Z-index master list
+// -------
+$z-index-footer: 5
+$z-index-google-tooltip: 10
+$zindex-banner: 50
+$zindex-hero: 100
+$z-index-color-picker: 150
+$zindex-nav-tabs: 150
+$zindex-navbar: 700
+$zindex-dropdown: 800
+$zindex-cookies: 900
+$zindex-chat:  950
+$zindex-modal-background:  980
+$zindex-overlay-post: 980
+$zindex-viewer: 990
+$zindex-card-discussion: 990
+$zindex-popover: 995
+$zindex-modal: 1000
+$zindex-select: 1050
+$zindex-filter: 1070
+
+
+//  -----------
+//  Footer color
+//  -----------
+$footer-bg: $gray-base
+$footer-border-color: #595f62
+
+
+//== Close
+//
+//##
+
+$close-font-weight: normal
+$close-color: $gray-base
+$close-text-shadow: 0 0 0 #fff
+
+//== Modals
+//
+//** Color applied to the modal dialog
+
+$modal-dialog-color: $gray-lighter
+
+// --------
+// Alerts
+// --------
+$alert-padding: 10px 20px
+$alert-border-radius: 5px
+
+//== Alerts
+//
+//## Define alert colors, border radius, and padding.
+
+$alert-success-bg: white
+$alert-success-text: $text-secondary
+$alert-success-border: $state-success-border
+
+$alert-warning-bg: white
+$alert-warning-text: $text-secondary
+$alert-warning-border: $state-warning-border
+
+$alert-danger-bg: white
+$alert-danger-text: $text-secondary
+$alert-danger-border: $state-danger-border
+
+$alert-info-text: $text-secondary
+$alert-warning-text: $text-secondary
+$alert-danger-text: $text-secondary
+
+// -----------
+// Progress bar
+// -----------
+$progress-bar-bg: $brand-primary
+$progress-bg: $gray
+$progress-border-radius: $border-radius-base
+
+// -----------
+// List group
+// -----------
+
+$list-group-border-radius: 0
+$list-group-active-color: $gray-base
+$list-group-active-text-color: $gray-base
+$list-group-active-bg: $gray-light
+$list-group-active-border: $menu-border-color
+$list-group-hover-bg: $gray-light
+//== Panels
+//
+//##
+
+$panel-body-padding: 20px
+$panel-heading-padding: 10px
+
+//** Border color for elements within panels
+$panel-inner-border: $menu-border-color
+
+$panel-default-text: $gray-base
+$panel-default-border: $menu-border-color
+$panel-default-heading-bg: $gray-lighter
+
+$panel-light-heading-bg: $gray-light
+
+//== Badges
+//
+//##
+
+$badge-color: $gray-lighter
+
+//== Breadcrumbs
+//
+//##
+
+$breadcrumb-padding-vertical: 5px
+$breadcrumb-padding-horizontal: 20px
+//** Breadcrumb text color
+$breadcrumb-color: $gray
+//** Text color of current page in the breadcrumb
+$breadcrumb-active-color: $gray-base
+//** Textual separator for between breadcrumb elements
+$breadcrumb-separator-font-family: 'Icomoon'
+$breadcrumb-separator: '\e903'
+//** Breadcrumb background color
+$breadcrumb-bg: transparent
+
+//== Type
+//
+//##
+
+$text-muted: rgba($gray-base, 0.4)
+$text-secondary: rgba($gray-base, 0.7)
+
+//** Horizontal line color.
+$hr-border: $menu-border-color
+
+//== Tooltip
+//
+//##
+$tooltip-color: lighter($gray-base, 20, 20)

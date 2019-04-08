@@ -1,0 +1,33 @@
+.cover
+  position: relative
+  .cover-video
+    width: 100%
+    height: 100%
+    position: absolute
+    top: 0
+    left: 0
+    overflow: hidden
+  .video-full
+    transform: translate(-50%, -50%)
+    width: auto
+    height: auto
+    min-width: 100%
+    min-height: 100%
+    position: absolute
+    top: 50%
+    left: 50%
+    .video__youtube
+      min-width: 100%
+      min-height: 100%
+      display: none
+      position: absolute
+      left: 0px
+      top: 0px
+      overflow: hidden
+      opacity: 1
+      pointer-events: none
+      transition-property: opacity
+      transition-duration: 2000ms
+      z-index: 0
+      @media (min-width: $screen-md-min)
+        display: block

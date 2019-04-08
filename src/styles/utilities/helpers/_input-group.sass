@@ -1,0 +1,58 @@
+.input-group
+  .form-control
+    @include transition(border-color ease-in-out .15s, box-shadow ease-in-out .15s)
+    border-right: 0
+  .form-control + .input-group-addon,
+  .ais-search-box + .input-group-addon
+    border-left: 0
+  .form-control + .input-group-addon.select-addon
+    border-left: 1px solid $gray
+  .input-group-addon + .form-control,
+  .input-group-addon + .ais-search-box .form-control
+    border-width: 1px
+    border-style: solid
+    border-color: $input-border
+    border-left: 0
+    padding-left: 0
+  .input-group-addon.select-addon + .form-control
+    border-left: 1px solid $gray
+    padding: 0 $padding-base-horizontal
+
+.has-error
+  .input-group .input-group-addon + .form-control,
+  .input-group-addon + .ais-search-box .form-control,
+  .input-group-addon.select-addon + .form-control,
+  .form-control + .input-group-addon.select-addon
+    border-color: $brand-danger
+
+.input-group-addon
+  @include transition(border-color ease-in-out .15s, box-shadow ease-in-out .15s)
+  position: relative
+  padding: 0 10px
+  .icn
+    display: inline-block
+    vertical-align: middle
+  &.select-addon
+    .select-style
+      height: $input-height-base - 2px
+      border: 0
+      select
+        width: auto
+        padding: 0 $padding-base-horizontal 0 0
+
+// Reset rounded corners for algolia
+// .input-group .ais-search-box:first-child .form-control
+//   @include border-right-radius(0)
+
+// .input-group .ais-search-box:last-child .form-control
+//   @include border-left-radius(0)
+
+// Focus
+.input-group-focus
+  .input-group-addon,
+  .input-group-addon + .form-control,
+  .input-group-addon + .ais-search-box .form-control
+    border-color: $brand-primary
+  .input-group-btn,
+  .input-group-btn .btn
+    border-left: 1px solid $brand-primary

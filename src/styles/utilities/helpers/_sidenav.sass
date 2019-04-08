@@ -1,0 +1,21 @@
+// ///////////// //
+//    Sidenav    //
+// ///////////// //
+.sidenav
+  @extend .hidden-xs
+  @extend .hidden-sm
+
+@media (min-width: $screen-md-min)
+  .sidenav
+    max-width: 265px
+    flex: 1 0 auto
+    background: linear-gradient(90deg, rgba(255,255,255, 0), rgba(255,255,255, 0.1))
+    border-right: 1px solid $menu-border-color
+    margin: 0
+    padding: 0
+    li
+      display: none
+      padding: 0
+      margin: 0
+      &.active
+        display: block

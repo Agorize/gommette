@@ -1,0 +1,33 @@
+.collapse-popover
+  @extend .popover
+  width: 280px
+  position: absolute
+  right: 0
+  left: auto
+  top: 100%
+  bottom: auto
+  z-index: $zindex-hero
+  margin: 15px 0 0 0
+  a
+    cursor: pointer
+  &:before
+    content: ''
+    width: 0
+    display: block
+    position: absolute
+    top: -11px
+    right: 11px
+    border-width: 0 11px 11px 11px
+    border-style: solid
+    border-color: white transparent
+    z-index: -1
+  .list-collapse
+    max-height: 330px
+    overflow: auto
+    padding: 0 8px
+    & > div
+      padding: 10px 15px
+      & + div
+        border-top: 1px solid rgba(#d8d8d8, 0.2)
+  .checkbox
+    margin: 0

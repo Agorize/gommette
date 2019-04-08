@@ -1,0 +1,26 @@
+//
+// Badges
+//
+// .none         - Default badge.
+// .bg-primary      - Primary badge.
+// .bg-success      - Success badge.
+// .bg-info         - Info badge.
+// .bg-warning      - Warning badge.
+// .bg-danger       - Danger badge.
+//
+// Styleguide 2 -
+//
+.badge
+  @extend .text-xs
+  min-width: 18px
+  display: inline-block
+  font-weight: normal
+  padding: 0 4px
+  &.badge--sm
+    padding: 0 $padding-base
+  &.more
+    min-width: 22px
+    height: 22px
+    vertical-align: middle
+    text-align: center
+    border-radius: 100px

@@ -1,0 +1,46 @@
+.select-language
+  position: relative
+  display: inline-block
+  .list-language
+    width: 100%
+    display: none
+    position: absolute
+    z-index: 1
+    list-style: none
+    border: 1px solid $menu-border-color
+    border-radius: 5px
+    &.bg-base
+      border-color: $menu-border-color
+      li,
+      li a
+        @extend .text-white
+      &.from-bottom li
+        border-bottom: 1px solid $gray
+    li
+      text-align: left
+      white-space: nowrap
+      padding: 0
+      & + li
+        border-top: 1px solid $gray-light
+      a
+        display: inline-block
+        padding: 8px 10px
+      &.selected
+        display: none
+    &.open
+      display: block
+      z-index: $zindex-select
+    &.from-top
+      top: 37px
+      border-radius: 0 0 5px 5px
+      border-top: 0
+      li
+        border-top: 1px solid $gray-light
+    &.from-bottom
+      bottom: 37px
+      border-radius: 5px 5px 0 0
+      border-bottom: 0
+      li
+        border-bottom: 1px solid $gray-light
+        &+li
+          border-top: 0

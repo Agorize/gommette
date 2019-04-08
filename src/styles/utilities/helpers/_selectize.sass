@@ -1,0 +1,93 @@
+.selectize-control
+  height: auto
+  min-height: $input-height-base
+  border: 0
+  padding: 0
+  margin: 0
+.selectize-input
+  @extend .form-control
+  height: auto
+  min-height: $input-height-base
+  cursor: text
+  position: relative
+  padding-top: 3px
+  padding-bottom: 4px
+  .item
+    @extend .label
+    @extend .label-ghost
+    @extend .primary
+    max-width: 100%
+    cursor: pointer
+    white-space: normal
+    word-break: break-word
+    .remove
+      @extend .text-primary
+      @extend .m-l-xs
+  &.items
+    .item
+      margin: 4px 4px 0 0
+  &.has-items
+    padding-top: 0
+
+  input
+    @include placeholder
+    max-width: 100%
+    min-height: 0
+    max-height: none
+    display: inline-block
+    text-indent: 0
+    border: 0 none
+    background: none
+    line-height: inherit
+    -webkit-user-select: auto
+    -webkit-box-shadow: none
+    box-shadow: none
+    border: 0
+    padding: 0
+    @extend .m-xs
+    &::-ms-clear
+      display: none
+    &:focus
+      outline: none
+
+  .loader
+    transform: translateY(-50%)
+    position: absolute
+    top: 50%
+    right: 10px
+    .preload
+      width: 20px
+      height: 20px
+
+  &:after
+    content: ' '
+    display: block
+    clear: left
+
+  &.focus
+    @extend .form-control:focus
+
+.selectize-dropdown
+  height: auto
+  position: absolute
+  background: #ffffff
+  border: 1px solid $menu-border-color
+  border-top: 0 none
+  border-radius: 0 0 $border-radius-base $border-radius-base
+  z-index: $zindex-hero
+  padding: 0
+  margin: 0
+  .selectize-dropdown-content
+    word-break: break-word
+    & > div
+      padding: 10px 20px
+  .option
+    .highlight
+      @extend .text-base
+      font-weight: bold
+    &:hover
+      color: lighter($text-secondary, 10, 10)
+    &.active
+      background: rgba(lighter($brand-primary, 30, 30), .2)
+  .active
+    cursor: pointer

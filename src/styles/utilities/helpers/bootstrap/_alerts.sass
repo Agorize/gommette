@@ -1,0 +1,58 @@
+.alert
+  width: auto
+  min-width: 270px
+  position: fixed
+  left: 0
+  top: 40px
+  border-width: 1px
+  border-style: solid
+  -webkit-box-shadow: 0 0 10px rgba(32,40,43,.05)
+  -moz-box-shadow: 0 0 10px rgba(32,40,43,.05)
+  box-shadow: 0 0 10px rgba(32,40,43,.05)
+  z-index: 2000
+
+  &.transition
+    transition: bottom 0.5s ease-in-out
+
+  &.alert-success,
+  &.alert-warning,
+  &.alert-danger
+    transform: translate(-50%, 0)
+    left: 50%
+    padding: 0
+    .media-body,
+    .media-left,
+    .media-right
+      width: auto
+      padding: 0
+    .media-body
+      padding: 10px 20px
+    @media (min-width: $screen-sm-min)
+      .media-body
+        padding: 0 20px
+
+  &.bg-primary
+    @extend .text-white
+    border: 1px solid $brand-primary
+
+  &.alert-fix
+    width: 260px
+    min-width: 260px
+    position: absolute
+    top: 80px
+    right: 20px
+    bottom: auto
+    left: auto
+    padding: 20px
+    margin: 0 0 20px 0
+
+  .remove-alert
+    position: absolute
+    top: 0
+    right: 0
+
+  .information
+    .progress, .btn
+      margin: 20px 0 0 0
+    .btn
+      width: 100%

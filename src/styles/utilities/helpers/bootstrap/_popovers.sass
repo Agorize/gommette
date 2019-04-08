@@ -1,0 +1,40 @@
+[data-toggle="popover"]
+  position: relative
+
+.popover
+  width: auto
+  max-width: 220px
+  border-radius: $border-radius-large
+  color: $popover-color
+  z-index: $zindex-popover
+  .popover-content
+    @extend .text-xs
+    max-height: 300px
+    overflow: auto
+    padding: 4px 10px
+    .popover-header,
+    .popover-body,
+    .popover-footer
+      color: $popover-color
+      padding: 10px 0
+    .popover-header
+      text-align: center
+      border-bottom: 1px solid $gray
+    .popover-body
+      p
+        @extend .m-t-none
+        @extend .m-b-none
+        & + p
+          @extend .m-t-xs
+    .popover-footer
+      border-top: 1px solid $gray
+  .arrow
+      display: none
+
+  &.white
+    @extend .bg-white
+    border-color: $gray-lighter
+
+  &.dark
+    @extend .bg-base
+    border-color: $gray-base

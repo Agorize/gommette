@@ -1,0 +1,44 @@
+@function hsb($hue, $sb, $bb, $a: 1)
+  @if $bb == 0
+    @return hsla(0, 0, 0, $a)
+  @else
+    $ll: ($bb / 2) * (2 - ($sb / 100))
+    $sl: 0
+
+    @if $ll < 100
+      $sl: ($bb * $sb) / if($ll < 50, $ll * 2, 200 - $ll * 2)
+
+    @return hsla($hue, $sl, $ll, $a)
+
+@function calculate-hsb($hex)
+  $hex : if($hex == transparent, white, $hex)
+  $sb: 0
+  $bb: 0
+
+  @if ($hex != black)
+    $ll: lightness($hex) / 1%
+    $sl: saturation($hex) / 1%
+
+    $bb: ($sl * if($ll < 50, $ll * 2, 200 - $ll * 2) + 200 * $ll) / 200
+    $sb: 100 * ( 2 - 2 * $ll / $bb)
+
+  $list: hue($hex), $sb, $bb
+
+  @return $list
+
+@function darker($hex, $s, $b, $a: 1)
+  $hsb: calculate-hsb($hex)
+  $sl: nth($hsb, 2) + $s
+  $bl: nth($hsb, 3) - $b
+  $a: if($hex == transparent, 0, 1)
+
+  @return hsb(nth($hsb, 1), if($sl > 100, 100, $sl), if($bl < 0, 0, $bl), $a)
+
+
+@function lighter($hex, $s, $b, $a: 1)
+  $hsb: calculate-hsb($hex)
+  $sl: nth($hsb, 2) - $s
+  $bl: nth($hsb, 3) + $b
+  $a: if($hex == transparent, 0, 1)
+
+  @return hsb(nth($hsb, 1), if($sl < 0, 0, $sl), if($bl > 100, 100, $bl), $a)
