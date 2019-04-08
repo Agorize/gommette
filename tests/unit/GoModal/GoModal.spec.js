@@ -22,8 +22,27 @@ describe('GoModal', () => {
       })
     })
 
-    it('should not find modalOpen ref', () => {
-      expect(Object.keys(wrapper.vm.$refs).includes('go-banner__modalOpen')).toBeFalsy
+    it('should find modal with small size class', () => {
+      expect(wrapper.props().modalSize).toEqual('sm')
+    })
+
+    it('should find modal with large size class', () => {
+      expect(wrapper.props().modalOpen).toEqual(false)
+    })
+  })
+
+  describe('when component is mounted with small size', () => {
+    beforeEach(() => {
+      wrapper = shallowMount(GoModal, {
+        localVue,
+        propsData: {
+          modalSize: 'sm'
+        }
+      })
+    })
+
+    it('should find modal with small size class', () => {
+      expect(wrapper.props().modalSize).toEqual('sm')
     })
   })
 })
