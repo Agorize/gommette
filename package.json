@@ -132,7 +132,7 @@
     "vue-jest": "^3.0.0",
     "vue-loader": "^15.4.2",
     "vue-server-renderer": "2.5.17",
-    "vue-styleguidist": "^1.8.9",
+    "vue-styleguidist": "3.11.4",
     "vue-template-compiler": "2.5.17",
     "webpack": "^4.27.1"
   },
