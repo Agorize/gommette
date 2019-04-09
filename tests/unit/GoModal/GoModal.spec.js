@@ -43,11 +43,11 @@ describe('GoModal', () => {
       })
     })
 
-    it('should find modal with small size class', () => {
-      expect(wrapper.props().modalSize).toEqual('sm')
+    it('should have a modal with large size class', () => {
+      expect(wrapper.props().modalSize).toEqual('lg')
     })
 
-    it('should find modal with large size class', () => {
+    it('should have a closed modal', () => {
       expect(wrapper.props().modalOpen).toEqual(false)
     })
   })
