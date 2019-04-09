@@ -31,7 +31,7 @@ export default {
   name: 'GoModal',
   props: {
     /**
-     * Is a boolean, corresponds to the state of the modal.
+     * Is a boolean, corresponding to the state of the modal.
      */
     modalOpen: {
       type: Boolean,
