@@ -1,87 +1,58 @@
 {
   "name": "@agorize/gommette",
-  "main": "dist/gommette.common.js",
-  "module": "dist/gommette.esm.js",
-  "release": {
-    "plugins": [
-      [
-        "@semantic-release/commit-analyzer",
-        {
-          "preset": "angular",
-          "parserOpts": {
-            "headerPattern" : "^(?:(?:ORPHAN|PROD-\\d+|TS-\\d+) )(\\w*)(?:\\(([\\w\\$\\.\\-\\* ]*)\\))?\\: (.*)$"
-          },
-          "releaseRules": [
-            {
-              "type": "docs",
-              "release": "patch"
-            },
-            {
-              "type": "refactor",
-              "release": "patch"
-            },
-            {
-              "type": "refactor",
-              "scope": "core",
-              "release": "minor"
-            },
-            {
-              "type": "test",
-              "release": "patch"
-            },
-            {
-              "type": "style",
-              "release": "patch"
-            },
-            {
-              "type": "build",
-              "release": "patch"
-            },
-            {
-              "type": "ci",
-              "release": "patch"
-            },
-            {
-              "type": "chore",
-              "release": "patch"
-            }
-          ]
-        }
-      ],
-      "@semantic-release/release-notes-generator",
-      "@semantic-release/npm",
-      "@semantic-release/github"
-    ]
+  "version": "0.0.0-development",
+  "description": "",
+  "keywords": [],
+  "homepage": "https://github.com/Agorize/gommette#readme",
+  "bugs": {
+    "url": "https://github.com/Agorize/gommette/issues"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Agorize/gommette.git"
   },
+  "license": "ISC",
+  "author": "",
+  "main": "dist/gommette.common.js",
+  "module": "dist/gommette.esm.js",
   "scripts": {
     "build": "rollup -c build/rollup.conf.js",
     "commit": "git-cz",
+    "gen": "hygen",
+    "notify": "node .circleci/slack.js",
     "semantic-release": "semantic-release",
     "styleguide": "vue-styleguidist server",
     "styleguide:build": "vue-styleguidist build",
-    "test": "jest",
-    "notify": "node .circleci/slack.js",
-    "gen": "hygen"
+    "test": "jest"
   },
-  "version": "0.0.0-development",
-  "author": "",
-  "keywords": [],
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/Agorize/gommette/issues"
-  },
-  "bundleDependencies": false,
   "config": {
     "commitizen": {
       "path": "./node_modules/cz-conventional-changelog"
     }
   },
-  "deprecated": false,
-  "description": "",
+  "jest": {
+    "collectCoverage": true,
+    "collectCoverageFrom": [
+      "src/**/*.{js,jsx}"
+    ],
+    "moduleFileExtensions": [
+      "js",
+      "json",
+      "vue"
+    ],
+    "moduleNameMapper": {
+      "@/(.*)$": "<rootDir>/src/$1"
+    },
+    "transform": {
+      ".*\\.(vue)$": "vue-jest",
+      "^.+\\.js$": "<rootDir>/node_modules/babel-jest",
+      ".+\\.(css|styl|less|sass|scss)$": "jest-transform-css"
+    }
+  },
+  "dependencies": {
+    "vue2-transitions": "^0.2.3",
+    "vuedraggable": "^2.16.0"
+  },
   "devDependencies": {
     "@babel/plugin-proposal-object-rest-spread": "^7.2.0",
     "@semantic-release/commit-analyzer": "^6.1.0",
@@ -135,28 +106,57 @@
     "vue-template-compiler": "2.5.17",
     "webpack": "^4.27.1"
   },
-  "homepage": "https://github.com/Agorize/gommette#readme",
-  "jest": {
-    "moduleNameMapper": {
-      "@/(.*)$": "<rootDir>/src/$1"
-    },
-    "moduleFileExtensions": [
-      "js",
-      "json",
-      "vue"
-    ],
-    "transform": {
-      ".*\\.(vue)$": "vue-jest",
-      "^.+\\.js$": "<rootDir>/node_modules/babel-jest",
-      ".+\\.(css|styl|less|sass|scss)$": "jest-transform-css"
-    },
-    "collectCoverage": true,
-    "collectCoverageFrom": [
-      "src/**/*.{js,jsx}"
+  "bundleDependencies": false,
+  "deprecated": false,
+  "release": {
+    "plugins": [
+      [
+        "@semantic-release/commit-analyzer",
+        {
+          "preset": "angular",
+          "parserOpts": {
+            "headerPattern": "^(?:(?:ORPHAN|PROD-\\d+|TS-\\d+) )(\\w*)(?:\\(([\\w\\$\\.\\-\\* ]*)\\))?\\: (.*)$"
+          },
+          "releaseRules": [
+            {
+              "type": "docs",
+              "release": "patch"
+            },
+            {
+              "type": "refactor",
+              "release": "patch"
+            },
+            {
+              "type": "refactor",
+              "scope": "core",
+              "release": "minor"
+            },
+            {
+              "type": "test",
+              "release": "patch"
+            },
+            {
+              "type": "style",
+              "release": "patch"
+            },
+            {
+              "type": "build",
+              "release": "patch"
+            },
+            {
+              "type": "ci",
+              "release": "patch"
+            },
+            {
+              "type": "chore",
+              "release": "patch"
+            }
+          ]
+        }
+      ],
+      "@semantic-release/release-notes-generator",
+      "@semantic-release/npm",
+      "@semantic-release/github"
     ]
-  },
-  "dependencies": {
-    "vue2-transitions": "^0.2.3",
-    "vuedraggable": "^2.16.0"
   }
 }
