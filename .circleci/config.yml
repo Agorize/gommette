@@ -11,10 +11,6 @@ jobs:
     steps:
       - checkout
 
-      - restore_cache:
-          keys:
-          - v1-dependencies-
-
       - run: yarn
       - run:
           name: Run tests unit
