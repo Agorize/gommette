@@ -6,7 +6,6 @@ import { GoModal } from '../../../src'
 const localVue = createLocalVue()
 
 localVue.use(AgoUikit)
-localVue.use(uiv)
 
 describe('GoModal', () => {
   let wrapper

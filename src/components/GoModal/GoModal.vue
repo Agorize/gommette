@@ -1,9 +1,19 @@
-<template xmlns:v-slot="http://www.w3.org/1999/XSL/Transform">
+<template>
   <div class="go-modal">
-    <modal v-model="modalOpen" @hide="onClose" ref="modal" :size="modalSize" :header="false" :footer="false">
+    <modal
+      v-model="modalOpen"
+      @hide="onClose"
+      ref="modal"
+      :size="modalSize"
+      :header="false"
+      :footer="false"
+    >
       <slot name="header">
-        <div class="close m-md" @click="onClose">
-          <go-icon :name="'close'"></go-icon>
+        <div
+          class="close m-md"
+          @click="onClose"
+        >
+          <go-icon :name="'close'" />
         </div>
       </slot>
       <div class="row">
@@ -11,7 +21,7 @@
           <div class="modal-body m-t-md m-b-xl">
             <div class="modal-section">
               <div class="container-fluid">
-                <slot name="content"></slot>
+                <slot name="content" />
               </div>
             </div>
           </div>
@@ -49,10 +59,6 @@ export default {
   }
 }
 </script>
-
-<style lang="scss">
-
-</style>
 
 <docs>
   ```js
