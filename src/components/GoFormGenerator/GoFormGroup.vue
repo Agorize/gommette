@@ -1,20 +1,27 @@
 <template>
   <div :class="getFieldRowClasses">
     <label
-      v-if="hasLabel"
+      v-if="hasLabel || field.helpLabel"
       :for="field.id"
       :class="field.labelClasses"
       class="control-label m-b-xs"
+      ref="control-label"
     >
-      <span v-html="field.label" />
       <span
-        v-if='field.help && field.help.label'
-        v-html='field.help.label'
+        v-if="hasLabel"
+        v-html="field.label"
+        ref="label"
+      />
+      <span
+        v-if='field.helpLabel'
+        v-html='field.helpLabel'
         class="help-block m-n"
+        ref="help-label"
       />
     </label>
     <div>
       <component
+        v-if="field.model && valueInput"
         v-model="valueInput"
         :key="field.model"
         :is="fieldType"
@@ -22,6 +29,7 @@
         :schema="field"
         v-validate="field.validations"
         :data-vv-as="field.label"
+        ref="field"
       />
       <div
         v-if="field.buttons"
@@ -40,11 +48,13 @@
     <div
       class="m-t-xs"
       v-show="hasErrors || field.hint"
+      ref="errors-container"
     >
-      <transition name="fade">
+      <transition-group name="fade">
         <span
           v-if="hasErrorVeeValidate"
           class="text-xs text-danger"
+          ref="errors-vee-validate"
         >
           {{ errors.first(field.inputName) }}
         </span>
@@ -56,28 +66,30 @@
             v-for="(error, index) in fieldModelErrors"
             :key="index"
             class="text-xs text-danger"
+            ref="errors-db"
           >
             {{ getModelError(field, error) }}
           </span>
         </template>
-      </transition>
+      </transition-group>
       <div
         class="text-xs"
         v-show="field.hint"
         v-html="field.hint"
+        ref="hint"
       />
     </div>
   </div>
 </template>
 
 <script>
+import { stringify } from 'querystring';
 export default {
   name: 'GoFormGroup',
   data () {
     return {
       valueInput: this.value,
       displayFieldsErrors: true,
-      fieldType: `GoField${this.field.type.charAt(0).toUpperCase() + this.field.type.slice(1)}`,
       isSpecialFieldTypes: ['submit'].includes(this.field.type)
     }
   },
@@ -86,7 +98,10 @@ export default {
       required: true
     },
     options: {
-      type: Object
+      type: Object,
+      default: () => {
+        return {}
+      }
     },
     field: {
       type: Object,
@@ -100,6 +115,15 @@ export default {
     }
   },
   computed: {
+    fieldType () {
+      let type = 'GoFieldInput'
+
+      if (this.field.type && this.field.type.length > 0) {
+        type = `GoField${this.field.type.charAt(0).toUpperCase() + this.field.type.slice(1)}`
+      }
+
+      return type
+    },
     hasErrors () {
       const validateErrors = this.hasErrorVeeValidate
 

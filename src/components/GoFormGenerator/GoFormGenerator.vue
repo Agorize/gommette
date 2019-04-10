@@ -135,9 +135,7 @@ export default {
             placeholder: 'Your first name',
             hint: 'beautiful hint',
             validations: 'required',
-            help: {
-              label: 'help the label'
-            }
+            helpLabel: 'help the label'
           },
           {
             type: 'input',
