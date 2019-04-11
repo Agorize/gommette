@@ -1,7 +1,7 @@
 <template>
   <div class="go-modal">
     <modal
-      v-model="modalOpen"
+      v-model="onModalOpen"
       @hide="onClose"
       ref="modal"
       :size="modalSize"
@@ -34,6 +34,11 @@
 <script>
 export default {
   name: 'GoModal',
+  data () {
+    return {
+      onModalOpen: this.modalOpen
+    }
+  },
   props: {
     /**
      * Is a boolean, corresponding to the state of the modal.
@@ -53,8 +58,9 @@ export default {
   },
   methods: {
     onClose () {
-      this.modalOpen = false
+      this.onModalOpen = false
       this.$emit('onClose')
+      this.$onModal = false
     }
   }
 }
