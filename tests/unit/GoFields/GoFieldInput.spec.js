@@ -22,19 +22,19 @@ describe('GoFieldInput', () => {
     expect(localVue.options.components['GoFieldInput']).toBeTruthy()
   })
 
-  it('should have errors bag present', () => {
+  it('should have vee-validate errors register', () => {
     expect(wrapper.vm.errors.items).toBeDefined()
   })
 
-  it('should have not vee-validate errors register', () => {
+  it('should have not registered vee-validate error(s)', () => {
     expect(wrapper.vm.errors.items).toEqual([])
   })
 
-  it('should have input value equal to v-model pass in props', () => {
+  it('should have input value equal to v-model passed in valueInput prop', () => {
     expect(wrapper.vm.valueInput).toEqual(wrapper.vm.value)
   })
 
-  it('should emit input event with input value', () => {
+  it('should emit input event with the input value', () => {
     const valueExpected = 'my name'
     const input = wrapper.find({ref: 'input'})
 

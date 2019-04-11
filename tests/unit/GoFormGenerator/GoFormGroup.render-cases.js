@@ -24,7 +24,7 @@ const modelPropsData = {
 // render cases for computed hasErrors
 export const renderCaseHasErrors = [
   [
-    'when there are no vee-validate and data base errors',
+    'when there are no vee-validate and database errors',
     {
       data () {
         return {
@@ -56,7 +56,7 @@ export const renderCaseHasErrors = [
     true
   ],
   [
-    'when there are database errors but display fields error is not activated',
+    'when there are database errors but the display of the fields error is not activated',
     {
       data () {
         return {
@@ -72,7 +72,7 @@ export const renderCaseHasErrors = [
     false
   ],
   [
-    'when there are database errors and display fields error is activated',
+    'when there are database errors and the display of the fields error is activated',
     {
       data () {
         return {
@@ -88,7 +88,7 @@ export const renderCaseHasErrors = [
     true
   ],
   [
-    'when there are database errors and vee-validate errors. Display fields error is activated',
+    'when there are database errors and vee-validate errors and the display of the fields error is activated',
     {
       data () {
         return {
@@ -109,7 +109,7 @@ export const renderCaseHasErrors = [
 export const renderCaseFieldModelErrors = [
   [
     // describe
-    'when there are errors which are not according to field model',
+    'when there are errors which are not related to the field model',
     // options propsData
     {
       ...modelPropsData,
@@ -123,7 +123,7 @@ export const renderCaseFieldModelErrors = [
   ],
   [
     // describe
-    'when there is one error which is according to field model',
+    'when there is one error which is related to the field model',
     // options propsData
     {
       ...modelPropsData,
@@ -137,7 +137,7 @@ export const renderCaseFieldModelErrors = [
   ],
   [
     // describe
-    'when there is are all errors which are according to field model',
+    'when there are all errors which are related to the field model',
     // options propsData
     {
       ...modelPropsData,

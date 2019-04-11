@@ -17,7 +17,7 @@
       </template>
     </fieldset>
 
-    <template v-for="(group, index) in groups">
+    <template v-for="(group, index) in schemaGroups">
       <fieldset :key="index">
         <legend v-if="group.legend">
           {{ group.legend }}
@@ -38,7 +38,7 @@
     <go-field-submit
       :schema="schema.fieldSubmit"
       :isDisabled="hasErrorOnFields($refs)"
-      @submit="onSubmit"
+      @submit="submit"
     />
   </form>
 </template>
@@ -55,7 +55,10 @@ export default {
         return []
       }
     },
-    schema: Object,
+    schema: {
+      type: Object,
+      required: true
+    },
     value: {
       type: Object,
       required: true
@@ -73,11 +76,16 @@ export default {
     schemaFields () {
       return this.schema && this.schema.fields ? this.schema.fields : []
     },
-    groups () {
+    schemaGroups () {
       return this.schema && this.schema.groups ? this.schema.groups : []
     },
   },
   methods: {
+    submit () {
+      if (!this.hasErrorOnFields(this.$refs)) {
+        this.$emit('onSubmit')
+      }
+    },
     fieldVisible (field) {
       return !field.hidden
     },
@@ -88,14 +96,9 @@ export default {
         ...fields.map(child => child.hasErrors),
         ...groupFields.map(child => child.hasErrors)
       ]
+
       return fieldsErrors.includes(true)
     },
-    onSubmit ($event) {
-      if (!this.hasErrorOnFields(this.$refs)) {
-        this.$emit('onSubmit', $event)
-      }
-    }
-
   },
   watch: {
     value () {
@@ -184,15 +187,15 @@ export default {
     }
   ]
 
-  const onSubmit = ($event) => {
-    console.log($event, 'submit event')
+  const submit = () => {
+    console.log(forms[0].model, '==> update form')
   }
 
   <div>
     <go-form-generator
       v-for="(form, index) in forms"
+      @onSubmit="submit"
       v-model="form.model"
-      @onSubmit="onSubmit"
       :schema="form.schema"
       :errorsModel="form.errorsModel"
       :key="index"
