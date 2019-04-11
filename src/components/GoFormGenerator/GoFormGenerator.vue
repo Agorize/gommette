@@ -75,7 +75,7 @@ export default {
     },
     groups () {
       return this.schema && this.schema.groups ? this.schema.groups : []
-    }
+    },
   },
   methods: {
     fieldVisible (field) {
@@ -95,6 +95,7 @@ export default {
         this.$emit('onSubmit', $event)
       }
     }
+
   },
   watch: {
     value () {

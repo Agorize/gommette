@@ -21,7 +21,7 @@
     </label>
     <div>
       <component
-        v-if="field.model && valueInput"
+        v-if="displayFieldInput"
         v-model="valueInput"
         :key="field.model"
         :is="fieldType"
@@ -55,6 +55,7 @@
           v-if="hasErrorVeeValidate"
           class="text-xs text-danger"
           ref="errors-vee-validate"
+          key="errors-vee-validate"
         >
           {{ errors.first(field.inputName) }}
         </span>
@@ -115,6 +116,10 @@ export default {
     }
   },
   computed: {
+    // To get the chance to mock this one
+    displayFieldInput () {
+      return this.field.model
+    },
     fieldType () {
       let type = 'GoFieldInput'
 
@@ -136,24 +141,25 @@ export default {
     },
     hasErrorVeeValidate () {
       const errorField = this.errors.first(this.field.inputName)
-      const hasError = typeof errorField !== 'undefined' && errorField.length > 0
 
-      return hasError
+      return typeof errorField !== 'undefined' && errorField.length > 0
     },
     hasLabel () {
-      return this.field.label && !this.isSpecialFieldTypes
+      return !!this.field.label && !this.isSpecialFieldTypes
     },
     getFieldRowClasses () {
       const baseClass = 'form-group'
+      const errorClass = this.options.validationErrorClass || 'has-error'
 
-      return this.hasErrors ? `${baseClass} ${this.options.validationErrorClass}` : baseClass
+      return this.hasErrors ? `${baseClass} ${errorClass}` : baseClass
     },
   },
   methods: {
     getModelError (field, error) {
       const dictionary = this.$validator.dictionary
+      const label = field.label || ''
 
-      return dictionary.container[dictionary.locale].messages[error](field.label)
+      return dictionary.container[dictionary.locale].messages[error](label)
     },
   },
   watch: {

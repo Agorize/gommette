@@ -918,17 +918,17 @@
     eslint-plugin-promise "^4.0.1"
     eslint-plugin-standard "^4.0.0"
 
-"@vue/server-test-utils@1.0.0-beta.27":
-  version "1.0.0-beta.27"
-  resolved "https://registry.yarnpkg.com/@vue/server-test-utils/-/server-test-utils-1.0.0-beta.27.tgz#0c61cb724d04bf44c70938b4a6054e73e914492a"
-  integrity sha512-HKwm1Nw180qNgknPyok/XWJF4ojBZC5vSANPf+f1WR2jYsSc0vvAxUyX2Qeq4F7KLXrfsFwdkfH3a5BxdrA9tg==
+"@vue/server-test-utils@1.0.0-beta.29":
+  version "1.0.0-beta.29"
+  resolved "https://registry.yarnpkg.com/@vue/server-test-utils/-/server-test-utils-1.0.0-beta.29.tgz#8a61a9900992b742cda7c143593db1c5e4a019bd"
+  integrity sha512-N6e2cixTnz7+mos0wL+R3LM/2op+f3ym1aSQYuNfksZzvX81lrQtjGr6Aszv0+1Ryms+WrqlL18Jb/MY8XyXaQ==
   dependencies:
     cheerio "^1.0.0-rc.2"
 
-"@vue/test-utils@1.0.0-beta.27":
-  version "1.0.0-beta.27"
-  resolved "https://registry.yarnpkg.com/@vue/test-utils/-/test-utils-1.0.0-beta.27.tgz#7e5f7b7180c00e28a4ca55c0ff0a7e754377fdb2"
-  integrity sha512-Lzrd4ZBkS70Tl8JbXbDrN/NcSaH9aZT6+7emU3QhTJ+CrorJpyFDA1dkvSIhH+rDTs8sHFbGeXjXV/qorXxtRw==
+"@vue/test-utils@1.0.0-beta.29":
+  version "1.0.0-beta.29"
+  resolved "https://registry.yarnpkg.com/@vue/test-utils/-/test-utils-1.0.0-beta.29.tgz#c942cf25e891cf081b6a03332b4ae1ef430726f0"
+  integrity sha512-yX4sxEIHh4M9yAbLA/ikpEnGKMNBCnoX98xE1RwxfhQVcn0MaXNSj1Qmac+ZydTj6VBSEVukchBogXBTwc+9iA==
   dependencies:
     dom-event-types "^1.0.0"
     lodash "^4.17.4"

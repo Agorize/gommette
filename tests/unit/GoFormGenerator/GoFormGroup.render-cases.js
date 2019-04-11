@@ -137,7 +137,7 @@ export const renderCaseFieldModelErrors = [
   ],
   [
     // describe
-    'when there are all errors which are according to field model',
+    'when there is are all errors which are according to field model',
     // options propsData
     {
       ...modelPropsData,
