@@ -43,26 +43,6 @@ describe('GoModal', () => {
       })
     })
 
-    it('should have a modal with large size class', () => {
-      expect(wrapper.props().modalSize).toEqual('lg')
-    })
-
-    it('should have a closed modal', () => {
-      expect(wrapper.props().modalOpen).toEqual(false)
-    })
-  })
-
-  describe('when component is mounted with small size', () => {
-    beforeEach(() => {
-      wrapper = shallowMount(GoModal, {
-        localVue,
-        propsData: {
-          modalSize: 'sm',
-          modalOpen: false
-        }
-      })
-    })
-
     it('should find modal with small size class', () => {
       expect(wrapper.props().modalSize).toEqual('sm')
     })

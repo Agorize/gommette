@@ -32,47 +32,47 @@
 </template>
 
 <script>
-export default {
-  name: 'GoModal',
-  data () {
-    return {
-      onModalOpen: this.modalOpen
-    }
-  },
-  props: {
-    /**
-     * Is a boolean, corresponding to the state of the modal.
-     */
-    modalOpen: {
-      type: Boolean,
-      default: false,
-      required: true
+  export default {
+    name: 'GoModal',
+    data () {
+      return {
+        onModalOpen: this.modalOpen
+      }
     },
-    /**
-     * Is a string, can be used to set a modal size.
-     */
-    modalSize: {
-      type: String,
-      default: 'lg'
-    }
-  },
-  methods: {
-    onClose () {
-      this.$emit('onClose')
-      return false
-    }
-  },
-  watch: {
-    modalOpen (newValue, oldValue) {
-      console.log(oldValue, 'old')
-      console.log(newValue, 'new')
+    props: {
+      /**
+       * Is a boolean, corresponding to the state of the modal.
+       */
+      modalOpen: {
+        type: Boolean,
+        default: false,
+        required: true
+      },
+      /**
+       * Is a string, can be used to set a modal size.
+       */
+      modalSize: {
+        type: String,
+        default: 'lg'
+      }
+    },
+    methods: {
+      onClose () {
+        this.$emit('onClose')
+        return false
+      }
+    },
+    watch: {
+      modalOpen (newValue, oldValue) {
+        console.log(oldValue, 'old')
+        console.log(newValue, 'new')
 
-      this.onModalOpen = newValue
+        this.onModalOpen = newValue
+      }
     }
   }
-}
 </script>
-On
+
 <docs>
   ```js
   let modalOpen = false
