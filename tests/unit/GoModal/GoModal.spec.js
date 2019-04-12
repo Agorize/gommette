@@ -1,6 +1,5 @@
 import { createLocalVue, shallowMount } from '@vue/test-utils'
 import * as AgoUikit from '../../../src'
-import * as uiv from 'uiv'
 import { GoModal } from '../../../src'
 
 const localVue = createLocalVue()
