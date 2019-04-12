@@ -6,9 +6,11 @@
       :id="schema.id"
       :value="schema.value"
       @click.prevent="onClick"
+      @keyup.enter="onClick"
       :name="schema.inputName"
       :disabled="isDisabled"
       :class="schema.inputClass"
+      ref="submit"
     >
       <span>
         {{schema.value}}
@@ -21,7 +23,12 @@
 export default {
   name: 'GoFieldSubmit',
   props: {
-    schema: Object,
+    schema: {
+      type: Object,
+      default: () => {
+        return {}
+      }
+    },
     isDisabled: {
       default: false,
       type: Boolean
