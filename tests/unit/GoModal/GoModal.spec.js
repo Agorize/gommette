@@ -17,7 +17,10 @@ describe('GoModal', () => {
   describe('when component is mounted', () => {
     beforeEach(() => {
       wrapper = shallowMount(GoModal, {
-        localVue
+        localVue,
+        propsData: {
+          modalOpen: false
+        }
       })
     })
 
@@ -35,7 +38,8 @@ describe('GoModal', () => {
       wrapper = shallowMount(GoModal, {
         localVue,
         propsData: {
-          modalSize: 'sm'
+          modalSize: 'sm',
+          modalOpen: false
         }
       })
     })
