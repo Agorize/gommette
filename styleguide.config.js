@@ -8,6 +8,7 @@ module.exports = {
   ],
   ignore: [
     './src/components/**/*.md',
+    './src/components/GoFormGenerator/GoFormGroup.vue',
   ],
   require: [
     path.resolve('global.require.js'),
