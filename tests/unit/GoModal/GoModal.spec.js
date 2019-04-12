@@ -57,7 +57,8 @@ describe('GoModal', () => {
       wrapper = shallowMount(GoModal, {
         localVue,
         propsData: {
-          modalSize: 'sm'
+          modalSize: 'sm',
+          modalOpen: false
         }
       })
     })
