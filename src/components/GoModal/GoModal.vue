@@ -58,21 +58,28 @@ export default {
   },
   methods: {
     onClose () {
-      this.onModalOpen = false
       this.$emit('onClose')
-      this.$onModal = false
+      return false
+    }
+  },
+  watch: {
+    modalOpen (newValue, oldValue) {
+      console.log(oldValue, 'old')
+      console.log(newValue, 'new')
+
+      this.onModalOpen = newValue
     }
   }
 }
 </script>
-
+On
 <docs>
   ```js
   let modalOpen = false
   let askFormDisplayed = false
 
-   <div>
-    <button @click="modalOpen=true">OPEN</button>
+  <div>
+    <button @click="modalOpen=true">{{ modalOpen }}</button>
     <go-modal :modal-open="modalOpen" @onClose="modalOpen = false" :modalSize="'sm'" >
       <template slot="content">
         <transition name="component-fade" mode="out-in">
