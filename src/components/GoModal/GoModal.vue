@@ -59,20 +59,20 @@
     methods: {
       onClose () {
         this.$emit('onClose')
-        return false
-      }
-    },
-    watch: {
-      modalOpen (newValue, oldValue) {
-        console.log(oldValue, 'old')
-        console.log(newValue, 'new')
+      return false
+    }
+  },
+  watch: {
+    modalOpen (newValue, oldValue) {
+      console.log(oldValue, 'old')
+      console.log(newValue, 'new')
 
-        this.onModalOpen = newValue
+      this.onModalOpen = newValue
       }
     }
   }
 </script>
-
+On
 <docs>
   ```js
   let modalOpen = false
