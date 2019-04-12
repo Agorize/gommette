@@ -32,7 +32,7 @@ export default {
   name: 'GoAccordion',
   props: {
     /**
-    * Is an array of integer, coresponding to collapses index we want to active by default
+    * Is an array of integer, corresponding to collapses index we want to active by default
     */
     activeItems: {
       type: Array,
