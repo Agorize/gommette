@@ -1,7 +1,7 @@
 {
   "presets": [
     [
-      "env",
+      "@babel/preset-env",
       {
         "modules": false,
         "targets": {
@@ -16,25 +16,29 @@
   ],
   "plugins": [
     "babel-plugin-dynamic-import-node",
-    ["transform-object-rest-spread", { "useBuiltIns": true }]
+    ["@babel/plugin-proposal-object-rest-spread", { "useBuiltIns": true }]
   ],
   "env": {
     "test": {
       "plugins": [
         "transform-es2015-modules-commonjs",
         "babel-plugin-dynamic-import-node",
-        "transform-object-rest-spread"
+        "@babel/plugin-proposal-object-rest-spread"
       ],
       "presets": [
         [
-          "env",
+          "@babel/preset-env",
           {
             "targets": {
-              "node": "current"
+              "browsers": [
+                "> 1%",
+                "last 2 versions",
+                "not ie <= 8"
+              ]
             }
           }
         ]
       ]
-    }
+    },
   }
 }

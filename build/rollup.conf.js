@@ -2,12 +2,11 @@ import fs from 'fs'
 import path from 'path'
 import vue from 'rollup-plugin-vue'
 import resolve from 'rollup-plugin-node-resolve'
-import postcss from 'postcss'
 import autoprefixer from 'autoprefixer'
 import alias from 'rollup-plugin-alias'
-import scss from 'rollup-plugin-scss'
 import babel from 'rollup-plugin-babel'
-import babelrc from 'babelrc-rollup'
+
+import postcss from 'rollup-plugin-postcss'
 
 const base = path.resolve(__dirname, '..')
 const src = path.resolve(base, 'src')
@@ -24,35 +23,38 @@ module.exports = {
   plugins: [
     vue(),
     resolve({
-      external: ['vue']
+      external: ['vue'],
+
     }),
     alias({
       resolve: ['.vue', '.js', '.scss'],
       '@': path.resolve('src'),
       'public': path.resolve('public')
     }),
-    // node(),
-    scss({
-      output: 'dist/gommette.css',
-      processor: css => postcss([autoprefixer])
-        .process(css)
-        .then(result => result.css)
+    postcss({
+      extract: true,
+      minimize: true,
+      sourceMap: true,
+      plugins: [autoprefixer()]
     }),
-    babel(babelrc())
+    babel()
   ],
   output: [
     {
       format: 'cjs',
+      // add name
       file: path.resolve(dist, `gommette.common.js`),
       sourcemap: true
     },
     {
       format: 'es',
+      // add name
       file: path.resolve(dist, `gommette.esm.js`),
       sourcemap: true
     },
     {
       format: 'iife',
+      // add name
       name: 'gommette',
       file: path.resolve(dist, `gommette.min.js`)
     }

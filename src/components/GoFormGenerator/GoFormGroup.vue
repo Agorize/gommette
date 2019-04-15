@@ -84,7 +84,6 @@
 </template>
 
 <script>
-import { stringify } from 'querystring';
 export default {
   name: 'GoFormGroup',
   data () {
