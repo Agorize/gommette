@@ -65,7 +65,8 @@
     "styleguide:build": "cross-env BABEL_ENV=styleguide vue-styleguidist build",
     "test": "jest",
     "notify": "node .circleci/slack.js",
-    "gen": "hygen"
+    "gen": "hygen",
+    "lint": "eslint"
   },
   "version": "0.0.0-development",
   "author": "",
