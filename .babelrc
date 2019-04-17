@@ -15,10 +15,14 @@
     ]
   ],
   "plugins": [
-    "babel-plugin-dynamic-import-node",
-    ["transform-object-rest-spread", { "useBuiltIns": true }]
+    "babel-plugin-dynamic-import-node"
   ],
   "env": {
+    "build": {
+      "plugins": [
+        ["transform-object-rest-spread", { "useBuiltIns": true }]
+      ]
+    },
     "test": {
       "plugins": [
         "transform-es2015-modules-commonjs",
@@ -31,6 +35,27 @@
           {
             "targets": {
               "node": "current"
+            }
+          }
+        ]
+      ]
+    },
+    "styleguide": {
+      "plugins": [
+        "transform-es2015-modules-commonjs",
+        ["@babel/plugin-proposal-object-rest-spread", { "useBuiltIns": true }]
+      ],
+      "presets": [
+        [
+          "env",
+          {
+            "modules": false,
+            "targets": {
+              "browsers": [
+                "> 1%",
+                "last 2 versions",
+                "not ie <= 8"
+              ]
             }
           }
         ]
