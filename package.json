@@ -58,11 +58,11 @@
     "url": "git+https://github.com/Agorize/gommette.git"
   },
   "scripts": {
-    "build": "rollup -c build/rollup.conf.js",
+    "build": "cross-env BABEL_ENV=build rollup -c build/rollup.conf.js",
     "commit": "git-cz",
     "semantic-release": "semantic-release",
-    "styleguide": "vue-styleguidist server",
-    "styleguide:build": "vue-styleguidist build",
+    "styleguide": "cross-env BABEL_ENV=styleguide vue-styleguidist server",
+    "styleguide:build": "cross-env BABEL_ENV=styleguide vue-styleguidist build",
     "test": "jest",
     "notify": "node .circleci/slack.js",
     "gen": "hygen"
@@ -83,6 +83,7 @@
   "deprecated": false,
   "description": "",
   "devDependencies": {
+    "@babel/plugin-proposal-object-rest-spread": "7.2.0",
     "@semantic-release/commit-analyzer": "6.1.0",
     "@semantic-release/github": "5.2.5",
     "@semantic-release/npm": "5.1.1",
@@ -95,9 +96,10 @@
     "babel-eslint": "10.0.1",
     "babel-plugin-dynamic-import-node": "2.2.0",
     "babel-plugin-external-helpers": "6.22.0",
-    "babel-plugin-transform-object-rest-spread": "7.0.0-beta.3",
+    "babel-plugin-transform-object-rest-spread": "6.23.0",
     "babelrc-rollup": "3.0.0",
     "commitizen": "3.0.5",
+    "cross-env": "5.2.0",
     "css-loader": "1.0.1",
     "cz-conventional-changelog": "2.1.0",
     "eslint": "5.10.0",
@@ -113,14 +115,13 @@
     "lodash": "4.17.11",
     "node-sass": "4.11.0",
     "path": "0.12.7",
-    "postcss": "7.0.6",
-    "rollup": "0.66.6",
+    "rollup": "1.10.0",
     "rollup-plugin-alias": "1.5.1",
     "rollup-plugin-babel": "3",
-    "rollup-plugin-commonjs": "9.2.0",
     "rollup-plugin-eslint": "5.0.0",
+    "rollup-plugin-node-builtins": "^2.1.2",
     "rollup-plugin-node-resolve": "3.4.0",
-    "rollup-plugin-scss": "0.4.0",
+    "rollup-plugin-postcss": "2.0.3",
     "rollup-plugin-vue": "4.3.2",
     "sass-loader": "7.1.0",
     "sass-resources-loader": "2.0.0",
@@ -157,8 +158,8 @@
   },
   "dependencies": {
     "bootstrap-sass": "3.4.0",
-    "vee-validate": "2.2.0",
     "uiv": "0.31.5",
+    "vee-validate": "2.2.0",
     "vue2-transitions": "0.2.3",
     "vuedraggable": "2.17.0"
   }
