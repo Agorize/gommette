@@ -157,7 +157,7 @@
     ]
   },
   "dependencies": {
-    "bootstrap-sass": "3.4.0",
+    "bootstrap-sass": "3.4.1",
     "uiv": "0.31.5",
     "vee-validate": "2.2.0",
     "vue2-transitions": "0.2.3",
