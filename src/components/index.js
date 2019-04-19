@@ -9,3 +9,5 @@ export { default as GoFormGroup } from './GoFormGenerator/GoFormGroup.vue'
 export { default as GoFieldInput } from './GoFields/GoFieldInput.vue'
 export { default as GoFieldSubmit } from './GoFields/GoFieldSubmit.vue'
 export { default as GoModal } from './GoModal/GoModal.vue'
+export { default as GoToggle } from './GoToggle/GoToggle.vue'
+
