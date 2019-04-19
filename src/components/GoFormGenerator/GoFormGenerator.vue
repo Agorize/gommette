@@ -173,6 +173,16 @@ export default {
             placeholder: 'Your password',
             required: true,
             validations: 'required'
+          },
+          {
+            type: 'textarea',
+            inputName: 'resume',
+            label: 'Resume',
+            model: 'resume',
+            id: 'resume',
+            placeholder: 'Your resume',
+            required: true,
+            validations: 'required'
           }
         ],
         fieldSubmit: {

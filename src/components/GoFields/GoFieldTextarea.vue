@@ -1,9 +1,8 @@
 <template>
   <div :class="schema.wrapperClasses">
-    <input
+    <textarea
       class="form-control"
       v-model="valueInput"
-      :type="schema.inputType"
       :class="schema.inputClass"
       :id="schema.id"
       :name="schema.inputName"
@@ -13,16 +12,19 @@
       :readonly="schema.readonly"
       :tabindex="schema.tabindex"
       :alt="schema.alt"
-      :autocomplete="schema.autocomplete"
       :placeholder="schema.placeholder"
-      ref="input"
-    >
+      :cols="schema.cols"
+      :rows="schema.rows"
+      :maxlength="schema.maxlength"
+      :minlength="schema.minlength"
+      ref="textarea"
+    />
   </div>
 </template>
 
 <script>
 export default {
-  name: 'GoFieldInput',
+  name: 'GoFieldTextarea',
   // API of vee-validate, to transmit vaidations to parent
   $_veeValidate: {
     name () {
@@ -55,13 +57,12 @@ export default {
     },
     /**
     * Schema with mandatory property for input.
-    * { "type": "input",
-        "inputType": "text",
-        "inputName": "first_name",
-        "label": "First Name",
-        "model": "first_name", // to connect to model
-        "id": "first_name",
-        "placeholder": "Your first name",
+    * {
+        "inputName": "comment",
+        "label": "Comment",
+        "model": "comment",
+        "id": "comment",
+        "placeholder": "Your comment"
     * }
     */
     schema: {
@@ -90,31 +91,19 @@ export default {
   const inputs = [
     {
       fieldInput: {
-        "type": "input",
-        "inputType": "text",
-        "inputName": "first_name",
-        "label": "First Name",
-        "model": "first_name",
-        "id": "first_name",
-        "placeholder": "Your first name",
+        "inputName": "comment",
+        "label": "Comment",
+        "model": "comment",
+        "id": "comment",
+        "placeholder": "Your comment",
+        "rows": "6",
+        "cols": "30",
+        "maxlength": "500",
+        "minlength": "5",
         "helpLabel": "help the label"
       },
       disabled: false,
-      value: 'my first name'
-    },
-    {
-      fieldInput: {
-        "type": "input",
-        "inputType": "text",
-        "inputName": "last_name",
-        "label": "Last Name",
-        "model": "last_name",
-        "id": "last_name",
-        "placeholder": "Your last name",
-        "helpLabel": "help the label"
-      },
-      disabled: true,
-      value: 'my last name'
+      value: 'my comment'
     }
   ]
 
@@ -123,7 +112,7 @@ export default {
       v-for="(input, key) in inputs"
       :key="key"
     >
-      <go-field-input
+      <go-field-textarea
         v-model="input.value"
         :disabled="input.disabled"
         :schema="input.fieldInput"
