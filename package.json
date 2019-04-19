@@ -154,7 +154,7 @@
     },
     "collectCoverage": true,
     "collectCoverageFrom": [
-      "src/**/*.{js,jsx}"
+      "src/**/*.{js,jsx,vue}"
     ]
   },
   "dependencies": {
