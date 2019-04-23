@@ -8,10 +8,10 @@ import frValidation from 'vee-validate/dist/locale/fr'
 const install = (Vue, opts = {}) => {
   Vue.use(uiv)
   Vue.use(VeeValidate, {
-    locale: opts.defaultLocale,
+    locale: 'en',
     dictionary: {
       en: enValidation,
-      fr: frValidation,
+      fr: frValidation
     }
   })
 

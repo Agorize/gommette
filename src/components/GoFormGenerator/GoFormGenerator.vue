@@ -11,6 +11,7 @@
           :field="field"
           :options="options"
           :errorsModel="errorsModel"
+          :locale="locale"
           v-model="value[field.model]"
           ref="fields"
         />
@@ -29,6 +30,7 @@
             :field="field"
             :options="options"
             :errorsModel="errorsModel"
+            :locale="locale"
             v-model="value[field.model]"
             ref="group-fields"
           />
