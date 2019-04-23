@@ -36,7 +36,7 @@ describe('GoFieldInput', () => {
 
   it('should emit input event with the input value', () => {
     const valueExpected = 'my name'
-    const input = wrapper.find({ref: 'input'})
+    const input = wrapper.find({ ref: 'input' })
 
     input.setValue(valueExpected)
 

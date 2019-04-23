@@ -11,6 +11,7 @@
           :field="field"
           :options="options"
           :errorsModel="errorsModel"
+          :locale="locale"
           v-model="value[field.model]"
           ref="fields"
         />
@@ -29,6 +30,7 @@
             :field="field"
             :options="options"
             :errorsModel="errorsModel"
+            :locale="locale"
             v-model="value[field.model]"
             ref="group-fields"
           />
@@ -54,6 +56,12 @@ export default {
     }
   },
   props: {
+    locale: {
+      type: String,
+      default () {
+        return this.$validator.locale
+      }
+    },
     errorsModel: {
       type: Array,
       default () {
@@ -237,6 +245,7 @@ export default {
       v-model="form.model"
       :schema="form.schema"
       :errorsModel="form.errorsModel"
+      locale="en"
       :key="index"
     />
   </div>

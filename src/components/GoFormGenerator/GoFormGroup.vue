@@ -95,6 +95,12 @@ export default {
     }
   },
   props: {
+    locale: {
+      type: String,
+      default () {
+        return this.$validator.locale
+      }
+    },
     value: {
       required: true
     },
@@ -156,6 +162,7 @@ export default {
   },
   methods: {
     getModelError (field, error) {
+      this.$validator.locale = this.locale
       const dictionary = this.$validator.dictionary
       const label = field.label || ''
 
