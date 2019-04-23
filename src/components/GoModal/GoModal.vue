@@ -1,64 +1,70 @@
 <template>
-  <div class="go-modal">
-    <modal
-      v-model="onModalOpen"
-      @hide="onClose"
-      ref="modal"
-      :size="modalSize"
-      :header="false"
-      :footer="false"
-    >
-      <slot name="header">
-        <div
-          class="close m-md"
-          @click="onClose"
-        >
-          <go-icon :name="'close'" />
-        </div>
-      </slot>
-      <div class="row">
-        <div class="col-xs-12 col-sm-10 col-sm-offset-1">
-          <div class="modal-body m-t-md m-b-xl">
-            <div class="modal-section">
-              <div class="container-fluid">
-                <slot name="content" />
+  <div>
+    <span>{{ onModalOpen }}</span>
+    <div class="go-modal">
+      <modal
+        v-model="onModalOpen"
+        @hide="onClose"
+        ref="modal"
+        :before-close="onClose"
+        :size="modalSize"
+        :header="false"
+        :footer="false"
+        :backdrop="false"
+      >
+        <slot name="header">
+          <div
+            class="close m-md"
+            @click="onClose"
+          >
+            <go-icon :name="'close'" />
+          </div>
+        </slot>
+        <div class="row">
+          <div class="col-xs-12 col-sm-10 col-sm-offset-1">
+            <div class="modal-body m-t-md m-b-xl">
+              <div class="modal-section">
+                <div class="container-fluid">
+                  <slot name="content" />
+                </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
-    </modal>
+      </modal>
+    </div>
   </div>
+
 </template>
 
 <script>
-  export default {
-    name: 'GoModal',
-    data () {
-      return {
-        onModalOpen: this.modalOpen
-      }
+export default {
+  name: 'GoModal',
+  data () {
+    return {
+      onModalOpen: this.modalOpen
+    }
+  },
+  props: {
+    /**
+     * Is a boolean, corresponding to the state of the modal.
+     */
+    modalOpen: {
+      type: Boolean,
+      default: false,
+      required: true
     },
-    props: {
-      /**
-       * Is a boolean, corresponding to the state of the modal.
-       */
-      modalOpen: {
-        type: Boolean,
-        default: false,
-        required: true
-      },
-      /**
-       * Is a string, can be used to set a modal size.
-       */
-      modalSize: {
-        type: String,
-        default: 'lg'
-      }
-    },
-    methods: {
-      onClose () {
-        this.$emit('onClose')
+    /**
+     * Is a string, can be used to set a modal size.
+     */
+    modalSize: {
+      type: String,
+      default: 'lg'
+    }
+  },
+  methods: {
+    onClose () {
+      this.$emit('onClose')
       return false
     }
   },
@@ -68,9 +74,9 @@
       console.log(newValue, 'new')
 
       this.onModalOpen = newValue
-      }
     }
   }
+}
 </script>
 On
 <docs>
