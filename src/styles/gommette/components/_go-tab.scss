@@ -1,0 +1,150 @@
+.go-tab {
+  min-height: 50px;
+  position: relative;
+  border-bottom: 1px solid $menu-border-color;
+  overflow: hidden;
+  z-index: 0;
+
+  &.border-less {
+    border-bottom: 0;
+  }
+
+  &.border-shadow {
+    box-shadow: 0 3px 10px 0 rgba(0, 0, 0, 0.1);
+  }
+
+  .btn-dropdown {
+    width: 100%;
+    height: 50px;
+    text-align: right;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    padding: 0 20px;
+
+    .icn {
+      width: 30px;
+      height: 30px;
+      font-size: 30px;
+    }
+  }
+
+  a {
+    @extend .text-secondary;
+    @extend .text-nowrap;
+    line-height: 50px;
+  }
+
+  .nav-control {
+    display: none;
+  }
+
+  .nav {
+    li {
+      width: 100%;
+      display: none;
+      font-size: $font-size-h5;
+      padding: 0 20px;
+
+      &.active {
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 0;
+
+        a {
+          height: 100%;
+          color: $gray-base;
+        }
+      }
+    }
+    :hover {
+      cursor: pointer;
+    }
+  }
+
+  &.open .nav {
+    padding-top: 50px;
+    li {
+      display: block;
+    }
+  }
+
+  @media (min-width: $screen-sm-min) {
+    max-height: 50px;
+
+    /* nav control */
+    .nav-control {
+      display: inline;
+
+      .left {
+        float: left;
+      }
+
+      .right {
+        float: right;
+      }
+
+      .quiet {
+        position: absolute;
+        bottom: -100%;
+        float: none;
+      }
+    }
+
+    /* Tabs */
+    .nav {
+      li {
+        width: auto;
+        font-size: $font-size-base;
+        display: inline-block;
+        vertical-align: top;
+        padding: 0 20px;
+
+        &.large {
+          padding: 0;
+
+          a {
+            padding: 0 40px;
+          }
+        }
+
+        &.active,
+        &.visible {
+          display: inline-block;
+          position: absolute;
+          top: auto;
+          left: auto;
+          bottom: -100%;
+        }
+
+        &.visible {
+          position: relative;
+          bottom: auto;
+        }
+
+        &.active {
+          a {
+            color: $brand-primary;
+          }
+
+          &:after {
+            content: '';
+            width: 100%;
+            height: 2px;
+            background: $brand-primary;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+          }
+        }
+      }
+    }
+
+    &.open .nav {
+      padding: 0;
+    }
+  }
+}
