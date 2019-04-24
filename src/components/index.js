@@ -11,4 +11,4 @@ export { default as GoFieldTextarea } from './GoFields/GoFieldTextarea.vue'
 export { default as GoFieldSubmit } from './GoFields/GoFieldSubmit.vue'
 export { default as GoModal } from './GoModal/GoModal.vue'
 export { default as GoCard } from './GoCard/GoCard.vue'
-
+export { default as GoToggle } from './GoToggle/GoToggle.vue'
