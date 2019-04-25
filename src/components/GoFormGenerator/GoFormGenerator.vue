@@ -11,7 +11,6 @@
           :field="field"
           :options="options"
           :errorsModel="errorsModel"
-          :locale="locale"
           v-model="value[field.model]"
           ref="fields"
         />
@@ -30,7 +29,6 @@
             :field="field"
             :options="options"
             :errorsModel="errorsModel"
-            :locale="locale"
             v-model="value[field.model]"
             ref="group-fields"
           />
@@ -128,6 +126,9 @@ export default {
   },
   mounted () {
     this.checkAbilityToSubmit(this.$refs)
+  },
+  created () {
+    this.$validator.locale = this.locale
   },
   watch: {
     value: {
