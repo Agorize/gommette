@@ -10,7 +10,6 @@
         :size="modalSize"
         :header="false"
         :footer="false"
-        :backdrop="false"
       >
         <slot name="header">
           <div
@@ -69,10 +68,7 @@ export default {
     }
   },
   watch: {
-    modalOpen (newValue, oldValue) {
-      console.log(oldValue, 'old')
-      console.log(newValue, 'new')
-
+    modalOpen (newValue) {
       this.onModalOpen = newValue
     }
   }
