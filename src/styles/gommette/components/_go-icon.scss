@@ -966,6 +966,9 @@ i.mce-i-tiny-icn {
   &.icn-exclamation {
     @include icon('\ea73');
   }
+  &.icn-page {
+    @include icon('\eaa5');
+  }
 
   &.icn-simple {
     .icn-layer.icn-layer-1 {
