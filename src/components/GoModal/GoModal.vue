@@ -74,7 +74,7 @@ export default {
   }
 }
 </script>
-On
+
 <docs>
   ```js
   let modalOpen = false
