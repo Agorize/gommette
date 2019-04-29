@@ -1,34 +1,38 @@
 <template>
-  <div class="go-modal">
-    <modal
-      v-model="onModalOpen"
-      @hide="onClose"
-      ref="modal"
-      :size="modalSize"
-      :header="false"
-      :footer="false"
-    >
-      <slot name="header">
-        <div
-          class="close m-md"
-          @click="onClose"
-        >
-          <go-icon :name="'close'" />
-        </div>
-      </slot>
-      <div class="row">
-        <div class="col-xs-12 col-sm-10 col-sm-offset-1">
-          <div class="modal-body m-t-md m-b-xl">
-            <div class="modal-section">
-              <div class="container-fluid">
-                <slot name="content" />
+  <div>
+    <div class="go-modal">
+      <modal
+        v-model="onModalOpen"
+        @hide="onClose"
+        ref="modal"
+        :before-close="onClose"
+        :size="modalSize"
+        :header="false"
+        :footer="false"
+      >
+        <slot name="header">
+          <div
+            class="close m-md"
+            @click="onClose"
+          >
+            <go-icon :name="'close'" />
+          </div>
+        </slot>
+        <div class="row">
+          <div class="col-xs-12 col-sm-10 col-sm-offset-1">
+            <div class="modal-body m-t-md m-b-xl">
+              <div class="modal-section">
+                <div class="container-fluid">
+                  <slot name="content" />
+                </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
-    </modal>
+      </modal>
+    </div>
   </div>
+
 </template>
 
 <script>
@@ -58,9 +62,13 @@ export default {
   },
   methods: {
     onClose () {
-      this.onModalOpen = false
       this.$emit('onClose')
-      this.$onModal = false
+      return false
+    }
+  },
+  watch: {
+    modalOpen (newValue) {
+      this.onModalOpen = newValue
     }
   }
 }
@@ -71,8 +79,8 @@ export default {
   let modalOpen = false
   let askFormDisplayed = false
 
-   <div>
-    <button @click="modalOpen=true">OPEN</button>
+  <div>
+    <button class="btn btn-primary btn-sm m-t-md m-b-md" @click="modalOpen=true">OPEN MODAL</button>
     <go-modal :modal-open="modalOpen" @onClose="modalOpen = false" :modalSize="'sm'" >
       <template slot="content">
         <transition name="component-fade" mode="out-in">
