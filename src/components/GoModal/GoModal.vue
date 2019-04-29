@@ -1,6 +1,5 @@
 <template>
   <div>
-    <span>{{ onModalOpen }}</span>
     <div class="go-modal">
       <modal
         v-model="onModalOpen"
@@ -81,7 +80,7 @@ export default {
   let askFormDisplayed = false
 
   <div>
-    <button @click="modalOpen=true">{{ modalOpen }}</button>
+    <button class="btn btn-primary btn-sm m-t-md m-b-md" @click="modalOpen=true">OPEN MODAL</button>
     <go-modal :modal-open="modalOpen" @onClose="modalOpen = false" :modalSize="'sm'" >
       <template slot="content">
         <transition name="component-fade" mode="out-in">
