@@ -94,9 +94,6 @@ export default {
 
           <div key=2 v-else class="text-center">
             <h4>Posez-nous votre question</h4>
-            <div>
-              <h1>INSERT FORM HERE</h1>
-            </div>
           </div>
         </transition>
       </template>
