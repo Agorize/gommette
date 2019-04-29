@@ -37,7 +37,7 @@
     </template>
     <go-field-submit
       :schema="schema.fieldSubmit"
-      :isDisabled="hasErrorOnFields($refs)"
+      :isDisabled="!canBeSubmitted"
       @submit="submit"
     />
   </form>
@@ -48,6 +48,11 @@ import GoFormGroup from './GoFormGroup.vue'
 
 export default {
   name: 'GoFormGenerator',
+  data () {
+    return {
+      canBeSubmitted: false
+    }
+  },
   props: {
     errorsModel: {
       type: Array,
@@ -67,7 +72,7 @@ export default {
       type: Object,
       default () {
         return {
-          validationErrorClass: 'has-error',
+          validationErrorClass: 'has-error'
         }
       }
     }
@@ -78,7 +83,7 @@ export default {
     },
     schemaGroups () {
       return this.schema && this.schema.groups ? this.schema.groups : []
-    },
+    }
   },
   methods: {
     submit () {
@@ -99,11 +104,37 @@ export default {
 
       return fieldsErrors.includes(true)
     },
+    hasValueOnFields ($refs) {
+      const fields = $refs['fields'] || []
+      const groupFields = $refs['group-fields'] || []
+      const fieldsValue = [
+        ...fields.map(child => !!child.valueInput),
+        ...groupFields.map(child => !!child.valueInput)
+      ]
+
+      return !fieldsValue.includes(false)
+    },
+    checkAbilityToSubmit ($refs) {
+      this.canBeSubmitted = this.hasValueOnFields($refs) && !this.hasErrorOnFields($refs)
+    }
+  },
+  mounted () {
+    this.checkAbilityToSubmit(this.$refs)
   },
   watch: {
-    value () {
-      this.$emit('input', this.value)
-    }
+    value: {
+      handler: function () {
+        this.checkAbilityToSubmit(this.$refs)
+        this.$emit('input', this.value)
+      },
+      deep: true
+    },
+    errors: {
+      handler: function () {
+        this.checkAbilityToSubmit(this.$refs)
+      },
+      deep: true
+    },
   },
   components: {
     GoFormGroup
@@ -112,21 +143,19 @@ export default {
 </script>
 
 <docs>
+## Example without errorsModel
 ```js
   const forms = [
     {
       model: {
         id: 1,
-        last_name: 'John Doe',
-        first_name: 'plop',
-        password: 'J0hnD03!x4',
-        email: 'john.doe@gmail.com',
+        last_name: '',
+        first_name: '',
+        password: '',
+        email: '',
+        resume: '',
         status: true
       },
-      errorsModel: [
-        { 'code': 'required', 'source': '/data/attributes/last_name' },
-        { 'code': 'email', 'source': '/data/attributes/email' },
-      ],
       schema: {
         fields: [
           {
@@ -184,6 +213,97 @@ export default {
             required: true,
             validations: 'required'
           }
+        ],
+        fieldSubmit: {
+          type: 'submit',
+          tag: 'button',
+          inputName: 'submit',
+          value: 'Submit',
+          id: 'submit',
+          inputClass: 'btn btn-sm btn-primary'
+        }
+      }
+    }
+  ]
+
+  const submit = () => {
+    console.log(forms[0].model, '==> update form')
+  }
+
+  <div>
+    <go-form-generator
+      v-for="(form, index) in forms"
+      @onSubmit="submit"
+      v-model="form.model"
+      :schema="form.schema"
+      :errorsModel="form.errorsModel"
+      :key="index"
+    />
+  </div>
+```
+
+## Example with errorsModel
+```js
+  const forms = [
+    {
+      model: {
+        id: 1,
+        last_name: 'John Doe',
+        first_name: 'plop',
+        password: 'J0hnD03!x4',
+        email: 'john.doe@gmail.c',
+        status: true
+      },
+      errorsModel: [
+        { 'code': 'email', 'source': '/data/attributes/email' },
+      ],
+      schema: {
+        fields: [
+          {
+            type: 'input',
+            inputType: 'text',
+            inputName: 'first_name',
+            label: 'First Name',
+            model: 'first_name',
+            id: 'first_name',
+            placeholder: 'Your first name',
+            hint: 'beautiful hint',
+            validations: 'required',
+            helpLabel: 'help the label'
+          },
+          {
+            type: 'input',
+            inputType: 'text',
+            inputName: 'last_name',
+            label: 'Last Name',
+            model: 'last_name',
+            id: 'last_name',
+            placeholder: 'Your last name',
+            required: true,
+            validations: 'required'
+          },
+          {
+            type: 'input',
+            inputType: 'email',
+            inputName: 'email',
+            label: 'Email',
+            model: 'email',
+            id: 'email',
+            placeholder: 'Your email',
+            required: true,
+            validations: 'required|email'
+          },
+          {
+            type: 'input',
+            inputType: 'password',
+            inputName: 'password',
+            label: 'Password',
+            model: 'password',
+            id: 'password',
+            placeholder: 'Your password',
+            required: true,
+            validations: 'required'
+          },
         ],
         fieldSubmit: {
           type: 'submit',
