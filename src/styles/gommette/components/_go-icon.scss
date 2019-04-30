@@ -1968,4 +1968,34 @@ i.mce-i-tiny-icn {
   &.icn-tiny-custombutton {
     @include icon('\ea98');
   }
+  &.icn-accordion {
+    @include icon('\ea99');
+  }
+  &.icn-awards {
+    @include icon('\ea9a');
+  }
+  &.icn-landscape {
+    @include icon('\ea9b');
+  }
+  &.icn-empty {
+    @include icon('\ea9c');
+  }
+  &.icn-gallery {
+    @include icon('\ea9d');
+  }
+  &.icn-map {
+    @include icon('\ea9e');
+  }
+  &.icn-article {
+    @include icon('\ea9f');
+  }
+  &.icn-simple {
+    @include icon('\eaa0');
+  }
+  &.icn-search {
+    @include icon('\eaa1');
+  }
+  &.icn-sort {
+    @include icon('\eaa2');
+  }
 }
