@@ -54,6 +54,12 @@ export default {
     }
   },
   props: {
+    locale: {
+      type: String,
+      default () {
+        return this.$validator.locale
+      }
+    },
     errorsModel: {
       type: Array,
       default () {
@@ -120,6 +126,9 @@ export default {
   },
   mounted () {
     this.checkAbilityToSubmit(this.$refs)
+  },
+  created () {
+    this.$validator.locale = this.locale
   },
   watch: {
     value: {
@@ -237,6 +246,7 @@ export default {
       v-model="form.model"
       :schema="form.schema"
       :errorsModel="form.errorsModel"
+      locale="en"
       :key="index"
     />
   </div>

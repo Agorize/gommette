@@ -1,6 +1,7 @@
 import fs from 'fs'
 import path from 'path'
 import vue from 'rollup-plugin-vue'
+import commonjs from 'rollup-plugin-commonjs'
 import resolve from 'rollup-plugin-node-resolve'
 import autoprefixer from 'autoprefixer'
 import alias from 'rollup-plugin-alias'
@@ -22,6 +23,7 @@ module.exports = {
   input: path.resolve(src, 'index.js'),
   external: ['vue'],
   plugins: [
+    commonjs(),
     vue(),
     builtins(),
     resolve({
