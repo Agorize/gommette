@@ -91,7 +91,7 @@ export default {
     return {
       valueInput: this.value,
       displayFieldsErrors: true,
-      isSpecialFieldTypes: ['submit'].includes(this.field.type)
+      isSpecialFieldTypes: ['submit', 'checkbox'].includes(this.field.type)
     }
   },
   props: {
