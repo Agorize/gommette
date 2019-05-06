@@ -1,28 +1,52 @@
 @import '~vue-multiselect/dist/vue-multiselect.min.css';
 
+.multiselect__spinner:before,
+.multiselect__spinner:after {
+  border-color: $brand-primary transparent transparent;
+}
+
+.multiselect__input,
+.multiselect__single,
+.multiselect__current,
+.multiselect__tags,
 .multiselect__tag{
+  border-radius: 3px;
+}
+
+.multiselect__tag{
+  background: $gray-light;
+  color: $text-secondary;
+}
+
+.multiselect__tag-icon:after {
+  color: $text-secondary;
+}
+
+.multiselect__tag-icon:focus,
+.multiselect__tag-icon:hover {
   background: $gray;
 }
-.multiselect__option--highlight {
-  background: $brand-primary;
+.multiselect__tag-icon:focus:after,
+.multiselect__tag-icon:hover:after {
+  color: $text-secondary;
 }
 
-.multiselect__option--highlight:after {
-  background: $brand-primary;
+.multiselect__option--highlight,
+.multiselect__option--highlight:after{
+  color: $text-secondary;
+  background: $gray;
+  font-weight: bold;
 }
 
-.multiselect__option--selected.multiselect__option--highlight {
-  background: $brand-danger;
+.multiselect__option--selected {
+  background: $gray-light;
+  color: $text-secondary;
+  font-weight: 400;
 }
 
-.multiselect__option--selected.multiselect__option--highlight:after {
-  background: $brand-danger;
-}
-
-.multiselect__option--group-selected.multiselect__option--highlight {
-  background: $brand-danger;
-}
-
+.multiselect__option--selected.multiselect__option--highlight,
+.multiselect__option--selected.multiselect__option--highlight:after,
+.multiselect__option--group-selected.multiselect__option--highlight,
 .multiselect__option--group-selected.multiselect__option--highlight:after {
   background: $brand-danger;
 }
