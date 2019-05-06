@@ -35,7 +35,6 @@
   </header>
 </template>
 
-
 <script>
 import GoIcon from '@/components/GoIcon/GoIcon.vue'
 
