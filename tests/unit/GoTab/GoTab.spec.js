@@ -135,7 +135,7 @@ describe('GoTab', () => {
     })
 
     it('should call selectTab method the first tab', () => {
-      expect(GoTab.methods.selectTab).toHaveBeenCalledWith({ 'tabId': wrapper.vm.tabs[0].id })
+      expect(GoTab.methods.selectTab).toHaveBeenCalledWith(wrapper.vm.tabs[0].id)
     })
 
     describe('when defaultActiveTabId is set', () => {
@@ -156,7 +156,7 @@ describe('GoTab', () => {
             defaultActiveTabId: 52
           }
         })
-        expect(GoTab.methods.selectTab).toHaveBeenCalledWith({ 'tabId': wrapper.vm.tabs[1].id} )
+        expect(GoTab.methods.selectTab).toHaveBeenCalledWith(wrapper.vm.tabs[1].id)
       })
     })
   })
