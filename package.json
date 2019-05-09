@@ -108,6 +108,7 @@
   "dependencies": {
     "bootstrap-sass": "3.4.1",
     "countdown": "^2.6.0",
+    "lodash.debounce": "4.0.8",
     "moment": "^2.24.0",
     "uiv": "0.31.5",
     "vee-validate": "2.2.0",

@@ -1,0 +1,32 @@
+.cookie-consent {
+  width: 438px;
+  max-width: calc(100% - 2rem);
+  position: fixed;
+  bottom: 1rem;
+  right: 1rem;
+  background: $gray-base;
+  border-radius: $border-radius-large;
+  z-index: 100000;
+  padding: 20px;
+}
+
+.cookie-consent__actions-buttons,
+.cookie-consent__content {
+  display: flex;
+}
+
+.cookie-consent__actions-buttons {
+   justify-content: flex-end;
+   align-items: center;
+}
+
+.cookie-consent__content {
+   align-items: flex-start;
+}
+
+.fade-enter-active, .fade-leave-active {
+  transition: opacity .5s;
+}
+.fade-enter, .fade-leave-to {
+  opacity: 0;
+}
