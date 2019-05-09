@@ -36,7 +36,7 @@
 
         <a
           v-else
-          @click="selectTab({ tabId: tab.id, updateEvent: true })"
+          @click="selectTab(tab.id, true)"
         >
           {{ tab.title }}
         </a>
@@ -97,12 +97,12 @@ export default {
   methods: {
     initDefaultActiveTab () {
       if (this.defaultActiveTabId) {
-        this.selectTab({ tabId: this.defaultActiveTabId })
+        this.selectTab(this.defaultActiveTabId)
       } else if (this.tabs.length) {
-        this.selectTab({ tabId: this.tabs[0].id })
+        this.selectTab(this.tabs[0].id)
       }
     },
-    selectTab ({ tabId, updateEvent = false, mobile = false }) {
+    selectTab (tabId, updateEvent = false) {
       if (tabId === this.activeTab.id) return
 
       this.activeTab = this.tabs.find(tab => tab.id === tabId) || {}
