@@ -9,6 +9,7 @@ import babel from 'rollup-plugin-babel'
 import babelrc from 'babelrc-rollup'
 import postcss from 'rollup-plugin-postcss'
 import builtins from 'rollup-plugin-node-builtins'
+import legacy from 'rollup-plugin-legacy'
 
 const base = path.resolve(__dirname, '..')
 const src = path.resolve(base, 'src')
@@ -23,6 +24,7 @@ module.exports = {
   input: path.resolve(src, 'index.js'),
   external: ['vue'],
   plugins: [
+    legacy({ 'node_modules/countdown/countdown.js': 'countdown' }),
     commonjs(),
     vue(),
     builtins(),

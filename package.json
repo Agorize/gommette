@@ -83,8 +83,41 @@
   },
   "deprecated": false,
   "description": "",
+  "jest": {
+    "collectCoverage": true,
+    "collectCoverageFrom": [
+      "src/**/*.{js,jsx}"
+    ],
+    "moduleFileExtensions": [
+      "js",
+      "json",
+      "vue"
+    ],
+    "moduleNameMapper": {
+      "@/(.*)$": "<rootDir>/src/$1"
+    },
+    "transform": {
+      ".*\\.(vue)$": "vue-jest",
+      "^.+\\.js$": "<rootDir>/node_modules/babel-jest",
+      ".+\\.(css|styl|less|sass|scss)$": "jest-transform-css"
+    },
+    "transformIgnorePatterns": [
+      "node_modules/(?!moment)"
+    ]
+  },
+  "dependencies": {
+    "bootstrap-sass": "3.4.1",
+    "countdown": "^2.6.0",
+    "moment": "^2.24.0",
+    "uiv": "0.31.5",
+    "vee-validate": "2.2.0",
+    "vue2-transitions": "0.2.3",
+    "vuedraggable": "2.17.0",
+    "vue-multiselect": "2.1.6"
+  },
   "devDependencies": {
     "@babel/plugin-proposal-object-rest-spread": "7.2.0",
+    "@babel/polyfill": "7.4.3",
     "@semantic-release/commit-analyzer": "6.1.0",
     "@semantic-release/github": "5.2.5",
     "@semantic-release/npm": "5.1.1",
@@ -121,7 +154,8 @@
     "rollup-plugin-babel": "3",
     "rollup-plugin-commonjs": "9.3.4",
     "rollup-plugin-eslint": "5.0.0",
-    "rollup-plugin-node-builtins": "^2.1.2",
+    "rollup-plugin-legacy": "1.0.0",
+    "rollup-plugin-node-builtins": "2.1.2",
     "rollup-plugin-node-resolve": "3.4.0",
     "rollup-plugin-postcss": "2.0.3",
     "rollup-plugin-vue": "4.3.2",
@@ -138,32 +172,5 @@
     "vue-template-compiler": "2.6.10",
     "webpack": "4.27.1"
   },
-  "homepage": "https://github.com/Agorize/gommette#readme",
-  "jest": {
-    "moduleNameMapper": {
-      "@/(.*)$": "<rootDir>/src/$1"
-    },
-    "moduleFileExtensions": [
-      "js",
-      "json",
-      "vue"
-    ],
-    "transform": {
-      ".*\\.(vue)$": "vue-jest",
-      "^.+\\.js$": "<rootDir>/node_modules/babel-jest",
-      ".+\\.(css|styl|less|sass|scss)$": "jest-transform-css"
-    },
-    "collectCoverage": true,
-    "collectCoverageFrom": [
-      "src/**/*.{js,jsx,vue}"
-    ]
-  },
-  "dependencies": {
-    "bootstrap-sass": "3.4.1",
-    "uiv": "0.31.5",
-    "vee-validate": "2.2.0",
-    "vue-multiselect": "^2.1.6",
-    "vue2-transitions": "0.2.3",
-    "vuedraggable": "2.17.0"
-  }
+  "homepage": "https://github.com/Agorize/gommette#readme"
 }
