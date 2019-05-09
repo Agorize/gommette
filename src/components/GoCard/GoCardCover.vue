@@ -1,9 +1,15 @@
 <template>
-  <header
-    class="bg thumbnail m-b-none"
-    :style="{'background-image': `url('${imgUrl}')`}"
-  >
-
+  <header class="thumbnail m-b-none">
+    <a v-if="cardPath"
+      tabindex="-1" :href="cardPath"
+      class="over-link"
+    >
+    </a>
+    <div
+      class="bg"
+      :style="{'background-image': `url('${imgUrl}')`}"
+    >
+    </div>
     <div
       class="overlay"
       v-if="overlay.active"
@@ -49,6 +55,13 @@ export default {
       default: ''
     },
     /**
+    * Path of the card
+    **/
+    cardPath: {
+      type: String,
+      default: ''
+    },
+    /**
     * Overlay with properties
     * {
     *   active: Boolean,
@@ -81,6 +94,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+  .thumbnail {
+    position: relative;
+  }
   .bg {
     position: relative;
     height: 200px;

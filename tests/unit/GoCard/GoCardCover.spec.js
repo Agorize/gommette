@@ -19,7 +19,7 @@ describe('GoCardCover', () => {
   })
 
   it('should contains bg thumbnail class', () => {
-    expect(wrapper.find('.bg.thumbnail').exists()).toBeTruthy()
+    expect(wrapper.find('.thumbnail').exists()).toBeTruthy()
   })
 
   it('should not render GoIcon component', () => {
@@ -33,7 +33,14 @@ describe('GoCardCover', () => {
   describe('when imgUrl prop is defined', () => {
     it ('should have a imgUrl', () => {
       wrapper.setProps({ imgUrl: 'http://my-background-image' });
-      expect(wrapper.find('.bg.thumbnail').element.style.backgroundImage).toBe('url(http://my-background-image)')
+      expect(wrapper.find('.bg').element.style.backgroundImage).toBe('url(http://my-background-image)')
+    })
+  })
+
+  describe('when cardPath prop is defined', () => {
+    it('should have a over-link element', () => {
+      wrapper.setProps({ cardPath: '/my-path' });
+      expect(wrapper.contains('header.thumbnail a.over-link')).toBe(true)
     })
   })
 
