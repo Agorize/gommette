@@ -90,11 +90,22 @@ export default {
       showList: false
     }
   },
+  watch: {
+    tabs: 'initDefaultActiveTab',
+    defaultActiveTabId: 'initDefaultActiveTab'
+  },
   methods: {
+    initDefaultActiveTab () {
+      if (this.defaultActiveTabId) {
+        this.selectTab({ tabId: this.defaultActiveTabId })
+      } else if (this.tabs.length) {
+        this.selectTab({ tabId: this.tabs[0].id })
+      }
+    },
     selectTab ({ tabId, updateEvent = false, mobile = false }) {
       if (tabId === this.activeTab.id) return
 
-      this.activeTab = this.tabs.find(tab => tab.id === tabId)
+      this.activeTab = this.tabs.find(tab => tab.id === tabId) || {}
       this.$emit('input', this.activeTab)
 
       if (updateEvent) {
@@ -121,11 +132,7 @@ export default {
     }
   },
   created () {
-    if (this.defaultActiveTabId) {
-      this.selectTab({ tabId: this.defaultActiveTabId })
-    } else if (this.tabs.length) {
-      this.selectTab({ tabId: this.tabs[0].id })
-    }
+    this.initDefaultActiveTab()
   },
   destroyed () {
     document.body.removeEventListener('click', this.hideTabWhenClickOutsideOnMobile);
@@ -192,8 +199,37 @@ export default {
         { id: 1, title: 'my-title-1' },
         { id: 2, title: 'my-title-2' }
       ]"
+       :defaultActiveTabId="2"
       v-model="selectedTab"
       @update="onUpdate"
     />
+  ```
+
+  ## Tabs with fake asynchro API calls
+  ```js
+
+  new Vue({
+    el: '#app',
+    template: `
+      <go-tab
+        :tabs="tabs"
+        :defaultActiveTabId="2"
+        v-model="selectedTab"
+      />`,
+    data () {
+      return {
+        selectedTab: {},
+        tabs: []
+      }
+    },
+    created () {
+      setTimeout(() => {
+        this.tabs = [
+          { id: 1, title: 'my-title-1' },
+          { id: 2, title: 'my-title-2' }
+        ]
+      }, 3000)
+    }
+  })
   ```
 </docs>

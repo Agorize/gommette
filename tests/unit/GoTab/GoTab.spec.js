@@ -26,7 +26,11 @@ describe('GoTab', () => {
         tabs: [
           {
             id: 42,
-            title: 'my-title'
+            title: 'my-title-1'
+          },
+          {
+            id: 65,
+            title: 'my-title-2'
           }
         ],
       })
@@ -37,7 +41,7 @@ describe('GoTab', () => {
     })
 
     it('should render the title of the link', () => {
-      expect(wrapper.find('ul.nav a').text()).toBe('my-title')
+      expect(wrapper.find('ul.nav a').text()).toBe('my-title-1')
     })
 
     it('should not have a href on the link', () => {
@@ -53,7 +57,7 @@ describe('GoTab', () => {
               title: 'my-title',
               url: 'my-url'
             }
-          ],
+          ]
         })
       })
 
@@ -64,7 +68,7 @@ describe('GoTab', () => {
 
     describe('when user click on a tab', () => {
       beforeEach(() => {
-        wrapper.find('ul.nav li a').trigger('click')
+        wrapper.find('ul.nav li:last-child a').trigger('click')
       })
 
       it('should emit an input event', () => {
@@ -76,7 +80,7 @@ describe('GoTab', () => {
       })
 
       it('should set activeTab', () => {
-        expect(wrapper.vm.activeTab.id).toBe(42)
+        expect(wrapper.vm.activeTab.id).toBe(65)
       })
 
       describe('when tabId is the same as activeTab id', () => {
