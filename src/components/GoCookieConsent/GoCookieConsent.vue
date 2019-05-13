@@ -8,17 +8,17 @@
       <div class="cookie-consent__content">
         <slot name="content">
           <p
-            class="text-white"
+            class="text-white m-r-xs"
             v-html="textContent"
           />
           <button
             @click="onClose"
-            class="go-button"
+            class="go-button tabindex-white"
             ref="close-button"
           >
             <GoIcon
               name="close"
-              class="text-white m-l-xs"
+              class="text-white"
             />
           </button>
         </slot>
@@ -30,12 +30,12 @@
             :href="privacyData.url"
             :title="privacyData.label"
             target="_blank"
-            class="text-white text-underline"
+            class="text-white text-underline tabindex-white"
           >
             {{ privacyData.label }}
           </a>
           <button
-            class="btn btn-sm btn-inverse m-l-md"
+            class="btn btn-sm btn-inverse tabindex-white m-l-md"
             @click="onClick"
             ref="accept-button"
           >
@@ -103,6 +103,7 @@ export default {
   mounted () {
     this.checkNewOffset()
     this.debounceCheckOffset = debounce(this.checkNewOffset, 500)
+    this.debounceCheckOffset()
 
     window.addEventListener('scroll', this.checkOffset)
     window.addEventListener('resize', this.debounceCheckOffset)
