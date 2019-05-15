@@ -24,7 +24,7 @@
         </div>
         <div class="go-header__title">
           <slot name="header">
-            <h5 v-html="item.title"></h5>
+            <h5 v-if="item" v-html="item.title"></h5>
           </slot>
         </div>
         <div class="go-header__actions">
@@ -54,6 +54,7 @@
         <slot name="body">
           <div
             class="go-body__container"
+            v-if="item"
             v-html="item.body"
           />
         </slot>
@@ -78,9 +79,10 @@ export default {
     item: {
       type: Object,
       validator: (value) => {
-        return value.title.length > 0 && value.body.length > 0
+        return value.isActive !== undefined && value.isActive !== null 
       },
-      deep: true
+      deep: true,
+      default: () => ({ isActive: false })
     },
     /**
     * to know can be deleted or not
@@ -172,6 +174,9 @@ export default {
 </script>
 
 <docs>
+
+## With item as props
+
 ```js
   const itemInfo = {
     isActive: false,
@@ -198,5 +203,23 @@ export default {
       :beDeleted="true"
     />
   </div>
-````
+```
+
+## With slots
+
+```js
+  <div>
+    <go-collapse> 
+      <div slot="header">
+        My header
+      </div>
+
+      <div slot="body">
+        MytextbodyMytextbodyMytextbodyMytextbodyMytextbodyMytextbodyMytextbodyMytextbody
+      </div>
+    </go-collapse>
+  </div>
+```
 </docs>
+
+
