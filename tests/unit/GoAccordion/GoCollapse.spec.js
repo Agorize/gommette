@@ -10,7 +10,8 @@ describe('GoCollapse', () => {
   let wrapper
   const item = {
     title: 'My header',
-    body: 'My text body My text body My text body  My text body  My text body  My text body'
+    body: 'My text body My text body My text body  My text body  My text body  My text body',
+    isActive: false
   }
 
   beforeEach(() => {
