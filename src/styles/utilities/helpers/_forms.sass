@@ -133,6 +133,10 @@ textarea.form-control
       background: transparent
     &:checked + span:before
       background: $brand-primary
+  &.is-inverse
+    [type='checkbox']
+      & + span:after
+        color: $gray-base
   &.rounded
     [type='checkbox']
       & + span:before

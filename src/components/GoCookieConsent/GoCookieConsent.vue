@@ -7,10 +7,37 @@
     >
       <div class="cookie-consent__content">
         <slot name="content">
-          <p
-            class="text-white m-r-xs"
-            v-html="textContent"
-          />
+          <div>
+            <p
+              v-if="isVueComponent"
+              class="text-white m-r-xs"
+            >
+              <component :is="textContent" />
+            </p>
+            <p
+              v-else
+              class="text-white m-r-xs"
+              v-html="textContent"
+            />
+            <CollapseTransition :duration="350">
+              <div v-show="!!checkboxList.length && isOpenList">
+                <div class="cookie-consent__list">
+                  <go-field-checkbox
+                    v-for="(input, key) in checkboxList"
+                    :key="key"
+                    v-model="value[input.model]"
+                    :schema="input"
+                  />
+                  <button
+                    class="text-primary text-xs"
+                    @click="toggleSelectAll"
+                  >
+                    {{ hasCheckedValue ? labelsToggleButton.unselect : labelsToggleButton.select}}
+                  </button>
+                </div>
+              </div>
+            </CollapseTransition>
+          </div>
           <button
             @click="onClose"
             class="go-button tabindex-white"
@@ -23,7 +50,7 @@
           </button>
         </slot>
       </div>
-      <div class="cookie-consent__actions-buttons m-t-md">
+      <div class="cookie-consent__actions-buttons m-t-sm">
         <slot name="actions-buttons">
           <a
             v-if="privacyData.label"
@@ -48,16 +75,69 @@
 </template>
 
 <script>
+import { CollapseTransition } from 'vue2-transitions'
 import debounce from 'lodash.debounce'
 
 export default {
   name: 'GoCookieConsent',
   props: {
     /**
+    * labels for button toggle select all
+    * {
+    * select: String,
+    * unselect: String,
+    * }
+    **/
+   labelsToggleButton: {
+     value: Object,
+      default: () => {
+        return {
+          select: 'Select all',
+          unselect: 'Unselect all',
+        }
+      }
+    },
+    /**
+    * value or v-model is required when you have checkboxList,
+    * and coresponding with model on each checkbox
+    * {
+    *   cookie_monitoring: true, // when this.checkboxList[0][model] === 'cookie_monitoring'
+    *   cookie_media: true, // when this.checkboxList[1][model] === 'cookie_media'
+    * }
+    **/
+    value: {
+      type: Object,
+      default: null,
+    },
+    /**
+    * Checkboxlist to show checkbox. When add checkbox in checkbox list,
+    * don't forget to add model coresponding
+    * [
+    *   {
+    *     "inputName": "cookie_monitoring",
+    *     "label": "Audiance monitoring",
+    *     "id": "cookie_monitoring",
+    *     "model": "cookie_monitoring",
+    *     "wrapperClasses": "text-white is-inverse"
+    *   },
+    * ]
+    **/
+    checkboxList: {
+      type: Array,
+      default: () => [],
+    },
+    /**
+    * Default state if list checkbox is opened or not
+    **/
+    isOpenList: {
+      default: true,
+      type: Boolean,
+    },
+    /**
     * text content use in cookie banner
     **/
     textContent: {
-      type: String,
+      type: String | Object,
       required: true,
     },
     /**
@@ -100,6 +180,14 @@ export default {
       debounceCheckOffset: {},
     }
   },
+  computed: {
+    hasCheckedValue () {
+      return Object.values({...this.value}).includes(true)
+    },
+    isVueComponent () {
+      return !!this.textContent.render
+    }
+  },
   mounted () {
     this.checkNewOffset()
     this.debounceCheckOffset = debounce(this.checkNewOffset, 500)
@@ -112,6 +200,13 @@ export default {
     this.removeListener()
   },
   methods: {
+    toggleSelectAll () {
+      const hasChecked = this.hasCheckedValue
+
+      Object.keys({...this.value}).forEach((key) => {
+        this.value[key] = hasChecked ? false : true
+      })
+    },
     onClick () {
       this.$emit('accept')
       this.closeCookieConsent()
@@ -143,22 +238,73 @@ export default {
       window.removeEventListener('resize', this.debounceCheckOffset)
     },
   },
+  watch: {
+    value () {
+      this.$emit('input', this.value)
+    },
+  },
+  components: {
+    CollapseTransition,
+  },
 }
 </script>
 
 <docs>
 ```js
   const text = `By continuing to browse this site or clicking on “Accept”, you agree to the use of
-        cookies or other tracking devices to improve site navigation, analyze site usage, and
-        support our marketing efforts. Click here to choose the type of cookies that are
-        setup on your device.`
+  cookies or other tracking devices to improve site navigation, analyze site usage, and
+  support our marketing efforts. Click here to choose the type of cookies that are
+  setup on your device.`
+
   const labelAccept = 'Accepter'
+  const model = {
+    cookie_monitoring: true,
+    cookie_media: true,
+    cookie_marketing: true,
+  }
+  const inputs = [
+    {
+      "type": "checkbox",
+      "inputName": "cookie_monitoring",
+      "label": "Audiance monitoring",
+      "id": "cookie_monitoring",
+      "model": "cookie_monitoring",
+      "wrapperClasses": "text-white is-inverse"
+    },
+    {
+      "type": "checkbox",
+      "inputName": "cookie_media",
+      "label": "Social media",
+      "id": "cookie_media",
+      "model": "cookie_media",
+      "wrapperClasses": "text-white is-inverse"
+    },
+    {
+      "type": "checkbox",
+      "inputName": "cookie_marketing",
+      "label": "Marketing",
+      "id": "cookie_marketing",
+      "model": "cookie_marketing",
+      "wrapperClasses": "text-white is-inverse"
+    },
+  ]
+  let isOpenList = false
 
   <div>
+    <button class="btn btn-sm btn-primary m-b-xl" @click="isOpenList = !isOpenList">OpenList</button>
+    <div
+      v-for="(value, name, key) in model"
+      :key="key"
+    >
+      {{ name }}: {{ value }}
+    </div>
     <go-cookie-consent
-      :textContent="text"
       :acceptLabel="labelAccept"
-      :privacyData="{url: 'master.agorize.com', label: 'Our privacy content'}"
+      :privacyData="{url: 'http://agorize.com', label: 'Our privacy content'}"
+      :isOpenList="isOpenList"
+      :checkboxList="inputs"
+      :text-content="text"
+      v-model="model"
     />
   </div>
 ````
