@@ -71,10 +71,7 @@ export default {
   name: 'GoCollapse',
   props: {
     /**
-    * Item collapse with mandatory property, title and body.
-    * { title: String,
-    * body: String
-    * }
+    * Item collapse with mandatory property : isActive.
     */
     item: {
       type: Object,
