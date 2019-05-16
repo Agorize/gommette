@@ -55,7 +55,7 @@ fieldset[disabled] .multiselect {
 .multiselect__input,
 .multiselect__single {
   font-family: inherit;
-  font-size: 16px;
+  font-size: 14px;
   touch-action: manipulation;
 }
 
@@ -117,12 +117,12 @@ fieldset[disabled] .multiselect {
 .multiselect__single {
   position: relative;
   display: inline-block;
-  min-height: 20px;
-  line-height: 20px;
+  min-height: 21px;
+  line-height: 21px;
   border: none;
   border-radius: 3px;
   background: #fff;
-  padding: 0 0 0 5px;
+  padding: 0;
   width: calc(100%);
   transition: border 0.1s ease;
   box-sizing: border-box;
@@ -262,7 +262,7 @@ fieldset[disabled] .multiselect {
 .multiselect__input::placeholder {
   color: #adadad;
   display: inline-block;
-  margin-bottom: 10px;
+  margin-bottom: 8px;
   padding-top: 2px;
 }
 
@@ -381,8 +381,7 @@ fieldset[disabled] .multiselect {
 
 .multiselect--disabled .multiselect__current,
 .multiselect--disabled .multiselect__select {
-  background: #ededed;
-  color: #a6a6a6;
+  color: $text-secondary;
 }
 
 .multiselect__option--disabled {
