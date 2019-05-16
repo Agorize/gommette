@@ -24,7 +24,7 @@
         </div>
         <div class="go-header__title">
           <slot name="header">
-            <h5 v-if="item" v-html="item.title"></h5>
+            <h5 v-html="item.title"></h5>
           </slot>
         </div>
         <div class="go-header__actions">
@@ -54,7 +54,6 @@
         <slot name="body">
           <div
             class="go-body__container"
-            v-if="item"
             v-html="item.body"
           />
         </slot>
