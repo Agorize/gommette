@@ -1,3 +1,5 @@
+$selected-icon-content: '\e933';
+
 fieldset[disabled] .multiselect {
   pointer-events: none;
 }
@@ -103,6 +105,14 @@ fieldset[disabled] .multiselect {
   border-top-right-radius: 0;
 }
 
+.multiselect.has-error .multiselect__tags {
+  border-color: $brand-danger;
+}
+
+.multiselect--active .multiselect__tags {
+  border-color: $brand-primary;
+}
+
 .multiselect__input,
 .multiselect__single {
   position: relative;
@@ -118,10 +128,6 @@ fieldset[disabled] .multiselect {
   box-sizing: border-box;
   margin-bottom: 8px;
   vertical-align: top;
-}
-
-.multiselect__input::placeholder {
-  color: #35495e;
 }
 
 .multiselect__tag ~ .multiselect__input,
@@ -252,7 +258,8 @@ fieldset[disabled] .multiselect {
   content: "";
 }
 
-.multiselect__placeholder {
+.multiselect__placeholder, 
+.multiselect__input::placeholder {
   color: #adadad;
   display: inline-block;
   margin-bottom: 10px;
@@ -330,16 +337,14 @@ fieldset[disabled] .multiselect {
 
 .multiselect__option--highlight {
   outline: none;
-  color: $text-secondary;
-  background: $gray;
-  font-weight: bold;
+  color: $brand-primary;
+  background: $gray-light;
 }
 
 .multiselect__option--highlight:after {
-  content: attr(data-select);
+  content: $selected-icon-content; // attr(data-select);
   color: $text-secondary;
-  background: $gray;
-  font-weight: bold;
+  background: $gray-light;
 }
 
 .multiselect__option--selected {
@@ -349,19 +354,29 @@ fieldset[disabled] .multiselect {
 }
 
 .multiselect__option--selected:after {
-  content: attr(data-selected);
+  content: $selected-icon-content; // attr(data-selected);
   color: silver;
 }
 
 .multiselect__option--selected.multiselect__option--highlight {
-  background: $brand-danger;
-  color: #fff;
+  outline: none;
+  color: $brand-primary;
+  background: $gray-light;
 }
 
 .multiselect__option--selected.multiselect__option--highlight:after {
-  background: $brand-danger;
-  content: attr(data-deselect);
-  color: #fff;
+  outline: none;
+  color: $brand-primary;
+  background: $gray-light;
+  content: $selected-icon-content; // attr(data-deselect);
+}
+
+.multiselect__option--highlight:after,
+.multiselect__option--selected:after,
+.multiselect__option--selected.multiselect__option--highlight:after {
+  font-size: $font-size-icon;
+  font-family: $font-family-icon;
+  color: $brand-primary;
 }
 
 .multiselect--disabled .multiselect__current,
