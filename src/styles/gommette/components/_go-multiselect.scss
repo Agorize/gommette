@@ -120,10 +120,10 @@ fieldset[disabled] .multiselect {
   min-height: 21px;
   line-height: 21px;
   border: none;
-  border-radius: 3px;
+  border-radius: $border-radius-base;
   background: #fff;
   padding: 0;
-  width: calc(100%);
+  width: 100%;
   transition: border 0.1s ease;
   box-sizing: border-box;
   margin-bottom: 8px;
@@ -159,18 +159,18 @@ fieldset[disabled] .multiselect {
   min-height: 40px;
   display: block;
   padding: 8px 40px 0 8px;
-  border-radius: 3px;
+  border-radius: $border-radius-base;
   border: 1px solid #e8e8e8;
   background: #fff;
   font-size: 14px;
 }
 
 .multiselect__tag {
+  @extend .m-r-sm;
   position: relative;
   display: inline-block;
   padding: 3px 26px 3px 10px;
-  border-radius: 3px;
-  margin-right: 10px;
+  border-radius: $border-radius-base;
   color: $text-secondary;
   line-height: 1;
   background: $gray-light;
@@ -194,7 +194,7 @@ fieldset[disabled] .multiselect {
   text-align: center;
   line-height: 22px;
   transition: all 0.2s ease;
-  border-radius: 3px;
+  border-radius: $border-radius-base;
 }
 
 .multiselect__tag-icon:after {
@@ -214,7 +214,7 @@ fieldset[disabled] .multiselect {
 }
 
 .multiselect__current {
-  line-height: 16px;
+  line-height: $line-height-base;
   min-height: 40px;
   box-sizing: border-box;
   display: block;
@@ -224,13 +224,13 @@ fieldset[disabled] .multiselect {
   white-space: nowrap;
   margin: 0;
   text-decoration: none;
-  border-radius: 3px;
+  border-radius: $border-radius-base;
   border: 1px solid #e8e8e8;
   cursor: pointer;
 }
 
 .multiselect__select {
-  line-height: 16px;
+  line-height: $line-height-base;
   display: block;
   position: absolute;
   box-sizing: border-box;
@@ -262,7 +262,7 @@ fieldset[disabled] .multiselect {
 .multiselect__input::placeholder {
   color: #adadad;
   display: inline-block;
-  margin-bottom: 8px;
+  @extend .m-b-sm;
   padding-top: 2px;
 }
 
@@ -316,7 +316,7 @@ fieldset[disabled] .multiselect {
   display: block;
   padding: 12px;
   min-height: 40px;
-  line-height: 16px;
+  line-height: $line-height-base;
   text-decoration: none;
   text-transform: none;
   position: relative;
