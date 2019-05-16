@@ -1,9 +1,15 @@
 import { shallowMount, createLocalVue } from '@vue/test-utils'
 import * as AgoUikit from '../../../src'
 import { GoCookieConsent } from '../../../src'
+import { spanWithoutScript } from '../componentsTest'
 import debounce from 'lodash.debounce'
 
 const localVue = createLocalVue()
+const model = {
+  cookie_monitoring: false,
+  cookie_media: false,
+  cookie_marketing: false,
+}
 
 localVue.use(AgoUikit)
 
@@ -22,7 +28,8 @@ describe('GoCookieConsent', () => {
 
     wrapper = shallowMount(GoCookieConsent, {
       propsData: {
-        textContent: 'text',
+        value: model,
+        bodyContent: 'text',
         acceptLabel: 'label',
       },
       localVue,
@@ -68,13 +75,81 @@ describe('GoCookieConsent', () => {
     }, 500)
   })
 
+  describe('computed - hasCheckedValue', () => {
+    it('should have not checkbox set to true', () => {
+      expect(wrapper.vm.hasCheckedValue).toBeFalsy()
+    })
+
+    describe('when checkbox is set to true', () => {
+      beforeEach(() => {
+        wrapper.setProps({
+          value: {
+            cookie_monitoring: false,
+            cookie_media: true,
+            cookie_marketing: false,
+          }
+        })
+      })
+
+      it('should have checkbox set tot true', () => {
+        expect(wrapper.vm.hasCheckedValue).toBeTruthy()
+      })
+    })
+  })
+
+  describe('computed - isVueComponent', () => {
+    it('should not be a vue component', () => {
+      expect(wrapper.vm.isVueComponent).toBe(false)
+    })
+
+    describe('when bodyContent props is vue component', () => {
+      beforeEach(async () => {
+        wrapper.setProps({
+          bodyContent: spanWithoutScript,
+        })
+      })
+
+      it('should be a vue component', () => {
+        expect(wrapper.vm.isVueComponent).toBe(true)
+      })
+    })
+  })
+
+  describe('methods - toggleSelectAll', () => {
+    it('should pass all checkbox value to true', async () => {
+      expect(Object.values({...wrapper.vm.value}).includes(true)).toBeFalsy()
+      expect(Object.values({...wrapper.vm.value}).includes(false)).toBeTruthy()
+      await wrapper.vm.toggleSelectAll()
+      expect(Object.values({...wrapper.vm.value}).includes(false)).toBeFalsy()
+    })
+
+    describe('when one checkbox is set to true', () => {
+      beforeEach(() => {
+        wrapper.setProps({
+          value: {
+            cookie_monitoring: true,
+            cookie_media: false,
+            cookie_marketing: false,
+          }
+        })
+      })
+
+      it('should pass all checkbox value to false', async () => {
+        expect(Object.values({...wrapper.vm.value}).includes(true)).toBeTruthy()
+        expect(Object.values({...wrapper.vm.value}).includes(false)).toBeTruthy()
+        await wrapper.vm.toggleSelectAll()
+        expect(Object.values({...wrapper.vm.value}).includes(true)).toBeFalsy()
+      })
+    })
+  })
+
   describe('methods - onClick', () => {
     beforeEach(() => {
       closeCookieConsent = jest.fn()
 
       wrapper = shallowMount(GoCookieConsent, {
         propsData: {
-          textContent: 'text',
+          bodyContent: 'text',
           acceptLabel: 'label',
         },
         localVue,
@@ -105,7 +180,7 @@ describe('GoCookieConsent', () => {
 
       wrapper = shallowMount(GoCookieConsent, {
         propsData: {
-          textContent: 'text',
+          bodyContent: 'text',
           acceptLabel: 'label',
         },
         localVue,
@@ -136,7 +211,7 @@ describe('GoCookieConsent', () => {
 
       wrapper = shallowMount(GoCookieConsent, {
         propsData: {
-          textContent: 'text',
+          bodyContent: 'text',
           acceptLabel: 'label',
         },
         localVue,
@@ -169,7 +244,7 @@ describe('GoCookieConsent', () => {
     beforeEach(() => {
       wrapper = shallowMount(GoCookieConsent, {
         propsData: {
-          textContent: 'text',
+          bodyContent: 'text',
           acceptLabel: 'label',
         },
         localVue,
@@ -209,7 +284,7 @@ describe('GoCookieConsent', () => {
     beforeEach(() => {
       wrapper = shallowMount(GoCookieConsent, {
         propsData: {
-          textContent: 'text',
+          bodyContent: 'text',
           acceptLabel: 'label',
         },
         localVue,
@@ -248,6 +323,30 @@ describe('GoCookieConsent', () => {
       setTimeout(() => {
         expect(debounceCheckOffset).not.toBeCalled()
       }, 500)
+    })
+  })
+
+  describe('watch - value', () => {
+    it('should emit input event with new value when change props value', async () => {
+      const firstValue = {
+        cookie_monitoring: false,
+        cookie_media: true,
+        cookie_marketing: false,
+      }
+
+      await wrapper.setProps({
+        value: firstValue
+      })
+
+      expect(wrapper.emitted().input.length).toBe(1)
+      expect(wrapper.emitted().input[0]).toEqual([firstValue])
+
+      await wrapper.setProps({
+        value: model
+      })
+
+      expect(wrapper.emitted().input.length).toBe(2)
+      expect(wrapper.emitted().input[1]).toEqual([model])
     })
   })
 })

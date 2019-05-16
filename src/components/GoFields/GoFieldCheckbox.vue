@@ -66,7 +66,7 @@ export default {
     },
     /**
     * Schema with mandatory property for input.
-    * { "type": "checkbox",
+    * {
         "inputName": "checkbox_rules",
         "label": "check this",
         "model": "checkbox_rules",
@@ -92,7 +92,25 @@ export default {
     onChange () {
       this.$emit('change', this.valueInput)
     }
-  }
+  },
+  watch: {
+    /**
+    * value :  when user set new value props, set valueInput with new value
+    *
+    */
+    value () {
+      this.valueInput = this.value
+    },
+    /**
+    * valueInput : Gets called when the user change value of input
+    *
+    * @event input
+    * @type String
+    */
+    valueInput () {
+      this.$emit('input', this.valueInput)
+    }
+  },
 }
 </script>
 
@@ -101,7 +119,6 @@ export default {
 ```js
 const input = {
   fieldInput: {
-    "type": "checkbox",
     "inputName": "checkbox_rules",
     "label": "check this",
     "model": "checkbox_rules",
@@ -126,7 +143,6 @@ const input = {
 ```js
 const input = {
   fieldInput: {
-    "type": "checkbox",
     "inputName": "checkbox_rules_1",
     "label": "check this",
     "model": "checkbox_rules_1",
@@ -151,7 +167,6 @@ const input = {
 ```js
 const input = {
   fieldInput: {
-    "type": "checkbox",
     "inputName": "checkbox_rules_2",
     "label": "check this",
     "model": "checkbox_rules_2",
@@ -181,7 +196,6 @@ const onChange = (value) => {
 ```js
 const input = {
   fieldInput: {
-    "type": "checkbox",
     "inputName": "checkbox_rules_3",
     "label": "check this",
     "model": "checkbox_rules_3",
@@ -207,7 +221,6 @@ const input = {
 ```js
 const input = {
   fieldInput: {
-    "type": "checkbox",
     "inputName": "checkbox_rules_4",
     "label": "check this",
     "model": "checkbox_rules_4",

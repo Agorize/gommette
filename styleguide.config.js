@@ -34,7 +34,7 @@ module.exports = {
       alias: {
         '@': path.resolve('src'),
         'public': path.resolve('public'),
-        '@agorize/gommette/src/styles': path.resolve('src/styles')
+        '@agorize/gommette/src/styles': path.resolve('src/styles'),
       }
     },
     module: {
