@@ -1,6 +1,7 @@
 import { shallowMount, createLocalVue } from '@vue/test-utils'
 import * as AgoUikit from '../../../src'
 import { GoCookieConsent } from '../../../src'
+import { spanWithoutScript } from '../componentsTest'
 import debounce from 'lodash.debounce'
 
 const localVue = createLocalVue()
@@ -28,7 +29,7 @@ describe('GoCookieConsent', () => {
     wrapper = shallowMount(GoCookieConsent, {
       propsData: {
         value: model,
-        textContent: 'text',
+        bodyContent: 'text',
         acceptLabel: 'label',
       },
       localVue,
@@ -96,6 +97,24 @@ describe('GoCookieConsent', () => {
     })
   })
 
+  describe('computed - isVueComponent', () => {
+    it('should not be a vue component', () => {
+      expect(wrapper.vm.isVueComponent).toBe(false)
+    })
+
+    describe('when bodyContent props is vue component', () => {
+      beforeEach(async () => {
+        wrapper.setProps({
+          bodyContent: spanWithoutScript,
+        })
+      })
+
+      it('should be a vue component', () => {
+        expect(wrapper.vm.isVueComponent).toBe(true)
+      })
+    })
+  })
+
   describe('methods - toggleSelectAll', () => {
     it('should pass all checkbox value to true', async () => {
       expect(Object.values({...wrapper.vm.value}).includes(true)).toBeFalsy()
@@ -130,7 +149,7 @@ describe('GoCookieConsent', () => {
 
       wrapper = shallowMount(GoCookieConsent, {
         propsData: {
-          textContent: 'text',
+          bodyContent: 'text',
           acceptLabel: 'label',
         },
         localVue,
@@ -161,7 +180,7 @@ describe('GoCookieConsent', () => {
 
       wrapper = shallowMount(GoCookieConsent, {
         propsData: {
-          textContent: 'text',
+          bodyContent: 'text',
           acceptLabel: 'label',
         },
         localVue,
@@ -192,7 +211,7 @@ describe('GoCookieConsent', () => {
 
       wrapper = shallowMount(GoCookieConsent, {
         propsData: {
-          textContent: 'text',
+          bodyContent: 'text',
           acceptLabel: 'label',
         },
         localVue,
@@ -225,7 +244,7 @@ describe('GoCookieConsent', () => {
     beforeEach(() => {
       wrapper = shallowMount(GoCookieConsent, {
         propsData: {
-          textContent: 'text',
+          bodyContent: 'text',
           acceptLabel: 'label',
         },
         localVue,
@@ -265,7 +284,7 @@ describe('GoCookieConsent', () => {
     beforeEach(() => {
       wrapper = shallowMount(GoCookieConsent, {
         propsData: {
-          textContent: 'text',
+          bodyContent: 'text',
           acceptLabel: 'label',
         },
         localVue,

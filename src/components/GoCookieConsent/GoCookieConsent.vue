@@ -12,12 +12,12 @@
               v-if="isVueComponent"
               class="text-white m-r-xs"
             >
-              <component :is="textContent" />
+              <component :is="bodyContent" />
             </p>
             <p
               v-else
               class="text-white m-r-xs"
-              v-html="textContent"
+              v-html="bodyContent"
             />
             <CollapseTransition :duration="350">
               <div v-show="!!checkboxList.length && isOpenList">
@@ -136,7 +136,7 @@ export default {
     /**
     * text content use in cookie banner
     **/
-    textContent: {
+    bodyContent: {
       type: String | Object,
       required: true,
     },
@@ -185,7 +185,7 @@ export default {
       return Object.values({...this.value}).includes(true)
     },
     isVueComponent () {
-      return !!this.textContent.render
+      return !!this.bodyContent.render
     }
   },
   mounted () {
@@ -303,7 +303,7 @@ export default {
       :privacyData="{url: 'http://agorize.com', label: 'Our privacy content'}"
       :isOpenList="isOpenList"
       :checkboxList="inputs"
-      :text-content="text"
+      :body-content="text"
       v-model="model"
     />
   </div>
