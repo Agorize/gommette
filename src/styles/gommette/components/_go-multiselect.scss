@@ -118,7 +118,7 @@ fieldset[disabled] .multiselect {
   position: relative;
   display: inline-block;
   min-height: 21px;
-  line-height: 21px;
+  line-height: $line-height-base;
   border: none;
   border-radius: $border-radius-base;
   background: #fff;
