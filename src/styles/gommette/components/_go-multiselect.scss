@@ -53,7 +53,7 @@ fieldset[disabled] .multiselect {
 .multiselect__input,
 .multiselect__single {
   font-family: inherit;
-  font-size: 16px;
+  font-size: 14px;
   touch-action: manipulation;
 }
 
@@ -103,25 +103,29 @@ fieldset[disabled] .multiselect {
   border-top-right-radius: 0;
 }
 
+.multiselect.has-error .multiselect__tags {
+  border-color: $brand-danger;
+}
+
+.multiselect--active .multiselect__tags {
+  border-color: $brand-primary;
+}
+
 .multiselect__input,
 .multiselect__single {
   position: relative;
   display: inline-block;
-  min-height: 20px;
-  line-height: 20px;
+  min-height: $line-height-base;
+  line-height: $line-height-base;
   border: none;
-  border-radius: 3px;
+  border-radius: $border-radius-base;
   background: #fff;
-  padding: 0 0 0 5px;
-  width: calc(100%);
+  padding: 0;
+  width: 100%;
   transition: border 0.1s ease;
   box-sizing: border-box;
   margin-bottom: 8px;
   vertical-align: top;
-}
-
-.multiselect__input::placeholder {
-  color: #35495e;
 }
 
 .multiselect__tag ~ .multiselect__input,
@@ -153,18 +157,18 @@ fieldset[disabled] .multiselect {
   min-height: 40px;
   display: block;
   padding: 8px 40px 0 8px;
-  border-radius: 3px;
+  border-radius: $border-radius-base;
   border: 1px solid #e8e8e8;
   background: #fff;
   font-size: 14px;
 }
 
 .multiselect__tag {
+  @extend .m-r-sm;
   position: relative;
   display: inline-block;
-  padding: 4px 26px 4px 10px;
-  border-radius: 3px;
-  margin-right: 10px;
+  padding: 3px 26px 3px 10px;
+  border-radius: $border-radius-base;
   color: $text-secondary;
   line-height: 1;
   background: $gray-light;
@@ -188,7 +192,7 @@ fieldset[disabled] .multiselect {
   text-align: center;
   line-height: 22px;
   transition: all 0.2s ease;
-  border-radius: 3px;
+  border-radius: $border-radius-base;
 }
 
 .multiselect__tag-icon:after {
@@ -208,7 +212,7 @@ fieldset[disabled] .multiselect {
 }
 
 .multiselect__current {
-  line-height: 16px;
+  line-height: $line-height-base;
   min-height: 40px;
   box-sizing: border-box;
   display: block;
@@ -218,13 +222,13 @@ fieldset[disabled] .multiselect {
   white-space: nowrap;
   margin: 0;
   text-decoration: none;
-  border-radius: 3px;
+  border-radius: $border-radius-base;
   border: 1px solid #e8e8e8;
   cursor: pointer;
 }
 
 .multiselect__select {
-  line-height: 16px;
+  line-height: ceil($line-height-base*0.85);
   display: block;
   position: absolute;
   box-sizing: border-box;
@@ -252,10 +256,11 @@ fieldset[disabled] .multiselect {
   content: "";
 }
 
-.multiselect__placeholder {
+.multiselect__placeholder, 
+.multiselect__input::placeholder {
+  @extend .m-b-sm;
   color: #adadad;
   display: inline-block;
-  margin-bottom: 10px;
   padding-top: 2px;
 }
 
@@ -309,10 +314,9 @@ fieldset[disabled] .multiselect {
   display: block;
   padding: 12px;
   min-height: 40px;
-  line-height: 16px;
+  line-height: $line-height-base;
   text-decoration: none;
   text-transform: none;
-  vertical-align: middle;
   position: relative;
   cursor: pointer;
   white-space: nowrap;
@@ -331,43 +335,41 @@ fieldset[disabled] .multiselect {
 .multiselect__option--highlight {
   outline: none;
   color: $text-secondary;
-  background: $gray;
-  font-weight: bold;
+  background: $gray-light;
 }
 
 .multiselect__option--highlight:after {
-  content: attr(data-select);
+  content: none; // attr(data-select);
   color: $text-secondary;
-  background: $gray;
-  font-weight: bold;
+  background: $gray-light;
 }
 
 .multiselect__option--selected {
-  background: $gray-light;
-  color: $text-secondary;
+  background: white;
+  color: $brand-primary;
   font-weight: 400;
 }
 
 .multiselect__option--selected:after {
-  content: attr(data-selected);
-  color: silver;
+  content: $selected-icon-content; // attr(data-selected);
+  color: $brand-primary;
 }
 
 .multiselect__option--selected.multiselect__option--highlight {
-  background: $brand-danger;
-  color: #fff;
+  outline: none;
+  color: $brand-primary;
+  background: $gray-light;
 }
 
-.multiselect__option--selected.multiselect__option--highlight:after {
-  background: $brand-danger;
-  content: attr(data-deselect);
-  color: #fff;
+.multiselect__option--highlight:after,
+.multiselect__option--selected:after {
+  font-size: $font-size-icon;
+  font-family: $font-family-icon;
 }
 
 .multiselect--disabled .multiselect__current,
 .multiselect--disabled .multiselect__select {
-  background: #ededed;
-  color: #a6a6a6;
+  color: $text-secondary;
 }
 
 .multiselect__option--disabled {
