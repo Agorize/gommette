@@ -70,17 +70,15 @@ export default {
   name: 'GoCollapse',
   props: {
     /**
-    * Item collapse with mandatory property, title and body.
-    * { title: String,
-    * body: String
-    * }
+    * Item collapse with mandatory property : isActive.
     */
     item: {
       type: Object,
       validator: (value) => {
-        return value.title.length > 0 && value.body.length > 0
+        return value.isActive !== undefined && value.isActive !== null 
       },
-      deep: true
+      deep: true,
+      default: () => ({ isActive: false })
     },
     /**
     * to know can be deleted or not
@@ -172,6 +170,9 @@ export default {
 </script>
 
 <docs>
+
+## With item as props
+
 ```js
   const itemInfo = {
     isActive: false,
@@ -198,5 +199,23 @@ export default {
       :beDeleted="true"
     />
   </div>
-````
+```
+
+## With slots
+
+```js
+  <div>
+    <go-collapse> 
+      <div slot="header">
+        My header
+      </div>
+
+      <div slot="body">
+        MytextbodyMytextbodyMytextbodyMytextbodyMytextbodyMytextbodyMytextbodyMytextbody
+      </div>
+    </go-collapse>
+  </div>
+```
 </docs>
+
+
