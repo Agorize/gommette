@@ -228,7 +228,7 @@ fieldset[disabled] .multiselect {
 }
 
 .multiselect__select {
-  line-height: $line-height-base;
+  line-height: ceil($line-height-base*0.85);
   display: block;
   position: absolute;
   box-sizing: border-box;
