@@ -404,6 +404,7 @@ fieldset[disabled] .multiselect {
 
 .multiselect__option--group-selected.multiselect__option--highlight:after {
   background: $brand-danger;
+  content: '';
   color: #fff;
 }
 
