@@ -339,7 +339,7 @@ fieldset[disabled] .multiselect {
 }
 
 .multiselect__option--highlight:after {
-  content: none; // attr(data-select);
+  content: none;
   color: $text-secondary;
   background: $gray-light;
 }
@@ -351,7 +351,7 @@ fieldset[disabled] .multiselect {
 }
 
 .multiselect__option--selected:after {
-  content: $selected-icon-content; // attr(data-selected);
+  content: $selected-icon-content;
   color: $brand-primary;
 }
 
@@ -404,7 +404,6 @@ fieldset[disabled] .multiselect {
 
 .multiselect__option--group-selected.multiselect__option--highlight:after {
   background: $brand-danger;
-  // content: attr(data-deselect);
   color: #fff;
 }
 
