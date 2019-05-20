@@ -405,6 +405,7 @@ fieldset[disabled] .multiselect {
 .multiselect__option--group-selected.multiselect__option--highlight:after {
   background: $brand-danger;
   color: #fff;
+  content: '';
 }
 
 .multiselect-enter-active,
