@@ -33,11 +33,24 @@ describe('GoCountdown', () => {
     wrapper = shallowMount(GoCountdown, {
       localVue,
       propsData: {
-        endDateString: moment.utc().add(4, 'days').format()
+        endDateString: moment.utc().add(42, 'days').format()
       }
     })
 
-    expect(wrapper.vm.remainingDays).toBe(4)
+    expect(wrapper.vm.remainingDays).toBe(42)
+  })
+
+  describe('when it is close to the end', () => {
+    it('should add text-warning class', () => {
+      wrapper = shallowMount(GoCountdown, {
+        localVue,
+        propsData: {
+          endDateString: moment.utc().add(3, 'days').format()
+        }
+      })
+
+      expect(wrapper.find('.go-countdown.text-warning').exists()).toBeTruthy()
+    })
   })
 
   describe('Time is out', () => {

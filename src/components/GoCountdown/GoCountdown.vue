@@ -2,6 +2,7 @@
   <div
     v-if="isActive || (!isActive && visibleWhenTimesOut)"
     class="go-countdown"
+    :class="{ 'text-warning': textWarningIfNecessary }"
   >
     <!-- Icon -->
     <div class="media-left media-middle">
@@ -44,6 +45,13 @@ export default {
   name: 'GoCountdown',
   props: {
     /**
+     * Number of days before it colors the countdown with warning color
+     */
+    daysBeforeWarningColor: {
+      type: Number,
+      default: 10
+    },
+    /**
      * End date the countdown is based on
      */
     endDateString: {
@@ -51,7 +59,7 @@ export default {
       required: true
     },
     /**
-     * End date the countdown is based on
+     * Number of days before it displays time left in seconds
      */
     daysBeforeRealtime: {
       type: Number,
@@ -63,7 +71,7 @@ export default {
     visibleWhenTimesOut: {
       type: Boolean,
       default: false
-    }
+    },
   },
   data () {
     return {
@@ -100,7 +108,10 @@ export default {
         hoursLeftTxt = `${totalHours}:${totalMin}:${totalSec}`
       }
       return hoursLeftTxt
-    }
+    },
+    textWarningIfNecessary () {
+      return (!this.visibleWhenTimesOut && this.remainingDays <= this.daysBeforeWarningColor)
+    },
   },
   mounted () {
     if (this.isItRealtime) {
@@ -147,12 +158,12 @@ export default {
 ## Basic Usage
 ```js
   const today = new Date()
-  const tomorrow = new Date()
-  tomorrow.setDate(today.getDate() + 1)
-  const tomorrowFormat = `${tomorrow.getFullYear()}-${tomorrow.getMonth() + 1}-${tomorrow.getDate()}`
+  const endDate = new Date()
+  endDate.setDate(today.getDate() + 42)
+  const endDateFormat = `${endDate.getFullYear()}-${endDate.getMonth() + 1}-${endDate.getDate()}`
 
   <go-countdown
-    :end-date-string="tomorrowFormat"
+    :end-date-string="endDateFormat"
   >
     <template slot="remainingTime" slot-scope="{ remainingTime }">
       Time left: <strong>{{ remainingTime }}</strong>
@@ -168,9 +179,60 @@ export default {
 
 ## "Days before realtime" Usage
 ```js
+  const today = new Date()
+  const endDate = new Date()
+  endDate.setDate(today.getDate() + 4)
+  const endDateFormat = `${endDate.getFullYear()}-${endDate.getMonth() + 1}-${endDate.getDate()}`
+
   <go-countdown
-    end-date-string="2019-06-24"
-    :days-before-realtime="10"
+    :end-date-string="endDateFormat"
+    :days-before-realtime="5"
+  >
+    <template slot="remainingTime" slot-scope="{ remainingTime }">
+      Time left: <strong>{{ remainingTime }}</strong>
+    </template>
+    <template slot="remainingDays" slot-scope="{ remainingDays }">
+      {{ remainingDays }} days left
+    </template>
+    <template slot="timeIsOut">
+      Time is out!
+    </template>
+  </go-countdown>
+```
+
+## "Days before warning color" Usage
+```js
+  const today = new Date()
+  const endDate = new Date()
+  endDate.setDate(today.getDate() + 19)
+  const endDateFormat = `${endDate.getFullYear()}-${endDate.getMonth() + 1}-${endDate.getDate()}`
+
+  <go-countdown
+    :end-date-string="endDateFormat"
+    :days-before-warning-color="20"
+  >
+    <template slot="remainingTime" slot-scope="{ remainingTime }">
+      Time left: <strong>{{ remainingTime }}</strong>
+    </template>
+    <template slot="remainingDays" slot-scope="{ remainingDays }">
+      {{ remainingDays }} days left
+    </template>
+    <template slot="timeIsOut">
+      Time is out!
+    </template>
+  </go-countdown>
+```
+
+## "Custom classes" Usage
+```js
+  const today = new Date()
+  const endDate = new Date()
+  endDate.setDate(today.getDate() + 42)
+  const endDateFormat = `${endDate.getFullYear()}-${endDate.getMonth() + 1}-${endDate.getDate()}`
+
+  <go-countdown
+    :end-date-string="endDateFormat"
+    class="my-class-1 my-class-2"
   >
     <template slot="remainingTime" slot-scope="{ remainingTime }">
       Time left: <strong>{{ remainingTime }}</strong>
