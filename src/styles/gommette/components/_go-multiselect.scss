@@ -353,6 +353,7 @@ fieldset[disabled] .multiselect {
 .multiselect__option--selected:after {
   content: $selected-icon-content;
   color: $brand-primary;
+  background: transparent;
 }
 
 .multiselect__option--selected.multiselect__option--highlight {
@@ -402,8 +403,9 @@ fieldset[disabled] .multiselect {
   color: #fff;
 }
 
+.multiselect__option--selected.multiselect__option--highlight:after,
 .multiselect__option--group-selected.multiselect__option--highlight:after {
-  background: $brand-danger;
+  background: transparent;
   color: #fff;
   content: '';
 }
