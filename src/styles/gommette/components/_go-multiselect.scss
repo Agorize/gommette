@@ -399,15 +399,15 @@ fieldset[disabled] .multiselect {
 }
 
 .multiselect__option--group-selected.multiselect__option--highlight {
-  background: $brand-danger;
+  background: $brand-primary;
   color: #fff;
 }
 
 .multiselect__option--selected.multiselect__option--highlight:after,
 .multiselect__option--group-selected.multiselect__option--highlight:after {
   background: transparent;
-  color: #fff;
-  content: '';
+  color: $brand-primary;
+  content: $selected-icon-content;
 }
 
 .multiselect-enter-active,
