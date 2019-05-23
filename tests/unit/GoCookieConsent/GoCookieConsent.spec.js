@@ -3,6 +3,7 @@ import * as AgoUikit from '../../../src'
 import { GoCookieConsent } from '../../../src'
 import { spanWithoutScript } from '../componentsTest'
 import debounce from 'lodash.debounce'
+import renderCases from './GoCookieConsent.render-cases'
 
 const localVue = createLocalVue()
 const model = {
@@ -17,6 +18,8 @@ describe('GoCookieConsent', () => {
   let wrapper
   let checkNewOffset
   let checkOffset
+  let clickOnLink
+  let onClose
   let debounceCheckOffset
   let closeCookieConsent
   let removeListener
@@ -24,6 +27,7 @@ describe('GoCookieConsent', () => {
   beforeEach(() => {
     checkNewOffset = jest.fn()
     checkOffset = jest.fn()
+    clickOnLink = jest.fn()
     debounceCheckOffset = jest.fn()
 
     wrapper = shallowMount(GoCookieConsent, {
@@ -37,7 +41,8 @@ describe('GoCookieConsent', () => {
       stubs: ['GoIcon'],
       methods: {
         checkNewOffset,
-        checkOffset
+        checkOffset,
+        clickOnLink,
       }
     })
   })
@@ -53,6 +58,12 @@ describe('GoCookieConsent', () => {
 
   it('should call checkNewOffset method', async () => {
     expect(checkNewOffset).toBeCalled()
+  })
+
+  it('should add click event listener on document', async () => {
+    await document.querySelector('body').dispatchEvent(new Event('click'))
+
+    expect(clickOnLink).toBeCalled()
   })
 
   it('should set debounceCheckOffset function', () => {
@@ -139,6 +150,53 @@ describe('GoCookieConsent', () => {
         expect(Object.values({...wrapper.vm.value}).includes(false)).toBeTruthy()
         await wrapper.vm.toggleSelectAll()
         expect(Object.values({...wrapper.vm.value}).includes(true)).toBeFalsy()
+      })
+    })
+  })
+
+  describe('methods - clickOnLink', () => {
+    beforeEach(() => {
+      onClose = jest.fn()
+
+      wrapper = shallowMount(GoCookieConsent, {
+        propsData: {
+          bodyContent: 'text',
+          acceptLabel: 'label',
+          privacyData: {
+            label: 'privacy data'
+          }
+        },
+        localVue,
+        attachToDocument: true,
+        stubs: ['GoIcon'],
+        methods: {
+          checkNewOffset,
+          checkOffset,
+          onClose,
+        }
+      })
+    })
+
+    it('should not called onClose event', async () => {
+      const clickEvent = new Event('click')
+
+      await wrapper.vm.clickOnLink(clickEvent)
+
+      expect(onClose).not.toBeCalled()
+    })
+
+    describe('when target is link element', () => {
+      it('should called onClose event', async () => {
+        const link = document.createElement('a')
+        link.setAttribute('href', 'http://test.com')
+
+        let event = {
+          target: link
+        }
+
+        await wrapper.vm.clickOnLink(event)
+
+        expect(onClose).toBeCalled()
       })
     })
   })

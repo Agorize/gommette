@@ -58,6 +58,7 @@
             :title="privacyData.label"
             target="_blank"
             class="text-white text-underline tabindex-white"
+            ref="privacy-link"
           >
             {{ privacyData.label }}
           </a>
@@ -193,6 +194,7 @@ export default {
     this.debounceCheckOffset = debounce(this.checkNewOffset, 500)
     this.debounceCheckOffset()
 
+    document.querySelector('body').addEventListener('click', this.clickOnLink)
     window.addEventListener('scroll', this.checkOffset)
     window.addEventListener('resize', this.debounceCheckOffset)
   },
@@ -206,6 +208,18 @@ export default {
       Object.keys({...this.value}).forEach((key) => {
         this.value[key] = hasChecked ? false : true
       })
+    },
+    clickOnLink (event) {
+      const target = event.target
+
+      if (
+        target &&
+        target.tagName.toLowerCase() === 'a' &&
+        !this.$refs['cookie-consent'].contains(target) &&
+        target.href !== '#'
+      ) {
+        this.onClose()
+      }
     },
     onClick () {
       this.$emit('accept')
@@ -236,6 +250,7 @@ export default {
     removeListener () {
       window.removeEventListener('scroll', this.checkOffset)
       window.removeEventListener('resize', this.debounceCheckOffset)
+      document.querySelector('body').removeEventListener('click', this.clickOnLink)
     },
   },
   watch: {
@@ -292,6 +307,7 @@ export default {
 
   <div>
     <button class="btn btn-sm btn-primary m-b-xl" @click="isOpenList = !isOpenList">OpenList</button>
+    <a href="http://master.agorize.com" target="_blank">Link to master Agorize in new tab</a>
     <div
       v-for="(value, name, key) in model"
       :key="key"
