@@ -5,6 +5,7 @@
       class="over-link"
     >
     </a>
+    <go-icon :name="'no-image'"/>
     <div
       class="bg"
       :style="{'background-image': `url('${imgUrl}')`}"
@@ -96,6 +97,14 @@ export default {
 <style lang="scss" scoped>
   .thumbnail {
     position: relative;
+
+    .icn-no-image {
+      transform: translate(-50%,-50%);
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      font-size: 100px;
+    }
   }
   .bg {
     position: relative;
@@ -137,6 +146,13 @@ export default {
 ```js
   <go-card-cover
     img-url="http://placekitten.com/200/300"
+  />
+```
+
+## Basic cover with no image
+```js
+  <go-card-cover style="background-color: #fff"
+    img-url=""
   />
 ```
 

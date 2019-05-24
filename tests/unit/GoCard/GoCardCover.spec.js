@@ -23,7 +23,7 @@ describe('GoCardCover', () => {
   })
 
   it('should not render GoIcon component', () => {
-    expect(wrapper.find('#go-icon').exists()).toBeFalsy()
+    expect(wrapper.find('.overlay #go-icon').exists()).toBeFalsy()
   })
 
   it('should not render banner element', () => {
@@ -60,11 +60,11 @@ describe('GoCardCover', () => {
     })
 
     it('should fill name prop of the GoIcon component', () => {
-     expect(wrapper.find('#go-icon').vm.name).toBe('my-name')
+      expect(wrapper.find('.overlay #go-icon').vm.name).toBe('my-name')
     })
 
     it('should display the overlay text', () => {
-     expect(wrapper.find('.overlay').text()).toBe('my-text')
+      expect(wrapper.find('.overlay').text()).toBe('my-text')
     })
   })
 
