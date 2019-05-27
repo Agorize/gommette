@@ -1,10 +1,10 @@
 <template>
   <component 
-      :is="tag"
-      class="loader-container"
-    > 
-      <div class="animated-background"></div>
-    </component>
+    :is="tag"
+    class="loader-container"
+  > 
+    <div class="animated-background"></div>
+  </component>
 </template>
 
 <script>
@@ -31,21 +31,21 @@ export default {
  }
 
 .loader-container {
+  height: 20px;
   position: relative;
   width: 50%;
-  height: 20px;
 }
 
 .animated-background {
-  height: 100%;
-  width: 100%;
   animation-duration: 2s;
   animation-fill-mode: forwards;
   animation-iteration-count: infinite;
   animation-name: placeHolderShimmer;
   animation-timing-function: linear;
-  background: linear-gradient(to right, #eeeeee 8%, #dddddd 18%, #eeeeee 33%);
+  background: linear-gradient(to right, $white-darker 8%, $white-dark 18%, $white-darker 33%);
   background-size: 400% 100%;
+  height: 100%;
+  width: 100%;
  }
 </style>
 
