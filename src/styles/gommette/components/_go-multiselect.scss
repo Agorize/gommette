@@ -175,8 +175,16 @@ fieldset[disabled] .multiselect {
   margin-bottom: 5px;
   white-space: nowrap;
   overflow: hidden;
-  max-width: 100%;
+  max-width: 250px;
   text-overflow: ellipsis;
+}
+
+.multiselect__tag span {
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  overflow-wrap: break-word;
+  white-space: nowrap;
 }
 
 .multiselect__tag-icon {
@@ -256,6 +264,14 @@ fieldset[disabled] .multiselect {
   content: "";
 }
 
+.multiselect__placeholder {
+  height: 17px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  overflow-wrap: break-word;
+  white-space: nowrap;
+}
+
 .multiselect__placeholder, 
 .multiselect__input::placeholder {
   @extend .m-b-sm;
@@ -320,6 +336,8 @@ fieldset[disabled] .multiselect {
   position: relative;
   cursor: pointer;
   white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .multiselect__option:after {
