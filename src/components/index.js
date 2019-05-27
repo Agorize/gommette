@@ -17,3 +17,5 @@ export { default as GoFieldCheckbox } from './GoFields/GoFieldCheckbox.vue'
 export { default as GoTab } from './GoTab/GoTab.vue'
 export { default as GoCountdown } from './GoCountdown/GoCountdown.vue'
 export { default as GoCookieConsent } from './GoCookieConsent/GoCookieConsent.vue'
+export { default as GoLoadingElement } from './GoLoadingElement/GoLoadingElement.vue'
+
