@@ -27,12 +27,13 @@
   & + .super-card
     @extend .m-t-md
   .content
+    padding: 20px
+  > .content
     display: flex
     flex-direction: column
-    padding: 20px
     width: 100%
     height: calc(100% - #{$card-thumbnail-height})
-  .content > *
+  > .content > *
     max-width: 100%
     flex: auto
   .content-sm
