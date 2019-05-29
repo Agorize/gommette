@@ -28,14 +28,6 @@
     @extend .m-t-md
   .content
     padding: 20px
-  > .content
-    display: flex
-    flex-direction: column
-    width: 100%
-    height: calc(100% - #{$card-thumbnail-height})
-  > .content > *
-    max-width: 100%
-    flex: auto
   .content-sm
     padding: 10px
   .content-md
@@ -452,3 +444,13 @@
   // Animation Show up
   .animation-show-up
     animation: 0.3s ease-out 0 1 show-up
+
+.challenge-super-card
+  > .content
+    display: flex
+    flex-direction: column
+    width: 100%
+    height: calc(100% - 200px)
+  > .content > *
+    max-width: 100%
+    flex: auto
