@@ -36,7 +36,9 @@
 </template>
 
 <script>
-import Countdown from 'countdown'
+// To test the component with styleguide you have to import vuedraggable without require
+// Require is necessary because module.exports of countdownjs library. Refer line 1355
+const Countdown = require('countdown')
 import moment from 'moment/src/moment.js'
 
 import GoIcon from '../GoIcon/GoIcon.vue'
@@ -125,9 +127,11 @@ export default {
   },
   methods: {
     initCountdown () {
-      this.countdownObject = Countdown(this.endDate, (ts) => {
-        this.timeObject = ts
-      }, Countdown.DAYS | Countdown.HOURS | Countdown.MINUTES | Countdown.SECONDS)
+      if (typeof window !== 'undefined') {
+        this.countdownObject = Countdown(this.endDate, (ts) => {
+          this.timeObject = ts
+        }, Countdown.DAYS | Countdown.HOURS | Countdown.MINUTES | Countdown.SECONDS)
+      }
     },
     destroyCountdown () {
       window.clearInterval(this.countdownObject)
