@@ -199,7 +199,7 @@ export default {
   computed: {
     hasCheckedValue () {
       const keys = this.checkboxList.map((element) => element.model)
-      const values = keys.map(key => this.values[key])
+      const values = keys.map(key => this.value[key])
       return values.includes(true)
     },
     isVueComponent () {
