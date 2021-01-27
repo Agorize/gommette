@@ -198,7 +198,9 @@ export default {
   },
   computed: {
     hasCheckedValue () {
-      return Object.values({...this.value}).includes(true)
+      const keys = this.checkboxList.map((element) => element.model)
+      const values = keys.map(key => this.values[key])
+      return values.includes(true)
     },
     isVueComponent () {
       return !!this.bodyContent.render
