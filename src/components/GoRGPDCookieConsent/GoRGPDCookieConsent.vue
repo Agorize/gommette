@@ -53,14 +53,14 @@
       <div class="cookie-consent__actions-buttons m-t-sm">
         <slot name="actions-buttons">
           <button
-            class="text-white text-underline tabindex-white"
+            class="text-white text-underline"
             @click="customizeSettings"
             ref="customize-settings-button"
           >
-            {{ customizeSettingsLabel }}
+            <span class="text-center">{{ customizeSettingsLabel }}</span>
           </button>
           <button
-            class="btn btn-sm m-l-md"
+            class="btn btn-sm"
             style="color: #fff; border: 2px solid #fff;"
             @click="decline"
             ref="decline-button"
@@ -68,7 +68,7 @@
             {{ declineLabel }}
           </button>
           <button
-            class="btn btn-sm btn-inverse m-l-md"
+            class="btn btn-sm btn-inverse"
             @click="accept"
             ref="accept-button"
           >
