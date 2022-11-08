@@ -1,0 +1,12 @@
+@mixin onSmallScreenAndAbove()  // Only as a reminder that small screens are the default
+  @content
+
+
+@mixin onMediumScreenAndBelow()
+  @media (min-width: $screen-sm-min)
+    @content
+
+
+@mixin onLargeScreenAndBelow()
+  @media (min-width: $screen-lg)
+    @content
