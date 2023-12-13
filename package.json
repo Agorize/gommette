@@ -149,7 +149,7 @@
     "jest-axe": "3.1.0",
     "jest-transform-css": "2.0.0",
     "lodash": "4.17.19",
-    "node-sass": "4.14.0",
+    "node-sass": "^6",
     "path": "0.12.7",
     "rollup": "1.10.0",
     "rollup-plugin-alias": "1.5.1",
@@ -160,7 +160,7 @@
     "rollup-plugin-node-resolve": "3.4.0",
     "rollup-plugin-postcss": "2.0.3",
     "rollup-plugin-vue": "4.3.2",
-    "sass-loader": "7.1.0",
+    "sass-loader": "10.1.1",
     "sass-resources-loader": "2.0.0",
     "semantic-release": "17.2.3",
     "style-loader": "0.23.1",
@@ -171,7 +171,7 @@
     "vue-server-renderer": "2.6.10",
     "vue-styleguidist": "4.34.2",
     "vue-template-compiler": "2.6.10",
-    "webpack": "4.27.1"
+    "webpack": "^4.46.0"
   },
   "homepage": "https://github.com/Agorize/gommette#readme"
 }

@@ -56,7 +56,9 @@ module.exports = {
                 {
                   loader: 'sass-loader',
                   options: {
-                    indentedSyntax: true,
+                    sassOptions: {
+                      indentedSyntax: true
+                    },
                     outputStyle: 'compressed',
                   },
                 },
@@ -88,7 +90,9 @@ module.exports = {
             {
               loader: 'sass-loader',
               options: {
-                indentedSyntax: true
+                sassOptions: {
+                  indentedSyntax: true
+                }
               }
             },
           ],
