@@ -221,10 +221,10 @@ export default {
     },
     accept () {
       if (this.isOpenList) {
-	      this.$emit('accept')
+        this.$emit('accept')
       }
       else {
-	      this.$emit('acceptAll')
+        this.$emit('acceptAll')
       }
       this.closeCookieConsent()
     },
