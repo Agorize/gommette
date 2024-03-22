@@ -38,16 +38,6 @@
               </div>
             </CollapseTransition>
           </div>
-          <button
-            @click="postponeDecision"
-            class="go-button tabindex-white"
-            ref="close-button"
-          >
-            <GoIcon
-              name="close"
-              class="text-white"
-            />
-          </button>
         </slot>
       </div>
       <div class="cookie-consent__actions-buttons m-t-sm">
@@ -231,19 +221,15 @@ export default {
     },
     accept () {
       if (this.isOpenList) {
-	this.$emit('accept')
+        this.$emit('accept')
       }
       else {
-	this.$emit('acceptAll')
+        this.$emit('acceptAll')
       }
       this.closeCookieConsent()
     },
     decline () {
       this.$emit('decline')
-      this.closeCookieConsent()
-    },
-    postponeDecision () {
-      this.$emit('postponeDecision')
       this.closeCookieConsent()
     },
     closeCookieConsent () {
