@@ -25,6 +25,7 @@
         :class="{ active: tab.id === activeTab.id }"
         v-for="tab in tabs"
         :key="tab.id"
+        role="tab"
       >
 
         <a
@@ -109,7 +110,7 @@ export default {
       this.$emit('input', this.activeTab)
 
       if (updateEvent) {
-        this.toggleList();
+        this.toggleList()
 
         /**
          * Update event
@@ -121,13 +122,13 @@ export default {
       }
     },
     toggleList () {
-      this.showList = !this.showList;
+      this.showList = !this.showList
     },
-    hideTabWhenClickOutsideOnMobile(e) {
+    hideTabWhenClickOutsideOnMobile (e) {
       if (window.matchMedia('(max-width: 768px)').matches &&
           !(this.$refs.myTab.contains(e.target)) &&
           this.showList) {
-        this.toggleList();
+        this.toggleList()
       }
     }
   },
@@ -135,10 +136,10 @@ export default {
     this.initDefaultActiveTab()
   },
   destroyed () {
-    document.body.removeEventListener('click', this.hideTabWhenClickOutsideOnMobile);
+    document.body.removeEventListener('click', this.hideTabWhenClickOutsideOnMobile)
   },
   mounted () {
-    document.body.addEventListener('click', this.hideTabWhenClickOutsideOnMobile, true);
+    document.body.addEventListener('click', this.hideTabWhenClickOutsideOnMobile, true)
   }
 }
 </script>
