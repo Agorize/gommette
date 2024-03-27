@@ -25,6 +25,7 @@
         :class="{ active: tab.id === activeTab.id }"
         v-for="tab in tabs"
         :key="tab.id"
+        role="tab"
       >
 
         <a
