@@ -73,7 +73,7 @@ export default {
     * Number that can set the default active tab
     **/
     defaultActiveTabId: {
-      type: Number,
+      type: Number | null,
       default: null
     },
     /**
