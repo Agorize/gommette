@@ -171,7 +171,7 @@
     "vue-server-renderer": "2.6.10",
     "vue-styleguidist": "4.34.2",
     "vue-template-compiler": "2.6.10",
-    "webpack": "^4.46.0"
+    "webpack": "^5.94.0"
   },
   "homepage": "https://github.com/Agorize/gommette#readme"
 }
