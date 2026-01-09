@@ -6,6 +6,7 @@
       [`icn-${size}`]: Boolean(size)
     }"
     data-testid="icon"
+    aria-hidden="true"
   />
 </template>
 
