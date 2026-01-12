@@ -71,7 +71,7 @@
     "gen": "hygen",
     "lint": "eslint"
   },
-  "version": "1.18.12",
+  "version": "1.18.13",
   "author": "",
   "keywords": [],
   "license": "ISC",
