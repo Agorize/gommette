@@ -9,9 +9,14 @@
       :style="styleHeader"
     >
       <div
-        @click="toggleCollapse(index)"
         class="go-collapse__button"
+        role="button"
+        tabindex="0"
         ref="collapse__button"
+        :aria-controls="panelId"
+        :aria-expanded="isActive"
+        @click="toggleCollapse(index)"
+        @keyup.enter="toggleCollapse(index)"
       >
         <div class="go-header__prefix">
           <slot name="header__prefix">
@@ -24,19 +29,20 @@
         </div>
         <div class="go-header__title">
           <slot name="header">
-            <h5 v-html="item.title"></h5>
+            <div class="go-header__title__content" v-html="item.title"></div>
           </slot>
         </div>
         <div class="go-header__actions">
           <slot name="header__actions" />
-          <span
+          <button
             v-if="beDeleted"
+            type="button"
             @click.stop="destroyItem(index)"
             class="go-header__delete"
             ref="header__delete"
           >
             <go-icon name="delete" />
-          </span>
+          </button>
           <go-icon
             name="bracket-right"
             class="go-header__arrow"
@@ -48,6 +54,7 @@
     <CollapseTransition :duration="isAnimated ? 400 : 0">
       <div
         v-show="isActive"
+        :id="panelId"
         class="go-collapse__body"
         :class="{'go-collapse__body--active': isActive}"
       >
@@ -64,6 +71,8 @@
 
 <script>
 import { CollapseTransition } from 'vue2-transitions'
+import { uuid } from '@/utils/uuid'
+
 import GoIcon from '@/components/GoIcon/GoIcon.vue'
 
 export default {
@@ -104,7 +113,8 @@ export default {
   },
   data () {
     return {
-      collapse: Object.assign({}, this.item)
+      collapse: Object.assign({}, this.item),
+      panelId: `go-collapse-panel-${uuid()}`
     }
   },
   computed: {
