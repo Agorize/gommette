@@ -37,10 +37,6 @@
     line-height: 50px;
   }
 
-  .nav-control {
-    display: none;
-  }
-
   .nav {
     li {
       width: 100%;
@@ -76,27 +72,15 @@
   @media (min-width: $screen-sm-min) {
     max-height: 50px;
 
-    /* nav control */
-    .nav-control {
-      display: inline;
-
-      .left {
-        float: left;
-      }
-
-      .right {
-        float: right;
-      }
-
-      .quiet {
-        position: absolute;
-        bottom: -100%;
-        float: none;
-      }
+    > nav {
+      display: flex;
+      justify-content: center;
     }
 
     /* Tabs */
     .nav {
+      display: inline-flex;
+      overflow-x: auto;
       li {
         width: auto;
         font-size: $font-size-base;
@@ -112,21 +96,8 @@
           }
         }
 
-        &.active,
-        &.visible {
-          display: inline-block;
-          position: absolute;
-          top: auto;
-          left: auto;
-          bottom: -100%;
-        }
-
-        &.visible {
-          position: relative;
-          bottom: auto;
-        }
-
         &.active {
+          position: relative;
           a {
             color: $brand-primary;
           }
