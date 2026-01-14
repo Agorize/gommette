@@ -21,7 +21,7 @@
               v-html="bodyContent"
             />
             <CollapseTransition :duration="350">
-              <div v-show="!!checkboxList.length && isOpenList">
+              <div id="cookie-consent-list" v-show="!!checkboxList.length && isOpenList">
                 <div class="cookie-consent__list">
                   <go-field-checkbox
                     v-for="(input, key) in checkboxList"
@@ -47,6 +47,8 @@
             class="text-white text-underline"
             @click="customizeSettings"
             ref="customize-settings-button"
+            :aria-expanded="isOpenList"
+            aria-controls="cookie-consent-list"
           >
             <span class="text-center">{{ customizeSettingsLabel }}</span>
           </button>
