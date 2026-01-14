@@ -9,44 +9,54 @@
       type="button"
       data-toggle="dropdown"
       :aria-expanded="`${showList}`"
+      :aria-label="toggleListAriaLabel"
+      :aria-controls="`${uuid}-list`"
       @click="toggleList"
     >
       <span class="caret m-l-sm"></span>
     </button>
 
-    <ul
-      class="nav"
-      :class="`text-${align}`"
-      role="tablist"
-      @click-tab="selectTab"
-    >
-      <li
-        class="visible"
-        :class="{ active: tab.id === activeTab.id }"
-        v-for="tab in tabs"
-        :key="tab.id"
-        role="tab"
+    <nav :aria-label="listAriaLabel">
+      <ul
+        :id="`${uuid}-list`"
+        class="nav"
+        :class="`text-${align}`"
+        role="tablist"
+        @click-tab="selectTab"
       >
-
-        <a
-          v-if="tab.url"
-          :href="tab.url"
+        <li
+          class="visible"
+          :class="{ active: tab.id === activeTab.id }"
+          v-for="tab in tabs"
+          :key="tab.id"
+          role="tab"
         >
-          {{ tab.title }}
-        </a>
 
-        <a
-          v-else
-          @click="selectTab(tab.id, true)"
-        >
-          {{ tab.title }}
-        </a>
-      </li>
-    </ul>
+          <a
+            v-if="tab.url"
+            :href="tab.url"
+            :aria-current="tab.id === activeTab.id ? 'page' : null"
+          >
+            {{ tab.title }}
+          </a>
+
+          <a
+            v-else
+            role="button"
+            href="#"
+            @click="selectTab(tab.id, true)"
+          >
+            {{ tab.title }}
+          </a>
+        </li>
+      </ul>
+    </nav>
   </div>
 </template>
 
 <script>
+import { uuid } from '@/utils/uuid'
+
 export default {
   name: 'GoTab',
   props: {
@@ -83,12 +93,21 @@ export default {
     align: {
       type: String,
       default: 'center'
+    },
+    toggleListAriaLabel: {
+      type: String,
+      default: ''
+    },
+    listAriaLabel: {
+      type: String,
+      default: ''
     }
   },
   data () {
     return {
       activeTab: {},
-      showList: false
+      showList: false,
+      uuid: `go-tab-${uuid()}`
     }
   },
   watch: {
@@ -110,7 +129,7 @@ export default {
       this.$emit('input', this.activeTab)
 
       if (updateEvent) {
-        this.toggleList();
+        this.toggleList()
 
         /**
          * Update event
@@ -122,13 +141,13 @@ export default {
       }
     },
     toggleList () {
-      this.showList = !this.showList;
+      this.showList = !this.showList
     },
-    hideTabWhenClickOutsideOnMobile(e) {
+    hideTabWhenClickOutsideOnMobile (e) {
       if (window.matchMedia('(max-width: 768px)').matches &&
           !(this.$refs.myTab.contains(e.target)) &&
           this.showList) {
-        this.toggleList();
+        this.toggleList()
       }
     }
   },
@@ -136,10 +155,10 @@ export default {
     this.initDefaultActiveTab()
   },
   destroyed () {
-    document.body.removeEventListener('click', this.hideTabWhenClickOutsideOnMobile);
+    document.body.removeEventListener('click', this.hideTabWhenClickOutsideOnMobile)
   },
   mounted () {
-    document.body.addEventListener('click', this.hideTabWhenClickOutsideOnMobile, true);
+    document.body.addEventListener('click', this.hideTabWhenClickOutsideOnMobile, true)
   }
 }
 </script>
