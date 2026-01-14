@@ -44,8 +44,9 @@ describe('GoTab', () => {
       expect(wrapper.find('ul.nav a').text()).toBe('my-title-1')
     })
 
-    it('should not have a href on the link', () => {
-      expect(wrapper.find('ul.nav a').attributes('href')).toBe(undefined);
+    it('should have a role button', () => {
+      expect(wrapper.find('ul.nav a').attributes('href')).toBe('#');
+      expect(wrapper.find('ul.nav a').attributes('role')).toBe('button');
     })
 
     describe('when url is defined', () => {
