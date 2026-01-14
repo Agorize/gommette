@@ -1,13 +1,13 @@
 <template>
   <div :class="wrapperClasses">
     <label
-      :for="schema.inputName"
+      :for="schema.id"
       :class="schema.labelClasses"
       ref="checkbox"
     >
       <input
         @change="onChange"
-        class="boolean optional"
+        class="boolean optional sr-only"
         :class="schema.inputClass"
         type="checkbox"
         :name="schema.inputName"

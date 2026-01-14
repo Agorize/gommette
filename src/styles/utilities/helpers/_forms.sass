@@ -87,9 +87,10 @@ textarea.form-control
     cursor: pointer
     position: relative
     padding: 0 0 0 30px
+  &:has(input:focus)
+    outline: 2px dashed $brand-primary
   [type='radio'],
   [type='checkbox']
-    display: none
     & + span:before
       content: ''
       width: 20px
