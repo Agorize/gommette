@@ -43,14 +43,6 @@ jobs:
       - run:
           name: release
           command: yarn run semantic-release || true
-      - run:
-          name: Notify on Slack
-          when: on_success
-          command: yarn notify $(git log --format=oneline -n 1)
-      - run:
-          name: Notify on Slack
-          when: on_fail
-          command: yarn notify $(git log --format=oneline -n 1) error
 
 workflows:
   version: 2
