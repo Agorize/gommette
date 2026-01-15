@@ -110,7 +110,7 @@ export default {
     valueInput () {
       this.$emit('input', this.valueInput)
     }
-  },
+  }
 }
 </script>
 
@@ -215,7 +215,6 @@ const input = {
   />
 </div>
 ```
-
 
 ## Disabled and checked
 ```js

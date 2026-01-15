@@ -265,6 +265,31 @@ export default {
   watch: {
     value () {
       this.$emit('input', this.value)
+    },
+    open: {
+      handler (newOpen) {
+        if (newOpen) {
+          this.$nextTick(() => {
+            const declineButton = this.$refs['decline-button']
+
+            if (declineButton) {
+              declineButton.focus()
+            }
+          })
+        }
+      },
+      immediate: true
+    },
+    isOpenList (newIsOpenList) {
+      if (newIsOpenList) {
+        this.$nextTick(() => {
+          const firstCheckbox = document.getElementById('cookie-consent-list').querySelector('input[type="checkbox"]')
+
+          if (firstCheckbox) {
+            firstCheckbox.focus()
+          }
+        })
+      }
     }
   },
   components: {
