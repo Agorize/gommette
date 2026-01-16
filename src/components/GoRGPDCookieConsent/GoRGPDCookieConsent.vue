@@ -190,7 +190,8 @@ export default {
     return {
       open: this.openBanner,
       cookieConsentElement: this.$refs['cookie-consent'],
-      debounceCheckOffset: {}
+      debounceCheckOffset: {},
+      originalActiveElement: null
     }
   },
   computed: {
@@ -273,9 +274,16 @@ export default {
             const declineButton = this.$refs['decline-button']
 
             if (declineButton) {
+              this.originalActiveElement = document.activeElement
+
               declineButton.focus()
             }
           })
+        } else {
+          if (this.originalActiveElement) {
+            this.originalActiveElement.focus()
+            this.originalActiveElement = null
+          }
         }
       },
       immediate: true
