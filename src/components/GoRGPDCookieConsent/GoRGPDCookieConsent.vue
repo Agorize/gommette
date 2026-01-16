@@ -1,9 +1,10 @@
 <template>
   <transition name="fade">
-    <div
+    <section
       class="cookie-consent"
       ref="cookie-consent"
       v-show="open"
+      :aria-label="bannerAriaLabel"
     >
       <div class="cookie-consent__content">
         <slot name="content">
@@ -20,7 +21,7 @@
               v-html="bodyContent"
             />
             <CollapseTransition :duration="350">
-              <div v-show="!!checkboxList.length && isOpenList">
+              <div id="cookie-consent-list" v-show="!!checkboxList.length && isOpenList">
                 <div class="cookie-consent__list">
                   <go-field-checkbox
                     v-for="(input, key) in checkboxList"
@@ -29,7 +30,7 @@
                     :schema="input"
                   />
                   <button
-                    class="text-primary text-xs"
+                    class="text-white text-underline text-xs"
                     @click="toggleSelectAll"
                   >
                     {{ hasCheckedValue ? labelsToggleButton.unselect : labelsToggleButton.select}}
@@ -46,6 +47,8 @@
             class="text-white text-underline"
             @click="customizeSettings"
             ref="customize-settings-button"
+            :aria-expanded="isOpenList"
+            aria-controls="cookie-consent-list"
           >
             <span class="text-center">{{ customizeSettingsLabel }}</span>
           </button>
@@ -66,7 +69,7 @@
           </button>
         </slot>
       </div>
-    </div>
+    </section>
   </transition>
 </template>
 
@@ -84,12 +87,12 @@ export default {
     * unselect: String,
     * }
     **/
-   labelsToggleButton: {
-     value: Object,
+    labelsToggleButton: {
+      value: Object,
       default: () => {
         return {
           select: 'Select all',
-          unselect: 'Unselect all',
+          unselect: 'Unselect all'
         }
       }
     },
@@ -103,7 +106,7 @@ export default {
     **/
     value: {
       type: Object,
-      default: null,
+      default: null
     },
     /**
     * Checkboxlist to show checkbox. When add checkbox in checkbox list,
@@ -120,63 +123,67 @@ export default {
     **/
     checkboxList: {
       type: Array,
-      default: () => [],
+      default: () => []
     },
     /**
     * Default state if list checkbox is opened or not
     **/
     isOpenList: {
       default: true,
-      type: Boolean,
+      type: Boolean
     },
     /**
     * text content use in cookie banner
     **/
     bodyContent: {
       type: String | Object,
-      required: true,
+      required: true
     },
     /**
     * text label use in accept button when settings customization not collapsed
     **/
     acceptLabel: {
       type: String,
-      required: true,
+      required: true
     },
     /**
     * text label use in accept button when settings customization collapsed
     **/
     acceptAllLabel: {
       type: String,
-      required: true,
+      required: true
     },
     /**
     * text label use in decline button
     **/
     declineLabel: {
       type: String,
-      required: true,
+      required: true
     },
     /**
     * text label use in customize settings link
     **/
     customizeSettingsLabel: {
       type: String,
-      required: true,
+      required: true
     },
     /**
     * offset height to set value when banner is set to absolute position
     **/
     offsetHeight: {
       default: -100,
-      type: Number,
+      type: Number
     },
     /**
     * Default state if banner is opened or not
     **/
     openBanner: {
       default: true,
-      type: Boolean,
+      type: Boolean
+    },
+    bannerAriaLabel: {
+      type: String,
+      required: true
     }
   },
   data () {
@@ -184,6 +191,7 @@ export default {
       open: this.openBanner,
       cookieConsentElement: this.$refs['cookie-consent'],
       debounceCheckOffset: {},
+      originalActiveElement: null
     }
   },
   computed: {
@@ -212,8 +220,8 @@ export default {
     toggleSelectAll () {
       const hasChecked = this.hasCheckedValue
 
-      Object.keys({...this.value}).forEach((key) => {
-        this.value[key] = hasChecked ? false : true
+      Object.keys({ ...this.value }).forEach((key) => {
+        this.value[key] = !hasChecked
       })
     },
     customizeSettings (event) {
@@ -222,8 +230,7 @@ export default {
     accept () {
       if (this.isOpenList) {
         this.$emit('accept')
-      }
-      else {
+      } else {
         this.$emit('acceptAll')
       }
       this.closeCookieConsent()
@@ -254,16 +261,48 @@ export default {
       window.removeEventListener('scroll', this.checkOffset)
       window.removeEventListener('resize', this.debounceCheckOffset)
       document.querySelector('body').removeEventListener('click', this.clickOnLink)
-    },
+    }
   },
   watch: {
     value () {
       this.$emit('input', this.value)
     },
+    open: {
+      handler (newOpen) {
+        if (newOpen) {
+          this.$nextTick(() => {
+            const declineButton = this.$refs['decline-button']
+
+            if (declineButton) {
+              this.originalActiveElement = document.activeElement
+
+              declineButton.focus()
+            }
+          })
+        } else {
+          if (this.originalActiveElement) {
+            this.originalActiveElement.focus()
+            this.originalActiveElement = null
+          }
+        }
+      },
+      immediate: true
+    },
+    isOpenList (newIsOpenList) {
+      if (newIsOpenList) {
+        this.$nextTick(() => {
+          const firstCheckbox = document.getElementById('cookie-consent-list').querySelector('input[type="checkbox"]')
+
+          if (firstCheckbox) {
+            firstCheckbox.focus()
+          }
+        })
+      }
+    }
   },
   components: {
-    CollapseTransition,
-  },
+    CollapseTransition
+  }
 }
 </script>
 

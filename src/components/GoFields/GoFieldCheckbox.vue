@@ -1,13 +1,13 @@
 <template>
   <div :class="wrapperClasses">
     <label
-      :for="schema.inputName"
+      :for="schema.id"
       :class="schema.labelClasses"
       ref="checkbox"
     >
       <input
         @change="onChange"
-        class="boolean optional"
+        class="boolean optional sr-only"
         :class="schema.inputClass"
         type="checkbox"
         :name="schema.inputName"
@@ -110,7 +110,7 @@ export default {
     valueInput () {
       this.$emit('input', this.valueInput)
     }
-  },
+  }
 }
 </script>
 
@@ -215,7 +215,6 @@ const input = {
   />
 </div>
 ```
-
 
 ## Disabled and checked
 ```js
